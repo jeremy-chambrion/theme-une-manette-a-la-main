@@ -1,0 +1,58 @@
+/*!
+Theme Name: Une manette à la main
+Theme URI: http://unemanettealamain.fr
+Author: Jeremy Chambrion
+Author URI: https://github.com/jeremy-chambrion
+Description: Main theme for blog unemanettealamain.fr
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: unemanettealamain
+*/
+
+@import "variables";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
+@import "components/alert";
+@import "components/button";
+@import "components/space";
+@import "components/typography";
+
+@import "accessibility/skip-links";
+
+@import "header/masthead";
+@import "header/navbar";
+@import "header/menu";
+@import "header/search";
+
+@import "layout/content";
+@import "layout/element";
+@import "layout/navigation";
+@import "layout/sidebar";
+@import "layout/footer";
+@import "layout/media";
+
+@import "element/header";
+@import "element/hero";
+@import "element/information";
+@import "element/tags";
+@import "element/tldr";
+@import "element/content";
+@import "element/opinion";
+@import "element/footer";
+@import "element/image";
+@import "element/gallery";
+@import "element/comments";
+@import "element/card";
+@import "element/related";
+
+@import "page/header";
+
+@import "specific/contact";
+@import "specific/404";
+@import "specific/archive";
+@import "specific/author";
+@import "specific/home";
+
+@import "widget/widget";

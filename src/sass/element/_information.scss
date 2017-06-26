@@ -1,0 +1,40 @@
+.entry-info {
+  @extend .light-text;
+
+  .media-right {
+    display: none;
+  }
+
+  .avatar {
+    @extend .img-circle;
+
+    width: floor($font-size-small * 1.35) * 2;
+    height: auto;
+  }
+
+  .entry-time {
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  body.single & {
+    .media-left {
+      display: none;
+    }
+
+    .media-right {
+      display: table-cell;
+    }
+
+    .avatar {
+      width: floor($font-size-small * 1.35) * 3;
+    }
+
+    .entry-author,
+    .entry-time,
+    .entry-reading {
+      @extend .text-right;
+    }
+  }
+}

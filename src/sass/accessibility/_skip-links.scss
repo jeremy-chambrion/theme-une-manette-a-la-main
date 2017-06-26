@@ -1,0 +1,32 @@
+/**
+ * From KNACSS
+ * @see https://github.com/alsacreations/KNACSS/blob/master/sass/library/_misc.scss
+ */
+
+/* styling skip links */
+.skip-links {
+  position: absolute;
+
+  a {
+    position: fixed;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0.5em;
+    background: black;
+    color: white;
+    text-decoration: none;
+
+    &:focus {
+      display: inline-block;
+      overflow: visible;
+      clip: auto;
+      z-index: $zindex-modal;
+    }
+  }
+}
+
+#content {
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,0 +1,94 @@
+.entry-opinion {
+  .opinion-title {
+    &:before {
+      @extend .fa;
+      @extend .fa-thermometer-half;
+      margin-right: $grid-gutter-width / 4;
+    }
+  }
+
+  .opinion-summary {
+    .opinion-icon {
+      @extend .pull-right;
+      font-size: $font-size-base * 5;
+      line-height: 1;
+      margin: 0 0 $grid-gutter-width / 2 $grid-gutter-width / 2;
+
+      &:before {
+        margin: 0;
+      }
+
+      &.awesome {
+        &:before {
+          content: "☀️";
+        }
+      }
+
+      &.good {
+        &:before {
+          content: "🌤";
+        }
+      }
+
+      &.average {
+        &:before {
+          content: "🌥";
+        }
+      }
+
+      &.bad {
+        &:before {
+          content: "🌧";
+        }
+      }
+
+      &.shit {
+        &:before {
+          content: "⛈";
+        }
+      }
+    }
+  }
+
+  .opinion-details {
+    text-align: left;
+
+    .entry-content & {
+      h3 {
+        margin-top: $grid-gutter-width / 2;
+        margin-bottom: $grid-gutter-width / 4;
+      }
+    }
+
+    ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none;
+
+      li {
+        &:before {
+          @extend .fa;
+          margin-right: $grid-gutter-width / 4;
+        }
+      }
+    }
+
+    .opinion-list-good {
+      li {
+        &:before {
+          @extend .fa-plus-circle;
+          color: $brand-secondary;
+        }
+      }
+    }
+
+    .opinion-list-bad {
+      li {
+        &:before {
+          @extend .fa-minus-circle;
+          color: $brand-secondary;
+        }
+      }
+    }
+  }
+}

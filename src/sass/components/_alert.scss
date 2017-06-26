@@ -1,0 +1,5 @@
+.alert {
+  a {
+    @extend .alert-link;
+  }
+}

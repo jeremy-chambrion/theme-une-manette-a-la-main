@@ -1,0 +1,218 @@
+#comments {
+  .comments-title {
+    &:before {
+      @extend .fa;
+      @extend .fa-comments;
+      margin-right: $grid-gutter-width / 4;
+    }
+
+    .comments-number {
+      font-family: $font-family-serif;
+      font-size: $font-size-h3;
+    }
+  }
+
+  .no-comments {
+    font-style: italic;
+
+    &:before {
+      @extend .fa;
+      @extend .fa-exclamation-circle;
+    }
+  }
+
+  ul.comments-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    ul.children {
+      margin-left: $grid-gutter-width * 2;
+      padding: 0;
+      list-style: none;
+
+      & > li {
+        &:before {
+          @extend .fa;
+          @extend .fa-3x;
+          @extend .fa-level-up;
+          @extend .fa-rotate-90;
+          float:left;
+          margin-left: -55px;
+          color: $gray-lighter;
+        }
+      }
+    }
+
+    .comment-body {
+      @extend .panel;
+      @extend .panel-default;
+
+      .comment-meta {
+        @extend .panel-heading;
+
+        .avatar {
+          @extend .pull-left;
+          @extend .img-circle;
+          width: ceil(($font-size-base  * 2) + ($grid-gutter-width / 6));
+          height: auto;
+          margin-right: $grid-gutter-width / 4;
+        }
+
+        .comment-author {
+          line-height: 1;
+          margin-bottom: $grid-gutter-width / 6;
+        }
+
+        .comment-metadata {
+          @extend .light-text;
+          line-height: 1;
+
+          & > a {
+            display: inline-block;
+
+            &:before {
+              @extend .fa;
+              @extend .fa-link;
+              margin-right: $grid-gutter-width / 10;
+            }
+          }
+
+          .edit-link {
+            a {
+              display: inline-block;
+
+              &:before {
+                @extend .fa;
+                @extend .fa-pencil;
+                margin-left: $grid-gutter-width / 2;
+                margin-right: $grid-gutter-width / 10;
+              }
+            }
+          }
+        }
+
+        .comment-awaiting-moderation {
+          @extend .alert;
+          @extend .alert-warning;
+          font-size: $font-size-small;
+          margin-top: $grid-gutter-width / 2;
+          margin-bottom: 0;
+
+          &:before {
+            @extend .fa;
+            @extend .fa-exclamation-triangle;
+            margin-right: $grid-gutter-width / 4;
+          }
+        }
+      }
+
+      .comment-content {
+        @extend .panel-body;
+      }
+
+      .reply {
+        @extend .panel-body;
+        @extend .text-right;
+
+        a {
+          @extend .btn;
+          @extend .btn-primary;
+
+          &:before {
+            @extend .fa;
+            @extend .fa-pencil;
+            margin-right: $grid-gutter-width / 4;
+          }
+
+          &.comment-reply-login {
+            &:before {
+              @extend .fa-sign-in;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .comment-respond {
+    .comment-reply-title {
+      &:before {
+        @extend .fa;
+        @extend .fa-commenting-o;
+        margin-right: $grid-gutter-width / 4;
+      }
+
+      a {
+        @extend .btn;
+        @extend .btn-link;
+      }
+    }
+
+    .must-log-in {
+      @extend .alert;
+      @extend .alert-danger;
+      font-size: $font-size-small;
+
+      &:before {
+        @extend .fa;
+        @extend .fa-exclamation-triangle;
+        margin-right: $grid-gutter-width / 4;
+      }
+    }
+
+    .comment-form {
+      .required {
+        font-weight: bold;
+      }
+
+      .comment-notes {
+        @extend .alert;
+        @extend .alert-info;
+        font-size: $font-size-small;
+
+        &:before {
+          @extend .fa;
+          @extend .fa-info-circle;
+          margin-right: $grid-gutter-width / 4;
+        }
+      }
+
+      .logged-in-as {
+        @extend .alert;
+        @extend .alert-info;
+        font-size: $font-size-small;
+
+        &:before {
+          @extend .fa;
+          @extend .fa-info-circle;
+          margin-right: $grid-gutter-width / 4;
+        }
+      }
+
+      .comment-form-comment,
+      .comment-form-author,
+      .comment-form-email,
+      .comment-form-url {
+        label {
+          @extend .control-label;
+        }
+
+        textarea,
+        input {
+          @extend .form-control;
+        }
+      }
+
+      .form-submit {
+        @extend .text-right;
+        margin-top: $grid-gutter-width;
+
+        input.submit {
+          @extend .btn;
+          @extend .btn-primary;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+body.archive {
+  .entry-header {
+    .entry-subtitle {
+      margin: $grid-gutter-width / 4 auto 0;
+      font-size: $font-size-h4;
+      font-weight: normal;
+      color: $gray;
+      line-height: 1.4;
+    }
+  }
+}

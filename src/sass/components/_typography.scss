@@ -1,0 +1,32 @@
+blockquote {
+  padding: 0;
+  border: 0;
+  margin-bottom: $grid-gutter-width / 2;
+
+  &:before {
+    content: "\f10d";
+    font-family: 'FontAwesome';
+    font-size: $font-size-h1;
+    color: $gray-lighter;
+  }
+
+  p {
+    padding-left: $grid-gutter-width / 2;
+    border-left: 4px solid $gray-lighter;
+  }
+}
+
+.light-text {
+  font-size: $font-size-small;
+  line-height: 1.35;
+  color: $gray-light;
+
+  a {
+    color: $gray-light;
+    text-decoration: underline;
+
+    &:hover {
+      color: $gray;
+    }
+  }
+}

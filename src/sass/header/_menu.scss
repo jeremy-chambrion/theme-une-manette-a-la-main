@@ -1,0 +1,37 @@
+#primary-menu {
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      padding: $grid-gutter-width / 4;
+      padding-left: 0;
+      color: $brand-primary-darker;
+    }
+
+    &:first-child {
+      a {
+        padding-left: $grid-gutter-width / 4;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  #primary-menu {
+    li:first-child a {
+      padding-left: $grid-gutter-width / 2;
+    }
+
+    li:last-child a {
+      padding-right: $grid-gutter-width / 2;
+    }
+  }
+}

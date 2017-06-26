@@ -1,0 +1,53 @@
+.breadcrumb {
+  margin: $grid-gutter-width / 2 0;
+  padding: 0;
+  background: none;
+
+  a {
+    color: $text-color;
+  }
+}
+
+.page-header {
+  border-bottom: none;
+  padding: 0;
+  margin: $line-height-computed 0;
+
+  .page-title {
+    margin: 0;
+    display: inline-block;
+
+    & > i {
+      color: $brand-primary;
+
+      &:nth-child(1) {
+        margin-right: $grid-gutter-width / 2;
+      }
+
+      &:nth-child(2) {
+        margin-left: $grid-gutter-width / 2;
+      }
+    }
+  }
+
+  .info-title {;
+    font-family: $font-family-serif;
+    font-weight: normal;
+  }
+
+  .page-subtitle {
+    margin: $grid-gutter-width / 4 auto 0;
+    font-size: $font-size-h4;
+    font-weight: normal;
+    color: $gray;
+    line-height: 1.4;
+  }
+
+  .page-button {
+    margin-left: $grid-gutter-width;
+
+    i {
+      margin-left: $grid-gutter-width / 4;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "theme-unemanettealamain",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "scripts": {
+        "build:css": "gulp css",
+        "watch:css": "gulp watch",
+        "build:js": "gulp js",
+        "build": "gulp build",
+        "clean": "gulp clean"
+    },
+    "devDependencies": {
+        "bootstrap-sass": "^3.3.7",
+        "browserify": "^14.3",
+        "date-fns": "^1.28.4",
+        "font-awesome": "^4.7.0",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^4.0",
+        "gulp-clean": "^0.3.2",
+        "gulp-clean-css": "^3.4.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.0",
+        "gulp-uglify": "^3.0.0",
+        "headroom.js": "^0.9.3",
+        "pump": "^1.0.2",
+        "vinyl-buffer": "^1.0.0",
+        "vinyl-source-stream": "^1.1.0"
+    },
+    "engines": {}
+}

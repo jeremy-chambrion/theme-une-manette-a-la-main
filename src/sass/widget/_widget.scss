@@ -1,0 +1,23 @@
+.widget-container {
+  margin-bottom: $grid-gutter-width;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .widget-title {
+    margin: 0 0 $grid-gutter-width / 4;
+  }
+
+  .widget-content {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: $grid-gutter-width / 8;
+      }
+    }
+  }
+}

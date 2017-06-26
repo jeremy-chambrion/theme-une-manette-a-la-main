@@ -1,0 +1,57 @@
+#under-hero-content,
+#hero-content,
+.not-found,
+.no-results {
+  margin-top: $grid-gutter-width / 2;
+}
+
+#main-content,
+#comments,
+.no-results {
+  margin-bottom: $grid-gutter-width / 2;
+}
+
+@media (min-width: $screen-sm-min) {
+  #under-hero-content,
+  #hero-content,
+  .not-found,
+  .no-results {
+    margin-top: $grid-gutter-width;
+  }
+
+  #main-content,
+  #comments,
+  .no-results {
+    margin-bottom: $grid-gutter-width;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  #under-hero-content,
+  #hero-content,
+  .not-found,
+  .no-results {
+    margin-top: $grid-gutter-width * 2;
+  }
+
+  #main-content,
+  #comments,
+  .no-results {
+    margin-bottom: $grid-gutter-width * 2;
+  }
+}
+
+.divider {
+  display: block;
+  width: 30%;
+  max-width: $grid-gutter-width * 2;
+  height: 1px;
+  border-top: 1px solid $gray-light;
+  margin: $grid-gutter-width auto;
+}
+
+@media (min-width: $screen-sm-min) {
+  .divider {
+    margin: $grid-gutter-width * 2 auto;
+  }
+}

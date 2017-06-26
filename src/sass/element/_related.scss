@@ -1,0 +1,137 @@
+#jp-relatedposts {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &:before {
+    @extend .divider;
+
+    content: " ";
+  }
+
+  .jp-relatedposts-headline {
+    font-size: $font-size-h2 !important;
+    font-weight: normal !important;
+    float: none !important;
+    display: block !important;
+    margin-top: 0 !important;
+    margin-bottom: $line-height-computed / 2 !important;
+
+
+    &:before {
+      @extend .fa;
+      @extend .fa-random;
+      margin-right: $grid-gutter-width / 4;
+    }
+
+    em:before {
+      display: none !important;
+    }
+  }
+
+  .jp-relatedposts-items {
+    .jp-relatedposts-post {
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      float: none !important;
+      opacity: 1 !important;
+
+      &:first-child {
+        margin-bottom: $grid-gutter-width / 2 !important;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  .jp-relatedposts-items-visual {
+    margin: 0 !important;
+
+    .jp-relatedposts-post {
+      position: relative;
+
+      & > a {
+        display: block;
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          filter: none;
+          background-image: linear-gradient(
+                          to top,
+                          hsl(0, 0%, 0%) 0%,
+                          hsla(0, 0%, 0%, 0) 100%,
+                          hsla(0, 0%, 0%, 0.002) 98.2%,
+                          hsla(0, 0%, 0%, 0.008) 95.2%,
+                          hsla(0, 0%, 0%, 0.021) 91%,
+                          hsla(0, 0%, 0%, 0.042) 86.1%,
+                          hsla(0, 0%, 0%, 0.075) 80.2%,
+                          hsla(0, 0%, 0%, 0.126) 73%,
+                          hsla(0, 0%, 0%, 0.194) 65%,
+                          hsla(0, 0%, 0%, 0.278) 56.5%,
+                          hsla(0, 0%, 0%, 0.382) 47%,
+                          hsla(0, 0%, 0%, 0.541) 34%,
+                          hsla(0, 0%, 0%, 0.738) 19%
+          );
+        }
+      }
+
+      .jp-relatedposts-post-img {
+        border-radius: 2px;
+        max-width: 100% !important;
+        width: 100%;
+        height: auto;
+      }
+
+      .jp-relatedposts-post-title {
+        position: absolute;
+        bottom: 0;
+        padding: $grid-gutter-width / 2;
+
+        a {
+          font-size: $font-size-h4 !important;
+          font-weight: bold !important;
+          color: $inverse-color;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  #jp-relatedposts {
+    .jp-relatedposts-items .jp-relatedposts-post {
+      width: 48% !important;
+      display: inline-block;
+
+      &:first-child {
+        margin-right: 4% !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  #jp-relatedposts {
+    .jp-relatedposts-items .jp-relatedposts-post {
+      width: 32% !important;
+      margin: 0 2% 0 0 !important;
+
+      &:first-child {
+        margin-right: 2% !important;
+      }
+
+      &:last-child {
+        display: inline-block;
+        margin-right: 0 !important;
+      }
+    }
+  }
+}

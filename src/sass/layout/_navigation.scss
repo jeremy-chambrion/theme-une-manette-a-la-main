@@ -1,0 +1,37 @@
+.navigation {
+  .nav-links {
+    @extend .text-center;
+
+    & > div {
+      display: inline-block;
+      margin: 0 $grid-gutter-width / 8 $grid-gutter-width / 4;
+      text-align: center;
+
+      &.previous {
+        a {
+          @extend .btn;
+          @extend .btn-primary;
+
+          &:before {
+            @extend .fa;
+            @extend .fa-chevron-left;
+            margin-right: $grid-gutter-width / 4;
+          }
+        }
+      }
+
+      &.next {
+        a {
+          @extend .btn;
+          @extend .btn-primary;
+
+          &:after {
+            @extend .fa;
+            content: "\f054";
+            margin-left: $grid-gutter-width / 4;
+          }
+        }
+      }
+    }
+  }
+}

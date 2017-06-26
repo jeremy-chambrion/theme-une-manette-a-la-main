@@ -1,0 +1,13 @@
+body.home {
+  .latest-posts {
+    .grid-list-full {
+      .entry-ribbon-sticky {
+        display: inline-block;
+
+        & + .entry-ribbon-fav {
+          display: none;
+        }
+      }
+    }
+  }
+}

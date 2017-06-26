@@ -1,0 +1,43 @@
+body.author {
+  .page-header {
+    img.avatar {
+      @extend .img-circle;
+
+      width: ($font-size-h1 + $font-size-h2) * $headings-line-height;
+      height: auto;
+    }
+
+    .author-links {
+      font-size: $font-size-h2;
+      line-height: $headings-line-height;
+
+      a {
+        margin-right: $grid-gutter-width / 4;
+      }
+
+      .author-url {
+        i {
+          color: $text-color;
+        }
+      }
+
+      .author-twitter {
+        i {
+          color: #00aced;
+        }
+      }
+
+      .author-facebook {
+        i {
+          color: #3b5998;
+        }
+      }
+
+      .author-googleplus {
+        i {
+          color: #d34836;
+        }
+      }
+    }
+  }
+}

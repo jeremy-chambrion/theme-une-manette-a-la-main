@@ -1,0 +1,50 @@
+.entry-content {
+  body.single &,
+  body.page & {
+    font-family: $font-family-serif;
+
+    p, ul, ol {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    h2 {
+      font-family: $font-family-sans-serif;
+    }
+
+    h3 {
+      font-family: $font-family-sans-serif;
+      margin-top: $grid-gutter-width * 1.5;
+    }
+
+    ul, ol {
+      padding-left: 1em;
+    }
+  }
+
+  body.single-post & {
+    & > p:first-of-type {
+      &:first-letter {
+        float: left;
+        font-size: ceil($font-size-base * 6);
+        font-weight: bold;
+        font-style: normal;
+        line-height: .85;
+        margin-right: $grid-gutter-width / 2;
+        padding-bottom: ceil($font-size-base  * 6 / 15);
+        border-bottom: ceil($font-size-base * 6 / 20) solid $gray-lighter;
+      }
+
+      &:after {
+        clear: both;
+        display: table;
+        content: " ";
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .entry-content {
+    text-align: justify;
+  }
+}

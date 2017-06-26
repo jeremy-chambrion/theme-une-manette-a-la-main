@@ -1,0 +1,17 @@
+.entry-tags {
+  margin-top: $grid-gutter-width;
+
+  a {
+    @extend .btn;
+    @extend .btn-default;
+    text-transform: capitalize;
+    margin-right: $grid-gutter-width / 2;
+    margin-bottom: $grid-gutter-width / 2;
+
+    &:before {
+      @extend .fa;
+      @extend .fa-hashtag;
+      margin-right: $grid-gutter-width / 4;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+#masthead {
+  &.headroom {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    will-change: transform, opacity;
+
+    &.headroom--unpinned {
+      animation-name: slideUp;
+    }
+
+    &.headroom--pinned {
+      animation-name: slideDown;
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+}

@@ -1,0 +1,118 @@
+div {
+  .grid-list-full > & {
+    @extend .col-xs-12;
+  }
+
+  .grid-list-mid > & {
+    @extend .col-xs-12;
+    @extend .col-md-6;
+  }
+
+  .grid-list-third > & {
+    @extend .col-xs-12;
+    @extend .col-md-6;
+    @extend .col-lg-4;
+
+    &:last-child {
+      @extend .visible-lg-block;
+    }
+  }
+}
+
+.article-excerpt {
+  margin-bottom: $grid-gutter-width * 2;
+
+  .entry-featured-container {
+    @extend .col-xs-12;
+  }
+
+  .entry-body {
+    @extend .col-xs-12;
+  }
+
+  .grid-list-full & {
+    .entry-featured-container {
+      @extend .col-xs-12;
+      @extend .col-md-7;
+      @extend .col-lg-8;
+    }
+
+    .entry-body {
+      @extend .col-xs-12;
+      @extend .col-md-5;
+      @extend .col-lg-4;
+    }
+  }
+
+  .entry-ribbon {
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+    left: ($grid-gutter-width / 2) - 2px;
+    padding: $grid-gutter-width / 8 $grid-gutter-width / 4;
+    color: $inverse-color;
+    background: linear-gradient(141deg, $brand-primary 20%, $brand-primary-darker 125%);
+    border: 2px solid $body-bg;
+    border-bottom-right-radius: 2px;
+
+    i {
+      margin-right: $grid-gutter-width / 4;
+    }
+
+    &.entry-ribbon-sticky {
+      display: none;
+    }
+
+    /*
+    &.entry-ribbon-fav {
+      background: linear-gradient(141deg, lighten($brand-danger, 10%) 20%, darken($brand-danger, 10%) 125%);
+    }
+    */
+
+    .grid-list-full & {
+      padding: $grid-gutter-width / 4 $grid-gutter-width / 2;
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .article-excerpt {
+    .entry-ribbon {
+      top: $grid-gutter-width / 2;
+      left: 0;
+      border: 1px solid $brand-primary;
+      border-radius: 2px;
+      box-shadow: 1px 1px 10px $gray-darker;
+
+      &:after {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0px;
+        top: calc(100% + 1px);
+        border-width: 4px ($grid-gutter-width - 2px) / 4;
+        border-style: solid;
+        border-color: $brand-primary-darker $brand-primary-darker transparent transparent;
+      }
+    }
+
+    /*
+    .entry-ribbon-fav {
+      border-color: lighten($brand-danger, 10%);
+
+      &:after {
+        border-color: darken($brand-danger, 10%) darken($brand-danger, 10%) transparent transparent;
+      }
+    }
+    */
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .article-excerpt {
+    body.home & {
+      margin-bottom: $grid-gutter-width;
+    }
+  }
+}
