@@ -1,6 +1,6 @@
 <?php
 
-$authorName = get_the_author_meta('nicename');
+$authorName = get_the_author();
 $avatarHtml = get_avatar(get_the_author_meta('email'));
 ?>
 

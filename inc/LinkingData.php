@@ -340,7 +340,7 @@ class LinkingData
         }
 
         if (!isset($this->dataAuthors[$authorId])) {
-            $authorName = get_the_author_meta('nicename', $authorId);
+            $authorName = get_the_author_meta('display_name', $authorId);
 
             $this->dataAuthors[$authorId] = [
                 '@type' => 'Person',
