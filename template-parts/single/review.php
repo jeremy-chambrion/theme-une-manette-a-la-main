@@ -46,7 +46,7 @@ if (empty($summary)) {
                     while (have_rows('post-review-list-good')) {
                         the_row();
                         printf(
-                            '<li>%s</li>',
+                            '<li><i class="fa fa-plus-circle" aria-hidden="true"></i>%s</li>',
                             get_sub_field('post-review-good')
                         );
                     }
@@ -65,7 +65,7 @@ if (empty($summary)) {
                     while (have_rows('post-review-list-bad')) {
                         the_row();
                         printf(
-                            '<li>%s</li>',
+                            '<li><i class="fa fa-minus-circle" aria-hidden="true"></i>%s</li>',
                             get_sub_field('post-review-bad')
                         );
                     }
