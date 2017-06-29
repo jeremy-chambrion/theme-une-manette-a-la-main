@@ -6,10 +6,10 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>">
+<article id="post-<?php the_ID(); ?>" class="h-entry hentry">
     <?php get_template_part('template-parts/single/header', 'hero'); ?>
 
-    <div class="entry-content container">
+    <div class="container article-content e-content entry-content">
         <?php
         the_content('');
         get_template_part('template-parts/single/tags');

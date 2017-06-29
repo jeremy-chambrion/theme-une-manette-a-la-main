@@ -12,11 +12,11 @@ if (empty($tags)) {
 }
 ?>
 
-<div class="entry-tags">
+<div class="article-tags">
     <?php
     foreach ($tags as $tag) {
         printf(
-            '<a href="%s">%s</a>',
+            '<a href="%s" class="p-category" rel="tag">%s</a>',
             get_tag_link($tag),
             $tag->name
         );

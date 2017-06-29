@@ -29,9 +29,9 @@ if (empty($summary) && !have_rows('post-opinion-list-good') && !have_rows('post-
 
 <div class="divider"></div>
 
-<div class="entry-opinion">
+<div class="article-opinion hreview">
     <h2 class="opinion-title">En résumé</h2>
-    <div class="opinion-summary">
+    <div class="opinion-summary e-content">
         <?php
         if (!empty($feeling)) {
             printf('<div class="opinion-icon %s"></div>', $feeling);

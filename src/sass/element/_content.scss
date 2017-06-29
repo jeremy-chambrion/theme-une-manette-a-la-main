@@ -1,4 +1,4 @@
-.entry-content {
+.article-content {
   body.single &,
   body.page & {
     font-family: $font-family-serif;
@@ -44,7 +44,7 @@
 }
 
 @media (min-width: $screen-md-min) {
-  .entry-content {
+  .article-content {
     text-align: justify;
   }
 }

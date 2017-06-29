@@ -14,9 +14,9 @@ if (empty($tldr)) {
 }
 ?>
 
-<div class="entry-tldr">
+<div class="article-tldr">
     <button class="btn btn-default tldr-title tldr-closed" title="Too Long ; Didn't Read. Afficher le résumé du texte de l'article.">TL;DR</button>
-    <div class="tldr-content">
+    <div class="tldr-content p-summary entry-summary">
         <?php echo $tldr; ?>
 
         <div class="divider"></div>

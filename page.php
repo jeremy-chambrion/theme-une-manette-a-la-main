@@ -20,7 +20,7 @@ get_header();
         the_post();
         ?>
         <article id="post-<?php the_ID(); ?>">
-            <div class="entry-content">
+            <div class="article-content">
                 <?php the_content(''); ?>
             </div>
         </article>

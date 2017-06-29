@@ -4,25 +4,25 @@ $authorName = get_the_author_meta('nicename');
 $avatarHtml = get_avatar(get_the_author_meta('email'));
 ?>
 
-<div class="entry-info media">
+<div class="article-info media">
     <div class="media-left">
         <?php echo $avatarHtml; ?>
     </div>
     <div class="media-body">
-        <div class="entry-author">
+        <div class="article-author p-author author h-card vcard">
             <?php
             printf(
-                'Par <a href="%s" rel="author">%s</a>',
+                'Par <a href="%s" class="p-name fn u-url url" rel="author">%s</a>',
                 esc_url(get_author_posts_url(get_the_author_meta('ID'), $authorName)),
                 $authorName
             );
             ?>
         </div>
-        <div class="entry-time">
+        <div class="article-time">
             <?php
             $publicationDate = get_post_time('c', true);
             printf(
-                '<time datetime="%s" title="%s" pubdate="%s">Le %s à %s</time>',
+                '<time class="dt-published published" datetime="%s" title="%s" pubdate="%s">Le %s à %s</time>',
                 esc_attr($publicationDate),
                 esc_attr($publicationDate),
                 esc_attr($publicationDate),
@@ -37,7 +37,7 @@ $avatarHtml = get_avatar(get_the_author_meta('email'));
 
         if (!empty($readingTime)) {
             printf(
-                '<div class="entry-reading"><i class="fa fa-clock-o" aria-hidden="true"></i> %d min. de lecture</div>',
+                '<div class="article-reading"><i class="fa fa-clock-o" aria-hidden="true"></i> %d min. de lecture</div>',
                 $readingTime
             );
         }
@@ -46,4 +46,4 @@ $avatarHtml = get_avatar(get_the_author_meta('email'));
     <div class="media-right">
         <?php echo $avatarHtml; ?>
     </div>
-</div><!-- .entry-info -->
+</div><!-- .article-info -->

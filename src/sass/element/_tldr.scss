@@ -1,4 +1,4 @@
-.entry-tldr {
+.article-tldr {
   margin-bottom: $grid-gutter-width;
 
   .tldr-title {
@@ -30,7 +30,7 @@
 }
 
 @media (min-width: $screen-md-min) {
-  .entry-tldr .tldr-content {
+  .article-tldr .tldr-content {
     text-align: justify;
   }
 }

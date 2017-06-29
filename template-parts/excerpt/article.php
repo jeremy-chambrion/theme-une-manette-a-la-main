@@ -6,15 +6,15 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('article-excerpt ' . (is_sticky() ? 'article-sticky' : '')); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('article-excerpt ' . (is_sticky() ? 'article-sticky h-entry hentry' : '')); ?>>
     <div class="row">
         <?php
         if (has_post_thumbnail()) {
             ?>
-            <a href="<?php echo esc_url(get_permalink()); ?>" class="entry-featured-container">
+            <a href="<?php echo esc_url(get_permalink()); ?>" class="article-featured-container">
                 <?php
                 if (is_sticky()) {
-                    echo '<span class="entry-ribbon entry-ribbon-sticky"><i class="fa fa-bookmark"></i>La sélection du moment</span>';
+                    echo '<span class="article-ribbon article-ribbon-sticky"><i class="fa fa-bookmark"></i>La sélection du moment</span>';
                 }
 
                 if (class_exists('acf')) {
@@ -22,7 +22,7 @@
                     $feeling = get_field('post-opinion-feeling');
 
                     if (!empty($opinion) && !empty($feeling) && $feeling === 'awesome') {
-                        echo '<span class="entry-ribbon entry-ribbon-fav"><i class="fa fa-heart"></i>Coup de cœur</span>';
+                        echo '<span class="article-ribbon article-ribbon-fav"><i class="fa fa-heart"></i>Coup de cœur</span>';
                     }
                 }
 
@@ -32,27 +32,27 @@
             <?php
         }
         ?>
-        <div class="entry-body">
-            <header class="entry-header">
+        <div class="article-body">
+            <header class="article-header">
                 <?php
                 get_template_part('template-parts/common/category');
 
                 printf(
-                    '<h2 class="entry-title"><a href="%s" rel="bookmark">%s</a></h2>',
+                    '<h2 class="article-title p-name"><a href="%s" class="u-url" rel="bookmark">%s</a></h2>',
                     esc_url(get_permalink()),
                     get_the_title()
                 );
                 ?>
 
-            </header><!-- .entry-header -->
+            </header><!-- .article-header -->
 
-            <div class="entry-content">
+            <div class="article-content article-summary p-summary entry-summary">
                 <?php the_excerpt(); ?>
             </div>
 
-            <footer class="entry-footer">
+            <footer class="article-footer">
                 <?php get_template_part('template-parts/common/information'); ?>
-            </footer><!-- .entry-footer -->
+            </footer><!-- .article-footer -->
         </div><!-- .article-content -->
     </div><!-- .row -->
 </article>

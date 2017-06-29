@@ -41,7 +41,7 @@ var dateFnsLocale = require('date-fns/locale/fr');
             closeSearch();
         });
 
-        $(d).on('click', '.entry-hero .btn-action', function(e) {
+        $(d).on('click', '.article-hero .btn-action', function(e) {
             e.preventDefault();
            $('html, body').animate({
                scrollTop: $('#under-hero-content').offset().top
@@ -50,14 +50,14 @@ var dateFnsLocale = require('date-fns/locale/fr');
     });
 
     $(d).ready(function () {
-        $('.entry-tldr button').on('click', function () {
+        $('.article-tldr button').on('click', function () {
             $(this).toggleClass('tldr-closed tldr-opened');
             $(this).next('.tldr-content').slideToggle();
         });
     });
 
     $(d).ready(function() {
-        $('.entry-time time, .comment-metadata time').each(function() {
+        $('.article-time time, .comment-metadata time').each(function() {
             $(this).html(dateFns(
                 $(this).attr('datetime'),
                 {

@@ -22,7 +22,7 @@ $thumbnaiInlineData = Theme\Unemanettealamain\Utils::get()->getThumbnailInlineDa
 if (!empty($thumbnaiInlineData)) {
     ?>
     <style>
-        .entry-header .entry-hero .entry-hero-image {
+        .article-header .entry-hero .entry-hero-image {
             background: url(<?php echo $thumbnaiInlineData; ?>) no-repeat center;
             background-size: cover;
         }
@@ -31,25 +31,25 @@ if (!empty($thumbnaiInlineData)) {
 }
 ?>
 
-<header class="entry-header">
-    <div class="entry-hero">
-        <div class="entry-hero-image">
+<header class="article-header">
+    <div class="article-hero">
+        <div class="article-hero-image">
             <?php echo wp_get_attachment_image($imageHero['ID'], 'full'); ?>
         </div>
-        <div class="entry-hero-container container">
-            <div class="entry-hero-content text-center">
-                <div class="entry-category-container">
+        <div class="article-hero-container container">
+            <div class="article-hero-content text-center">
+                <div class="article-category-container">
                     <?php get_template_part('template-parts/common/category'); ?>
                 </div>
                 <?php
-                the_title('<h1 class="entry-title">', '</h1>');
+                the_title('<h1 class="article-title p-name entry-title">', '</h1>');
 
                 if (class_exists('acf')) {
                     $subtitle = get_field('post-subtitle');
 
                     if (!empty($subtitle)) {
                         printf(
-                            '<h2 class="entry-subtitle">%s</h2>',
+                            '<h2 class="article-subtitle">%s</h2>',
                             $subtitle
                         );
                     }
@@ -70,4 +70,4 @@ if (!empty($thumbnaiInlineData)) {
 
         <?php get_template_part('template-parts/single/tldr'); ?>
     </div>
-</header><!-- .entry-header -->
+</header><!-- .article-header -->

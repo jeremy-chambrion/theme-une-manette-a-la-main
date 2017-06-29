@@ -1,10 +1,10 @@
 body.home {
   .latest-posts {
     .grid-list-full {
-      .entry-ribbon-sticky {
+      .article-ribbon-sticky {
         display: inline-block;
 
-        & + .entry-ribbon-fav {
+        & + .article-ribbon-fav {
           display: none;
         }
       }

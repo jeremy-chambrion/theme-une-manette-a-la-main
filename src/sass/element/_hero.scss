@@ -1,12 +1,12 @@
-.entry-header {
+.article-header {
   position: relative;
 
-  .entry-hero {
+  .article-hero {
     display: block;
     height: auto;
     position: relative;
 
-    .entry-hero-image {
+    .article-hero-image {
       width: 100%;
       height: calc(100vh - #{$grid-gutter-width / 4 + $font-size-h3 + ($font-size-base * $line-height-base) + $grid-gutter-width});
       overflow: hidden;
@@ -49,7 +49,7 @@
       }
     }
 
-    .entry-hero-container {
+    .article-hero-container {
       display: block;
       position: absolute;
       height: auto;
@@ -58,10 +58,10 @@
       right: 0;
     }
 
-    .entry-hero-content {
+    .article-hero-content {
       color: $inverse-color;
 
-      .entry-subtitle {
+      .article-subtitle {
         color: $gray-lighter;
       }
     }
@@ -69,7 +69,7 @@
 }
 
 @media (min-width: $screen-sm-min) {
-  .entry-header .entry-hero .entry-hero-image {
+  .article-header .article-hero .article-hero-image {
     height: calc(100vh - #{$font-size-h2 + ($font-size-base * $line-height-base) + $grid-gutter-width});
   }
 }

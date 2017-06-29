@@ -10,7 +10,7 @@ get_header();
 
 <main id="main-content" class="container text-center not-found">
     <h1>Page introuvable</h1>
-    <div class="entry-icon fa fa-exclamation-triangle"></div>
+    <div class="article-icon fa fa-exclamation-triangle"></div>
     <p>
         <strong>La page demandée n'a pas été trouvée.</strong>
     </p>

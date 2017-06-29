@@ -1,4 +1,4 @@
-.entry-info {
+.article-info {
   @extend .light-text;
 
   .media-right {
@@ -12,7 +12,7 @@
     height: auto;
   }
 
-  .entry-time {
+  .article-time {
     &:first-letter {
       text-transform: uppercase;
     }
@@ -31,9 +31,9 @@
       width: floor($font-size-small * 1.35) * 3;
     }
 
-    .entry-author,
-    .entry-time,
-    .entry-reading {
+    .article-author,
+    .article-time,
+    .article-reading {
       @extend .text-right;
     }
   }

@@ -1,4 +1,4 @@
-.entry-opinion {
+.article-opinion {
   .opinion-title {
     &:before {
       @extend .fa;
@@ -53,7 +53,7 @@
   .opinion-details {
     text-align: left;
 
-    .entry-content & {
+    .article-content & {
       h3 {
         margin-top: $grid-gutter-width / 2;
         margin-bottom: $grid-gutter-width / 4;
