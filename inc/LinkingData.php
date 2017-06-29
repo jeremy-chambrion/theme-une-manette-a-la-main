@@ -419,15 +419,16 @@ class LinkingData
             return [];
         }
 
-        if (!get_field('post-opinion-activate', $post)) {
+        $summary = get_field('post-review-summary');
+        $rating = get_field('post-review-feeling');
+
+        if (empty($summary) && empty($rating)) {
             return [];
         }
 
-        $rating = get_field('post-opinion-feeling');
-
         $data = [
             '@type' => 'Review',
-            'reviewBody' => get_field('post-opinion-summary', $post),
+            'reviewBody' => $summary,
             'author' => $this->getDataAuthor($post->post_author ?? null),
             'datePublished' => get_the_date('c', $post),
             'publisher' => $this->getDataOrganization()

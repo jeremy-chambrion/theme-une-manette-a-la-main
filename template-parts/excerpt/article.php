@@ -18,10 +18,9 @@
                 }
 
                 if (class_exists('acf')) {
-                    $opinion = get_field('post-opinion-activate');
-                    $feeling = get_field('post-opinion-feeling');
+                    $feeling = get_field('post-review-feeling');
 
-                    if (!empty($opinion) && !empty($feeling) && $feeling === 'awesome') {
+                    if (!empty($feeling) && $feeling === 'awesome') {
                         echo '<span class="article-ribbon article-ribbon-fav"><i class="fa fa-heart"></i>Coup de cœur</span>';
                     }
                 }

@@ -1,5 +1,5 @@
-.article-opinion {
-  .opinion-title {
+.article-review {
+  .review-title {
     &:before {
       @extend .fa;
       @extend .fa-thermometer-half;
@@ -7,8 +7,8 @@
     }
   }
 
-  .opinion-summary {
-    .opinion-icon {
+  .review-summary {
+    .review-icon {
       @extend .pull-right;
       font-size: $font-size-base * 5;
       line-height: 1;
@@ -50,7 +50,7 @@
     }
   }
 
-  .opinion-details {
+  .review-details {
     text-align: left;
 
     .article-content & {
@@ -73,7 +73,7 @@
       }
     }
 
-    .opinion-list-good {
+    .review-list-good {
       li {
         &:before {
           @extend .fa-plus-circle;
@@ -82,7 +82,7 @@
       }
     }
 
-    .opinion-list-bad {
+    .review-list-bad {
       li {
         &:before {
           @extend .fa-minus-circle;

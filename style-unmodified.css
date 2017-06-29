@@ -1863,7 +1863,7 @@ blockquote .small:before {
 
 .blockquote-reverse,
 blockquote.pull-right,
-.article-opinion .opinion-summary blockquote.opinion-icon {
+.article-review .review-summary blockquote.review-icon {
   padding-right: 15px;
   padding-left: 0;
   border-right: 5px solid #e6e5e5;
@@ -1874,18 +1874,18 @@ blockquote.pull-right,
 .blockquote-reverse footer:before,
 .blockquote-reverse small:before,
 .blockquote-reverse .small:before,
-blockquote.pull-right footer:before, .article-opinion .opinion-summary blockquote.opinion-icon footer:before,
-blockquote.pull-right small:before, .article-opinion .opinion-summary blockquote.opinion-icon small:before,
-blockquote.pull-right .small:before, .article-opinion .opinion-summary blockquote.opinion-icon .small:before {
+blockquote.pull-right footer:before, .article-review .review-summary blockquote.review-icon footer:before,
+blockquote.pull-right small:before, .article-review .review-summary blockquote.review-icon small:before,
+blockquote.pull-right .small:before, .article-review .review-summary blockquote.review-icon .small:before {
   content: '';
 }
 
 .blockquote-reverse footer:after,
 .blockquote-reverse small:after,
 .blockquote-reverse .small:after,
-blockquote.pull-right footer:after, .article-opinion .opinion-summary blockquote.opinion-icon footer:after,
-blockquote.pull-right small:after, .article-opinion .opinion-summary blockquote.opinion-icon small:after,
-blockquote.pull-right .small:after, .article-opinion .opinion-summary blockquote.opinion-icon .small:after {
+blockquote.pull-right footer:after, .article-review .review-summary blockquote.review-icon footer:after,
+blockquote.pull-right small:after, .article-review .review-summary blockquote.review-icon small:after,
+blockquote.pull-right .small:after, .article-review .review-summary blockquote.review-icon .small:after {
   content: '\00A0 \2014';
 }
 
@@ -4824,7 +4824,7 @@ tbody.collapse.in {
   background-clip: padding-box;
 }
 
-.dropdown-menu.pull-right, .article-opinion .opinion-summary .dropdown-menu.opinion-icon {
+.dropdown-menu.pull-right, .article-review .review-summary .dropdown-menu.review-icon {
   right: 0;
   left: auto;
 }
@@ -4909,7 +4909,7 @@ body.page article .wp-caption .dropdown-menu .wp-caption-text:after, .dropdown-m
   z-index: 990;
 }
 
-.pull-right > .dropdown-menu, .article-opinion .opinion-summary .opinion-icon > .dropdown-menu {
+.pull-right > .dropdown-menu, .article-review .review-summary .review-icon > .dropdown-menu {
   right: 0;
   left: auto;
 }
@@ -7041,8 +7041,8 @@ a.thumbnail.active {
 }
 
 .media-right,
-.media > .pull-right, .article-opinion .opinion-summary
-.media > .opinion-icon {
+.media > .pull-right, .article-review .review-summary
+.media > .review-icon {
   padding-left: 10px;
 }
 
@@ -8503,7 +8503,7 @@ button.close {
   margin-right: auto;
 }
 
-.pull-right, .article-opinion .opinion-summary .opinion-icon {
+.pull-right, .article-review .review-summary .review-icon {
   float: right !important;
 }
 
@@ -8805,7 +8805,7 @@ button.close {
   font-style: normal;
 }
 
-.fa, #masthead .masthead-content .site-links ul li a.twitter i, #masthead .masthead-content .site-links ul li a.facebook i, #masthead .masthead-content .site-links ul li a.instagram i, .navigation .nav-links > div.previous a:before, .navigation .nav-links > div.next a:after, .article-tags a:before, .article-tldr .tldr-title:after, .article-opinion .opinion-title:before, .article-opinion .opinion-details ul li:before, #comments .comments-title:before, #comments .no-comments:before, #comments ul.comments-list ul.children > li:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a:before, #comments ul.comments-list .comment-body .comment-meta .comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a:before, #comments .comment-respond .comment-reply-title:before, #comments .comment-respond .must-log-in:before, #comments .comment-respond .comment-form .comment-notes:before, #comments .comment-respond .comment-form .logged-in-as:before, #jp-relatedposts .jp-relatedposts-headline:before {
+.fa, #masthead .masthead-content .site-links ul li a.twitter i, #masthead .masthead-content .site-links ul li a.facebook i, #masthead .masthead-content .site-links ul li a.instagram i, .navigation .nav-links > div.previous a:before, .navigation .nav-links > div.next a:after, .article-tags a:before, .article-tldr .tldr-title:after, .article-review .review-title:before, .article-review .review-details ul li:before, #comments .comments-title:before, #comments .no-comments:before, #comments ul.comments-list ul.children > li:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a:before, #comments ul.comments-list .comment-body .comment-meta .comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a:before, #comments .comment-respond .comment-reply-title:before, #comments .comment-respond .must-log-in:before, #comments .comment-respond .comment-form .comment-notes:before, #comments .comment-respond .comment-form .logged-in-as:before, #jp-relatedposts .jp-relatedposts-headline:before {
   display: inline-block;
   font: normal normal normal 18px/1 FontAwesome;
   font-size: inherit;
@@ -8878,16 +8878,16 @@ button.close {
   float: right;
 }
 
-.fa.fa-pull-left, #masthead .masthead-content .site-links ul li a.twitter i.fa-pull-left, #masthead .masthead-content .site-links ul li a.facebook i.fa-pull-left, #masthead .masthead-content .site-links ul li a.instagram i.fa-pull-left, .navigation .nav-links > div.previous a.fa-pull-left:before, .navigation .nav-links > div.next a.fa-pull-left:after, .article-tags a.fa-pull-left:before, .article-tldr .fa-pull-left.tldr-title:after, .article-opinion .fa-pull-left.opinion-title:before, .article-opinion .opinion-details ul li.fa-pull-left:before, #comments .fa-pull-left.comments-title:before, #comments .fa-pull-left.no-comments:before, #comments ul.comments-list ul.children > li.fa-pull-left:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.fa-pull-left:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.fa-pull-left:before, #comments ul.comments-list .comment-body .comment-meta .fa-pull-left.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.fa-pull-left:before, #comments .comment-respond .fa-pull-left.comment-reply-title:before, #comments .comment-respond .fa-pull-left.must-log-in:before, #comments .comment-respond .comment-form .fa-pull-left.comment-notes:before, #comments .comment-respond .comment-form .fa-pull-left.logged-in-as:before, #jp-relatedposts .fa-pull-left.jp-relatedposts-headline:before {
+.fa.fa-pull-left, #masthead .masthead-content .site-links ul li a.twitter i.fa-pull-left, #masthead .masthead-content .site-links ul li a.facebook i.fa-pull-left, #masthead .masthead-content .site-links ul li a.instagram i.fa-pull-left, .navigation .nav-links > div.previous a.fa-pull-left:before, .navigation .nav-links > div.next a.fa-pull-left:after, .article-tags a.fa-pull-left:before, .article-tldr .fa-pull-left.tldr-title:after, .article-review .fa-pull-left.review-title:before, .article-review .review-details ul li.fa-pull-left:before, #comments .fa-pull-left.comments-title:before, #comments .fa-pull-left.no-comments:before, #comments ul.comments-list ul.children > li.fa-pull-left:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.fa-pull-left:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.fa-pull-left:before, #comments ul.comments-list .comment-body .comment-meta .fa-pull-left.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.fa-pull-left:before, #comments .comment-respond .fa-pull-left.comment-reply-title:before, #comments .comment-respond .fa-pull-left.must-log-in:before, #comments .comment-respond .comment-form .fa-pull-left.comment-notes:before, #comments .comment-respond .comment-form .fa-pull-left.logged-in-as:before, #jp-relatedposts .fa-pull-left.jp-relatedposts-headline:before {
   margin-right: .3em;
 }
 
-.fa.fa-pull-right, #masthead .masthead-content .site-links ul li a.twitter i.fa-pull-right, #masthead .masthead-content .site-links ul li a.facebook i.fa-pull-right, #masthead .masthead-content .site-links ul li a.instagram i.fa-pull-right, .navigation .nav-links > div.previous a.fa-pull-right:before, .navigation .nav-links > div.next a.fa-pull-right:after, .article-tags a.fa-pull-right:before, .article-tldr .fa-pull-right.tldr-title:after, .article-opinion .fa-pull-right.opinion-title:before, .article-opinion .opinion-details ul li.fa-pull-right:before, #comments .fa-pull-right.comments-title:before, #comments .fa-pull-right.no-comments:before, #comments ul.comments-list ul.children > li.fa-pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.fa-pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.fa-pull-right:before, #comments ul.comments-list .comment-body .comment-meta .fa-pull-right.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.fa-pull-right:before, #comments .comment-respond .fa-pull-right.comment-reply-title:before, #comments .comment-respond .fa-pull-right.must-log-in:before, #comments .comment-respond .comment-form .fa-pull-right.comment-notes:before, #comments .comment-respond .comment-form .fa-pull-right.logged-in-as:before, #jp-relatedposts .fa-pull-right.jp-relatedposts-headline:before {
+.fa.fa-pull-right, #masthead .masthead-content .site-links ul li a.twitter i.fa-pull-right, #masthead .masthead-content .site-links ul li a.facebook i.fa-pull-right, #masthead .masthead-content .site-links ul li a.instagram i.fa-pull-right, .navigation .nav-links > div.previous a.fa-pull-right:before, .navigation .nav-links > div.next a.fa-pull-right:after, .article-tags a.fa-pull-right:before, .article-tldr .fa-pull-right.tldr-title:after, .article-review .fa-pull-right.review-title:before, .article-review .review-details ul li.fa-pull-right:before, #comments .fa-pull-right.comments-title:before, #comments .fa-pull-right.no-comments:before, #comments ul.comments-list ul.children > li.fa-pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.fa-pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.fa-pull-right:before, #comments ul.comments-list .comment-body .comment-meta .fa-pull-right.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.fa-pull-right:before, #comments .comment-respond .fa-pull-right.comment-reply-title:before, #comments .comment-respond .fa-pull-right.must-log-in:before, #comments .comment-respond .comment-form .fa-pull-right.comment-notes:before, #comments .comment-respond .comment-form .fa-pull-right.logged-in-as:before, #jp-relatedposts .fa-pull-right.jp-relatedposts-headline:before {
   margin-left: .3em;
 }
 
 /* Deprecated as of 4.4.0 */
-.pull-right, .article-opinion .opinion-summary .opinion-icon {
+.pull-right, .article-review .review-summary .review-icon {
   float: right;
 }
 
@@ -8895,11 +8895,11 @@ button.close {
   float: left;
 }
 
-.fa.pull-left, #masthead .masthead-content .site-links ul li a.twitter i.pull-left, #masthead .masthead-content .site-links #comments ul.comments-list li a.twitter .comment-body .comment-meta i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list li a.twitter .comment-body .comment-meta i.avatar, #masthead .masthead-content .site-links #comments ul.comments-list .comment-body .comment-meta li a.twitter i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list .comment-body .comment-meta li a.twitter i.avatar, #masthead .masthead-content .site-links ul li a.facebook i.pull-left, #masthead .masthead-content .site-links #comments ul.comments-list li a.facebook .comment-body .comment-meta i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list li a.facebook .comment-body .comment-meta i.avatar, #masthead .masthead-content .site-links #comments ul.comments-list .comment-body .comment-meta li a.facebook i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list .comment-body .comment-meta li a.facebook i.avatar, #masthead .masthead-content .site-links ul li a.instagram i.pull-left, #masthead .masthead-content .site-links #comments ul.comments-list li a.instagram .comment-body .comment-meta i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list li a.instagram .comment-body .comment-meta i.avatar, #masthead .masthead-content .site-links #comments ul.comments-list .comment-body .comment-meta li a.instagram i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list .comment-body .comment-meta li a.instagram i.avatar, .navigation .nav-links > div.previous a.pull-left:before, .navigation .nav-links > div.previous #comments ul.comments-list .comment-body .comment-meta a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .navigation .nav-links > div.previous a.avatar:before, .navigation .nav-links > div.next a.pull-left:after, .navigation .nav-links > div.next #comments ul.comments-list .comment-body .comment-meta a.avatar:after, #comments ul.comments-list .comment-body .comment-meta .navigation .nav-links > div.next a.avatar:after, .article-tags a.pull-left:before, .article-tags #comments ul.comments-list .comment-body .comment-meta a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .article-tags a.avatar:before, .article-tldr .pull-left.tldr-title:after, .article-tldr #comments ul.comments-list .comment-body .comment-meta .tldr-title.avatar:after, #comments ul.comments-list .comment-body .comment-meta .article-tldr .tldr-title.avatar:after, .article-opinion .pull-left.opinion-title:before, .article-opinion #comments ul.comments-list .comment-body .comment-meta .opinion-title.avatar:before, #comments ul.comments-list .comment-body .comment-meta .article-opinion .opinion-title.avatar:before, .article-opinion .opinion-details ul li.pull-left:before, .article-opinion .opinion-details #comments ul.comments-list .comment-body .comment-meta li.avatar:before, #comments .article-opinion .opinion-details ul.comments-list .comment-body .comment-meta li.avatar:before, #comments .pull-left.comments-title:before, #comments ul.comments-list .comment-body .comment-meta .comments-title.avatar:before, #comments .pull-left.no-comments:before, #comments ul.comments-list .comment-body .comment-meta .no-comments.avatar:before, #comments ul.comments-list ul.children > li.pull-left:before, #comments ul.comments-list .comment-body .comment-meta ul.children > li.avatar:before, #comments ul.comments-list .comment-body .comment-meta .fa.avatar, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .avatar.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .comment-meta .reply a.avatar:before, #comments ul.comments-list .comment-body .reply .comment-meta a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .avatar.comment-reply-title:before, #comments .comment-respond ul.comments-list .comment-body .comment-meta .avatar.comment-reply-title:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .avatar.must-log-in:before, #comments .comment-respond ul.comments-list .comment-body .comment-meta .avatar.must-log-in:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .comment-form .avatar.comment-notes:before, #comments .comment-respond .comment-form ul.comments-list .comment-body .comment-meta .avatar.comment-notes:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .comment-form .avatar.logged-in-as:before, #comments .comment-respond .comment-form ul.comments-list .comment-body .comment-meta .avatar.logged-in-as:before, #comments ul.comments-list .comment-body .comment-meta #jp-relatedposts .avatar.jp-relatedposts-headline:before, #jp-relatedposts #comments ul.comments-list .comment-body .comment-meta .avatar.jp-relatedposts-headline:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.pull-left:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.pull-left:before, #comments ul.comments-list .comment-body .comment-meta .pull-left.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.pull-left:before, #comments .comment-respond .pull-left.comment-reply-title:before, #comments .comment-respond .pull-left.must-log-in:before, #comments .comment-respond .comment-form .pull-left.comment-notes:before, #comments .comment-respond .comment-form .pull-left.logged-in-as:before, #jp-relatedposts .pull-left.jp-relatedposts-headline:before {
+.fa.pull-left, #masthead .masthead-content .site-links ul li a.twitter i.pull-left, #masthead .masthead-content .site-links #comments ul.comments-list li a.twitter .comment-body .comment-meta i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list li a.twitter .comment-body .comment-meta i.avatar, #masthead .masthead-content .site-links #comments ul.comments-list .comment-body .comment-meta li a.twitter i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list .comment-body .comment-meta li a.twitter i.avatar, #masthead .masthead-content .site-links ul li a.facebook i.pull-left, #masthead .masthead-content .site-links #comments ul.comments-list li a.facebook .comment-body .comment-meta i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list li a.facebook .comment-body .comment-meta i.avatar, #masthead .masthead-content .site-links #comments ul.comments-list .comment-body .comment-meta li a.facebook i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list .comment-body .comment-meta li a.facebook i.avatar, #masthead .masthead-content .site-links ul li a.instagram i.pull-left, #masthead .masthead-content .site-links #comments ul.comments-list li a.instagram .comment-body .comment-meta i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list li a.instagram .comment-body .comment-meta i.avatar, #masthead .masthead-content .site-links #comments ul.comments-list .comment-body .comment-meta li a.instagram i.avatar, #comments #masthead .masthead-content .site-links ul.comments-list .comment-body .comment-meta li a.instagram i.avatar, .navigation .nav-links > div.previous a.pull-left:before, .navigation .nav-links > div.previous #comments ul.comments-list .comment-body .comment-meta a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .navigation .nav-links > div.previous a.avatar:before, .navigation .nav-links > div.next a.pull-left:after, .navigation .nav-links > div.next #comments ul.comments-list .comment-body .comment-meta a.avatar:after, #comments ul.comments-list .comment-body .comment-meta .navigation .nav-links > div.next a.avatar:after, .article-tags a.pull-left:before, .article-tags #comments ul.comments-list .comment-body .comment-meta a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .article-tags a.avatar:before, .article-tldr .pull-left.tldr-title:after, .article-tldr #comments ul.comments-list .comment-body .comment-meta .tldr-title.avatar:after, #comments ul.comments-list .comment-body .comment-meta .article-tldr .tldr-title.avatar:after, .article-review .pull-left.review-title:before, .article-review #comments ul.comments-list .comment-body .comment-meta .review-title.avatar:before, #comments ul.comments-list .comment-body .comment-meta .article-review .review-title.avatar:before, .article-review .review-details ul li.pull-left:before, .article-review .review-details #comments ul.comments-list .comment-body .comment-meta li.avatar:before, #comments .article-review .review-details ul.comments-list .comment-body .comment-meta li.avatar:before, #comments .pull-left.comments-title:before, #comments ul.comments-list .comment-body .comment-meta .comments-title.avatar:before, #comments .pull-left.no-comments:before, #comments ul.comments-list .comment-body .comment-meta .no-comments.avatar:before, #comments ul.comments-list ul.children > li.pull-left:before, #comments ul.comments-list .comment-body .comment-meta ul.children > li.avatar:before, #comments ul.comments-list .comment-body .comment-meta .fa.avatar, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .avatar.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .comment-meta .reply a.avatar:before, #comments ul.comments-list .comment-body .reply .comment-meta a.avatar:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .avatar.comment-reply-title:before, #comments .comment-respond ul.comments-list .comment-body .comment-meta .avatar.comment-reply-title:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .avatar.must-log-in:before, #comments .comment-respond ul.comments-list .comment-body .comment-meta .avatar.must-log-in:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .comment-form .avatar.comment-notes:before, #comments .comment-respond .comment-form ul.comments-list .comment-body .comment-meta .avatar.comment-notes:before, #comments ul.comments-list .comment-body .comment-meta .comment-respond .comment-form .avatar.logged-in-as:before, #comments .comment-respond .comment-form ul.comments-list .comment-body .comment-meta .avatar.logged-in-as:before, #comments ul.comments-list .comment-body .comment-meta #jp-relatedposts .avatar.jp-relatedposts-headline:before, #jp-relatedposts #comments ul.comments-list .comment-body .comment-meta .avatar.jp-relatedposts-headline:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.pull-left:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.pull-left:before, #comments ul.comments-list .comment-body .comment-meta .pull-left.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.pull-left:before, #comments .comment-respond .pull-left.comment-reply-title:before, #comments .comment-respond .pull-left.must-log-in:before, #comments .comment-respond .comment-form .pull-left.comment-notes:before, #comments .comment-respond .comment-form .pull-left.logged-in-as:before, #jp-relatedposts .pull-left.jp-relatedposts-headline:before {
   margin-right: .3em;
 }
 
-.fa.pull-right, #masthead .masthead-content .site-links ul li a.twitter i.pull-right, #masthead .masthead-content .site-links ul li a.twitter .article-opinion .opinion-summary i.opinion-icon, .article-opinion .opinion-summary #masthead .masthead-content .site-links ul li a.twitter i.opinion-icon, #masthead .masthead-content .site-links ul li a.facebook i.pull-right, #masthead .masthead-content .site-links ul li a.facebook .article-opinion .opinion-summary i.opinion-icon, .article-opinion .opinion-summary #masthead .masthead-content .site-links ul li a.facebook i.opinion-icon, #masthead .masthead-content .site-links ul li a.instagram i.pull-right, #masthead .masthead-content .site-links ul li a.instagram .article-opinion .opinion-summary i.opinion-icon, .article-opinion .opinion-summary #masthead .masthead-content .site-links ul li a.instagram i.opinion-icon, .navigation .nav-links > div.previous a.pull-right:before, .navigation .nav-links > div.previous .article-opinion .opinion-summary a.opinion-icon:before, .article-opinion .opinion-summary .navigation .nav-links > div.previous a.opinion-icon:before, .navigation .nav-links > div.next a.pull-right:after, .navigation .nav-links > div.next .article-opinion .opinion-summary a.opinion-icon:after, .article-opinion .opinion-summary .navigation .nav-links > div.next a.opinion-icon:after, .article-tags a.pull-right:before, .article-tags .article-opinion .opinion-summary a.opinion-icon:before, .article-opinion .opinion-summary .article-tags a.opinion-icon:before, .article-tldr .pull-right.tldr-title:after, .article-tldr .article-opinion .opinion-summary .tldr-title.opinion-icon:after, .article-opinion .opinion-summary .article-tldr .tldr-title.opinion-icon:after, .article-opinion .pull-right.opinion-title:before, .article-opinion .opinion-summary .opinion-title.opinion-icon:before, .article-opinion .opinion-summary .fa.opinion-icon, .article-opinion .opinion-summary .opinion-details ul li.opinion-icon:before, .article-opinion .opinion-details ul .opinion-summary li.opinion-icon:before, .article-opinion .opinion-summary #comments .opinion-icon.comments-title:before, #comments .article-opinion .opinion-summary .opinion-icon.comments-title:before, .article-opinion .opinion-summary #comments .opinion-icon.no-comments:before, #comments .article-opinion .opinion-summary .opinion-icon.no-comments:before, .article-opinion .opinion-summary #comments ul.comments-list ul.children > li.opinion-icon:before, #comments ul.comments-list .article-opinion .opinion-summary ul.children > li.opinion-icon:before, .article-opinion .opinion-summary #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.opinion-icon:before, #comments ul.comments-list .comment-body .comment-meta .article-opinion .opinion-summary .comment-metadata > a.opinion-icon:before, .article-opinion .opinion-summary #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.opinion-icon:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link .article-opinion .opinion-summary a.opinion-icon:before, .article-opinion .opinion-summary #comments ul.comments-list .comment-body .comment-meta .opinion-icon.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .comment-meta .article-opinion .opinion-summary .opinion-icon.comment-awaiting-moderation:before, .article-opinion .opinion-summary #comments ul.comments-list .comment-body .reply a.opinion-icon:before, #comments ul.comments-list .comment-body .reply .article-opinion .opinion-summary a.opinion-icon:before, .article-opinion .opinion-summary #comments .comment-respond .opinion-icon.comment-reply-title:before, #comments .comment-respond .article-opinion .opinion-summary .opinion-icon.comment-reply-title:before, .article-opinion .opinion-summary #comments .comment-respond .opinion-icon.must-log-in:before, #comments .comment-respond .article-opinion .opinion-summary .opinion-icon.must-log-in:before, .article-opinion .opinion-summary #comments .comment-respond .comment-form .opinion-icon.comment-notes:before, #comments .comment-respond .comment-form .article-opinion .opinion-summary .opinion-icon.comment-notes:before, .article-opinion .opinion-summary #comments .comment-respond .comment-form .opinion-icon.logged-in-as:before, #comments .comment-respond .comment-form .article-opinion .opinion-summary .opinion-icon.logged-in-as:before, .article-opinion .opinion-summary #jp-relatedposts .opinion-icon.jp-relatedposts-headline:before, #jp-relatedposts .article-opinion .opinion-summary .opinion-icon.jp-relatedposts-headline:before, .article-opinion .opinion-details ul li.pull-right:before, #comments .pull-right.comments-title:before, #comments .pull-right.no-comments:before, #comments ul.comments-list ul.children > li.pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.pull-right:before, #comments ul.comments-list .comment-body .comment-meta .pull-right.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.pull-right:before, #comments .comment-respond .pull-right.comment-reply-title:before, #comments .comment-respond .pull-right.must-log-in:before, #comments .comment-respond .comment-form .pull-right.comment-notes:before, #comments .comment-respond .comment-form .pull-right.logged-in-as:before, #jp-relatedposts .pull-right.jp-relatedposts-headline:before {
+.fa.pull-right, #masthead .masthead-content .site-links ul li a.twitter i.pull-right, #masthead .masthead-content .site-links ul li a.twitter .article-review .review-summary i.review-icon, .article-review .review-summary #masthead .masthead-content .site-links ul li a.twitter i.review-icon, #masthead .masthead-content .site-links ul li a.facebook i.pull-right, #masthead .masthead-content .site-links ul li a.facebook .article-review .review-summary i.review-icon, .article-review .review-summary #masthead .masthead-content .site-links ul li a.facebook i.review-icon, #masthead .masthead-content .site-links ul li a.instagram i.pull-right, #masthead .masthead-content .site-links ul li a.instagram .article-review .review-summary i.review-icon, .article-review .review-summary #masthead .masthead-content .site-links ul li a.instagram i.review-icon, .navigation .nav-links > div.previous a.pull-right:before, .navigation .nav-links > div.previous .article-review .review-summary a.review-icon:before, .article-review .review-summary .navigation .nav-links > div.previous a.review-icon:before, .navigation .nav-links > div.next a.pull-right:after, .navigation .nav-links > div.next .article-review .review-summary a.review-icon:after, .article-review .review-summary .navigation .nav-links > div.next a.review-icon:after, .article-tags a.pull-right:before, .article-tags .article-review .review-summary a.review-icon:before, .article-review .review-summary .article-tags a.review-icon:before, .article-tldr .pull-right.tldr-title:after, .article-tldr .article-review .review-summary .tldr-title.review-icon:after, .article-review .review-summary .article-tldr .tldr-title.review-icon:after, .article-review .pull-right.review-title:before, .article-review .review-summary .review-title.review-icon:before, .article-review .review-summary .fa.review-icon, .article-review .review-summary .review-details ul li.review-icon:before, .article-review .review-details ul .review-summary li.review-icon:before, .article-review .review-summary #comments .review-icon.comments-title:before, #comments .article-review .review-summary .review-icon.comments-title:before, .article-review .review-summary #comments .review-icon.no-comments:before, #comments .article-review .review-summary .review-icon.no-comments:before, .article-review .review-summary #comments ul.comments-list ul.children > li.review-icon:before, #comments ul.comments-list .article-review .review-summary ul.children > li.review-icon:before, .article-review .review-summary #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.review-icon:before, #comments ul.comments-list .comment-body .comment-meta .article-review .review-summary .comment-metadata > a.review-icon:before, .article-review .review-summary #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.review-icon:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link .article-review .review-summary a.review-icon:before, .article-review .review-summary #comments ul.comments-list .comment-body .comment-meta .review-icon.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .comment-meta .article-review .review-summary .review-icon.comment-awaiting-moderation:before, .article-review .review-summary #comments ul.comments-list .comment-body .reply a.review-icon:before, #comments ul.comments-list .comment-body .reply .article-review .review-summary a.review-icon:before, .article-review .review-summary #comments .comment-respond .review-icon.comment-reply-title:before, #comments .comment-respond .article-review .review-summary .review-icon.comment-reply-title:before, .article-review .review-summary #comments .comment-respond .review-icon.must-log-in:before, #comments .comment-respond .article-review .review-summary .review-icon.must-log-in:before, .article-review .review-summary #comments .comment-respond .comment-form .review-icon.comment-notes:before, #comments .comment-respond .comment-form .article-review .review-summary .review-icon.comment-notes:before, .article-review .review-summary #comments .comment-respond .comment-form .review-icon.logged-in-as:before, #comments .comment-respond .comment-form .article-review .review-summary .review-icon.logged-in-as:before, .article-review .review-summary #jp-relatedposts .review-icon.jp-relatedposts-headline:before, #jp-relatedposts .article-review .review-summary .review-icon.jp-relatedposts-headline:before, .article-review .review-details ul li.pull-right:before, #comments .pull-right.comments-title:before, #comments .pull-right.no-comments:before, #comments ul.comments-list ul.children > li.pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata > a.pull-right:before, #comments ul.comments-list .comment-body .comment-meta .comment-metadata .edit-link a.pull-right:before, #comments ul.comments-list .comment-body .comment-meta .pull-right.comment-awaiting-moderation:before, #comments ul.comments-list .comment-body .reply a.pull-right:before, #comments .comment-respond .pull-right.comment-reply-title:before, #comments .comment-respond .pull-right.must-log-in:before, #comments .comment-respond .comment-form .pull-right.comment-notes:before, #comments .comment-respond .comment-form .pull-right.logged-in-as:before, #jp-relatedposts .pull-right.jp-relatedposts-headline:before {
   margin-left: .3em;
 }
 
@@ -9332,11 +9332,11 @@ button.close {
   content: "";
 }
 
-.fa-plus-circle:before, .article-opinion .opinion-details .opinion-list-good li:before {
+.fa-plus-circle:before, .article-review .review-details .review-list-good li:before {
   content: "";
 }
 
-.fa-minus-circle:before, .article-opinion .opinion-details .opinion-list-bad li:before {
+.fa-minus-circle:before, .article-review .review-details .review-list-bad li:before {
   content: "";
 }
 
@@ -11725,7 +11725,7 @@ button.close {
 
 .fa-thermometer-2:before,
 .fa-thermometer-half:before,
-.article-opinion .opinion-title:before {
+.article-review .review-title:before {
   content: "";
 }
 
@@ -12759,64 +12759,64 @@ body.single-post .article-content > p:first-of-type:after {
   }
 }
 
-.article-opinion .opinion-title:before {
+.article-review .review-title:before {
   margin-right: 7.5px;
 }
 
-.article-opinion .opinion-summary .opinion-icon {
+.article-review .review-summary .review-icon {
   font-size: 90px;
   line-height: 1;
   margin: 0 0 15px 15px;
 }
 
-.article-opinion .opinion-summary .opinion-icon:before {
+.article-review .review-summary .review-icon:before {
   margin: 0;
 }
 
-.article-opinion .opinion-summary .opinion-icon.awesome:before {
+.article-review .review-summary .review-icon.awesome:before {
   content: "☀️";
 }
 
-.article-opinion .opinion-summary .opinion-icon.good:before {
+.article-review .review-summary .review-icon.good:before {
   content: "🌤";
 }
 
-.article-opinion .opinion-summary .opinion-icon.average:before {
+.article-review .review-summary .review-icon.average:before {
   content: "🌥";
 }
 
-.article-opinion .opinion-summary .opinion-icon.bad:before {
+.article-review .review-summary .review-icon.bad:before {
   content: "🌧";
 }
 
-.article-opinion .opinion-summary .opinion-icon.shit:before {
+.article-review .review-summary .review-icon.shit:before {
   content: "⛈";
 }
 
-.article-opinion .opinion-details {
+.article-review .review-details {
   text-align: left;
 }
 
-.article-content .article-opinion .opinion-details h3 {
+.article-content .article-review .review-details h3 {
   margin-top: 15px;
   margin-bottom: 7.5px;
 }
 
-.article-opinion .opinion-details ul {
+.article-review .review-details ul {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none;
 }
 
-.article-opinion .opinion-details ul li:before {
+.article-review .review-details ul li:before {
   margin-right: 7.5px;
 }
 
-.article-opinion .opinion-details .opinion-list-good li:before {
+.article-review .review-details .review-list-good li:before {
   color: #5596e6;
 }
 
-.article-opinion .opinion-details .opinion-list-bad li:before {
+.article-review .review-details .review-list-bad li:before {
   color: #5596e6;
 }
 

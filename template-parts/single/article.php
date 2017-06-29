@@ -13,7 +13,7 @@
         <?php
         the_content('');
         get_template_part('template-parts/single/tags');
-        get_template_part('template-parts/single/opinion');
+        get_template_part('template-parts/single/review');
         ?>
     </div>
 </article><!-- .post -->
