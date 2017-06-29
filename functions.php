@@ -57,7 +57,9 @@ class BootstrapTheme
         add_filter('the_excerpt', [$this, 'the_excerpt']);
         add_filter('the_content', [$this, 'the_content']);
         add_filter('content_pagination', [$this, 'removePagination']);
-        add_filter('embed_oembed_html', [$this, 'addEmbedContainer'], 10, 4);
+        add_filter('embed_oembed_html', [$this, 'addEmbedContainer'], 99);
+        add_filter('video_embed_html', [$this, 'addEmbedContainer'], 99);
+        add_filter('oembed_result', [$this, 'addEmbedContainer'], 99);
         add_filter('image_size_names_choose', [$this, 'addMediaSizes']);
         add_filter('wp', [$this, 'removeJetpackRelatedPosts'], 20);
     }
@@ -340,21 +342,26 @@ class BootstrapTheme
      * Add container to embed object
      *
      * @param string $html
-     * @param string $url
-     * @param string $attr
-     * @param int $post_id
      * @return string
      */
-    public function addEmbedContainer($html, $url, $attr, $post_id) {
-        if (!empty($url) && (strpos($url, 'youtube') !== false || strpos($url, 'youtu.be') !== false || strpos($url, 'dailymotion') !== false || strpos($url, 'vimeo') !== false)) {
+    public function addEmbedContainer($html)
+    {
+        if (is_admin() || mb_strpos($html, '<p class="embed-container') !== false) {
+            return $html;
+        }
+
+        $ratio = Utils::get()->getEmbedRatio($html);
+
+        if (empty($ratio)) {
             return sprintf(
-                '<p class="video-container">%s</p>',
+                '<div class="embed-container">%s</div>',
                 $html
             );
         }
 
         return sprintf(
-            '<p class="embed-container">%s</p>',
+            '<div class="embed-container embed-responsive" style="padding-top: %s%%">%s</div>',
+            round($ratio * 100, 3),
             $html
         );
     }

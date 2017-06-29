@@ -311,4 +311,48 @@ class Utils
             base64_encode($thumbnailContent)
         );
     }
+
+    /**
+     * Get ratio from embed in the html provided
+     *
+     * @param string $html
+     * @return false|float
+     */
+    public function getEmbedRatio($html)
+    {
+        $matches = [];
+        if (!preg_match('#<(?:iframe|object|embed)\s+([^>]+)>#xusi', $html, $matches)) {
+            return false;
+        }
+
+        if (empty($matches) || count($matches) < 2) {
+            return false;
+        }
+
+        $attributes = [];
+        if (!preg_match_all('#(\w+)=[\'"]?(\d+)[\'"]?#xusi', $matches[1], $attributes, PREG_SET_ORDER)) {
+            return false;
+        }
+
+        $width = 0;
+        $height = 0;
+
+        foreach ($attributes as $attribute) {
+            if (empty($attribute[1]) || empty($attribute[2])) {
+                continue;
+            }
+
+            if (empty($width) && mb_strtolower($attribute[1]) === 'width') {
+                $width = (int) $attribute[2];
+            } elseif (empty($height) && mb_strtolower($attribute[1]) === 'height') {
+                $height = (int) $attribute[2];
+            }
+        }
+
+        if (empty($width) || empty($height)) {
+            return 0.5625;
+        }
+
+        return $height / $width;
+    }
 }

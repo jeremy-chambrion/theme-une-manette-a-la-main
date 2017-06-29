@@ -12497,19 +12497,22 @@ video {
   max-width: 100%;
 }
 
-.video-container {
+.embed-container {
+  margin-bottom: 30px;
+}
+
+.embed-responsive {
   position: relative;
-  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   max-width: 100%;
   height: auto;
 }
 
-.video-container iframe,
-.video-container object,
-.video-container embed,
-.video-container video {
+.embed-responsive iframe,
+.embed-responsive object,
+.embed-responsive embed,
+.embed-responsive video {
   position: absolute;
   top: 0;
   left: 0;
