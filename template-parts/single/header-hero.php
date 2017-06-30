@@ -55,7 +55,7 @@ if (!empty($thumbnaiInlineData)) {
                     }
                 }
                 ?>
-                <a href="#main-content" class="btn btn-primary btn-action pulse pull-right" aria-hidden="true">
+                <a href="#under-hero-content" class="btn btn-primary btn-action pulse pull-right" aria-hidden="true">
                     <i class="fa fa-arrow-down" aria-hidden="true"></i>
                 </a>
             </div>
