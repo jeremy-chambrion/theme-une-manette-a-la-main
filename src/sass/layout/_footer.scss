@@ -1,4 +1,6 @@
 #footer {
+  display: none;
+  opacity: 0;
   background-color: $brand-secondary;
   color: lighten($brand-secondary, 20%);
   padding-top: $grid-gutter-width / 2;
