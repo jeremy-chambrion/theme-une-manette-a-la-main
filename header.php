@@ -17,7 +17,9 @@
     <meta name="theme-color" content="#41d6c3">
     <meta name="application-name" content="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" />
     <meta name="msapplication-TileColor" content="#41d6c3" />
-    <meta name="msapplication-starturl" content="<?php echo esc_url(home_url()); ?>" />
+    <meta name="msapplication-TileImage" content="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" />
+    <meta name="msapplication-starturl" content="<?php echo esc_attr(home_url()); ?>" />
+
     <!--[if IE]>
     <meta http-equiv="imagetoolbar" content="no" />
     <![endif]-->
@@ -28,6 +30,9 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="icon" href="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png" sizes="32x32" />
+    <link rel="icon" href="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" />
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:300,700" rel="stylesheet">
 
@@ -67,12 +72,16 @@
     <header id="masthead" class="site-header hidden-print navbar navbar-fixed-top bg-primary container-fluid">
         <div class="row">
             <div class="site-logo col-sm-1 hidden-xs">
-                <?php the_custom_logo(); ?>
+                <a href="<?php echo esc_attr(home_url()); ?>" rel="home">
+                    <img width="384" height="384" src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" alt="" srcset="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png 384w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/150x150.png 150w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png 40w" sizes="(max-width: 384px) 100vw, 384px" />
+                </a>
             </div>
             <div class="masthead-content col-xs-12 col-sm-11">
                 <div class="row" role="banner">
                     <div class="site-logo pull-left visible-xs-block">
-                        <?php the_custom_logo(); ?>
+                        <a href="<?php echo esc_attr(home_url()); ?>" rel="home">
+                            <img width="600" height="600" src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/600x600.png" alt="" srcset="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/600x600.png 600w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png 384w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/150x150.png 150w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png 40w" sizes="(max-width: 600px) 100vw, 600px" />
+                        </a>
                     </div>
                     <div class="site-branding pull-left" style="<?php $color = get_header_textcolor(); echo !empty($color) ? 'color: #' . $color : ''; ?>">
                         <?php

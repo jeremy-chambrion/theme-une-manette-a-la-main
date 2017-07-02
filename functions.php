@@ -98,12 +98,6 @@ class BootstrapTheme
         // Set up the WordPress core custom background feature.
         add_theme_support('custom-background', ['default-color' => 'ffffff']);
 
-        // Set up the wordpress core custom header feature
-        add_theme_support('custom-header');
-
-        // Set up the wordpress core custom logo feature
-        add_theme_support('custom-logo');
-
         /*
          * Switch default core markup for search form, comment form, and comments
          * to output valid HTML5.

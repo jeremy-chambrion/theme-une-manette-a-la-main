@@ -157,21 +157,12 @@ class LinkingData
                 $this->dataOrganization['sameAs'][] = $link['url'];
             }
 
-            // get custom logo
-            $customLogoId = get_theme_mod('custom_logo');
-
-            if (!empty($customLogoId)) {
-                $customLogo = wp_get_attachment_image_src($customLogoId, 'full');
-
-                if (!empty($customLogo)) {
-                    $this->dataOrganization['logo'] = [
-                        '@type' => 'ImageObject',
-                        'url' => $customLogo[0],
-                        'width' => $customLogo[1],
-                        'height' => $customLogo[2]
-                    ];
-                }
-            }
+            $this->dataOrganization['logo'] = [
+                '@type' => 'ImageObject',
+                'url' => get_template_directory_uri() . '/assets/logo/600x600.png',
+                'width' => 600,
+                'height' => 600
+            ];
 
             $this->dataOrganization = array_filter($this->dataOrganization);
         }

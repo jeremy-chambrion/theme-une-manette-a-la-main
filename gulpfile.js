@@ -55,6 +55,15 @@ gulp.task('fonts', function (cb) {
     ], cb);
 });
 
+gulp.task('logo', function (cb) {
+    pump([
+        gulp.src([
+            './src/logo/*'
+        ]),
+        gulp.dest('./assets/logo')
+    ], cb);
+});
+
 gulp.task('watch', function () {
     gulp.watch(['./src/sass/*.scss'], ['css']);
 });
@@ -72,4 +81,5 @@ gulp.task('clean', function () {
     ]);
 });
 
-gulp.task('build', ['css', 'js', 'fonts']);
+
+gulp.task('build', ['css', 'js', 'fonts', 'logo']);
