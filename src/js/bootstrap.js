@@ -43,7 +43,7 @@ var fontObserver = require('fontfaceobserver');
         });
     });
 
-    $(d).ready(function () {
+    $(d).ready(function() {
         var closeSearch = function() {
             $('.search-screen').fadeOut(200);
             $(d).off('keyup', eventEsc);
@@ -78,7 +78,7 @@ var fontObserver = require('fontfaceobserver');
         });
     });
 
-    $(d).ready(function () {
+    $(d).ready(function() {
         $('.article-tldr button').on('click', function () {
             $(this).toggleClass('tldr-closed tldr-opened');
             $(this).next('.tldr-content').slideToggle();

@@ -14,8 +14,8 @@ require_once 'inc/LinkingData.php';
  */
 class BootstrapTheme
 {
-    const VERSION_CSS = '20170629';
-    const VERSION_JS = '20170629';
+    const VERSION_CSS = '20170702';
+    const VERSION_JS = '20170702';
 
     /**
      * @var BootstrapTheme
@@ -46,6 +46,7 @@ class BootstrapTheme
         add_action('after_setup_theme', [$this, 'initContentWidth'], 0);
         add_action('widgets_init', [$this, 'initWidgets']);
         add_action('wp_enqueue_scripts', [$this, 'initScripts']);
+        add_action('wp_head', [$this, 'initServiceWorker']);
         add_action('wp_footer', [$this, 'addJsonLd'], 100);
 
         add_filter('wp_page_menu_args', [$this, 'initMenuArgs']);
@@ -369,6 +370,21 @@ class BootstrapTheme
      */
     public function removePagination(array $pages) {
         return [implode('', $pages)];
+    }
+
+    public function initServiceWorker()
+    {
+        if (is_admin()) {
+            return;
+        }
+        ?>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                .register('/wp-content/themes/unemanettealamain/assets/js/service-worker.js', {scope: '/'});
+            }
+        </script>
+        <?php
     }
 
     /**

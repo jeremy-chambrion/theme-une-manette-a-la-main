@@ -32,13 +32,25 @@ gulp.task('css', function (cb) {
     ], cb);
 });
 
-gulp.task('js', function (cb) {
+gulp.task('js-bootstrap', function (cb) {
     pump([
         browserify([
             './src/js/bootstrap.js'
         ]).bundle(),
         source('bootstrap.js'),
         buffer(),
+        sourcemaps.init(),
+        uglify(),
+        sourcemaps.write('.'),
+        gulp.dest('./assets/js')
+    ], cb);
+});
+
+gulp.task('js-service-worker', function (cb) {
+    pump([
+        gulp.src([
+            './src/js/service-worker.js'
+        ]),
         sourcemaps.init(),
         uglify(),
         sourcemaps.write('.'),
@@ -81,5 +93,6 @@ gulp.task('clean', function () {
     ]);
 });
 
+gulp.task('js', ['js-bootstrap', 'js-service-worker']);
 
 gulp.task('build', ['css', 'js', 'fonts', 'logo']);
