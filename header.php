@@ -19,6 +19,9 @@
     <meta name="msapplication-TileColor" content="#41d6c3" />
     <meta name="msapplication-TileImage" content="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" />
     <meta name="msapplication-starturl" content="<?php echo esc_attr(home_url()); ?>" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#41d6c3">
+    <meta name="apple-mobile-web-app-title" content="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
 
     <!--[if IE]>
     <meta http-equiv="imagetoolbar" content="no" />
@@ -30,6 +33,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="manifest" href="<?php echo esc_attr(get_template_directory_uri()); ?>/manifest.json">
     <link rel="icon" href="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png" sizes="32x32" />
     <link rel="icon" href="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" sizes="192x192" />
     <link rel="apple-touch-icon-precomposed" href="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" />

@@ -1,0 +1,31 @@
+{
+    "name": "Une manette à la main",
+    "short_name": "Une manette",
+    "lang": "fr-FR",
+    "start_url": "/?utm_source=homescreen",
+    "background_color": "#41d6c3",
+    "theme_color": "#41d6c3",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "assets/logo/40x40.png",
+            "type": "image/png",
+            "sizes": "40x40"
+        },
+        {
+            "src": "assets/logo/150x150.png",
+            "type": "image/png",
+            "sizes": "150x150"
+        },
+        {
+            "src": "assets/logo/384x384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "assets/logo/600x600.png",
+            "type": "image/png",
+            "sizes": "600x600"
+        }
+    ]
+}
