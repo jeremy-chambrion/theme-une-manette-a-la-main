@@ -62,6 +62,7 @@ class BootstrapTheme
         add_filter('oembed_result', [$this, 'addEmbedContainer'], 99);
         add_filter('image_size_names_choose', [$this, 'addMediaSizes']);
         add_filter('wp', [$this, 'removeJetpackRelatedPosts'], 20);
+        add_filter('script_loader_tag', [$this, 'addAsyncAttribute']);
     }
 
     /**
@@ -165,7 +166,7 @@ class BootstrapTheme
             );
             wp_enqueue_script(
                 'bootstrap-script',
-                get_template_directory_uri() . '/assets/js/bootstrap.js',
+                get_template_directory_uri() . '/assets/js/bootstrap.js#asyncload',
                 ['jquery'],
                 self::VERSION_JS,
                 true
@@ -416,6 +417,26 @@ class BootstrapTheme
                 40
             );
         }
+    }
+
+    /**
+     * Add async attributes to a script tag
+     * if #asyncload is detected
+     *
+     * @param string $tag
+     * @return string
+     */
+    public function addAsyncAttribute($tag)
+    {
+        if (mb_strpos($tag, '#asyncload') !== false) {
+            return str_replace(
+                ['#asyncload', ' src='],
+                ['', ' async="async" src='],
+                $tag
+            );
+        }
+
+        return $tag;
     }
 }
 
