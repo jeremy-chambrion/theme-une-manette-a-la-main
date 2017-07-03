@@ -76,14 +76,14 @@
     <header id="masthead" class="site-header hidden-print navbar navbar-fixed-top bg-primary container-fluid">
         <div class="row">
             <div class="site-logo col-sm-1 hidden-xs">
-                <a href="<?php echo esc_attr(home_url()); ?>" rel="home">
+                <a href="<?php echo esc_attr(home_url()); ?>" rel="home" aria-hidden="true">
                     <img width="384" height="384" src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" alt="" srcset="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png 384w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/150x150.png 150w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png 40w" sizes="(max-width: 384px) 100vw, 384px" />
                 </a>
             </div>
             <div class="masthead-content col-xs-12 col-sm-11">
                 <div class="row" role="banner">
                     <div class="site-logo pull-left visible-xs-block">
-                        <a href="<?php echo esc_attr(home_url()); ?>" rel="home">
+                        <a href="<?php echo esc_attr(home_url()); ?>" rel="home" aria-hidden="true">
                             <img width="600" height="600" src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/600x600.png" alt="" srcset="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/600x600.png 600w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png 384w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/150x150.png 150w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png 40w" sizes="(max-width: 600px) 100vw, 600px" />
                         </a>
                     </div>

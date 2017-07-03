@@ -6,12 +6,12 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('article-excerpt ' . (is_sticky() ? 'article-sticky h-entry hentry' : '')); ?>>
+<article <?php post_class('article-excerpt ' . (is_sticky() ? 'article-sticky h-entry hentry' : '')); ?>>
     <div class="row">
         <?php
         if (has_post_thumbnail()) {
             ?>
-            <a href="<?php echo esc_url(get_permalink()); ?>" class="article-featured-container">
+            <a href="<?php echo esc_url(get_permalink()); ?>" class="article-featured-container" aria-hidden="true">
                 <?php
                 if (is_sticky()) {
                     echo '<span class="article-ribbon article-ribbon-sticky"><i class="fa fa-bookmark"></i>La sélection du moment</span>';

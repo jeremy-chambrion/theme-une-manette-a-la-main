@@ -12052,16 +12052,16 @@ blockquote p {
 .light-text, .article-info, #comments ul.comments-list .comment-body .comment-meta .comment-metadata {
   font-size: 14px;
   line-height: 1.35;
-  color: #bfbfbf;
+  color: #4d4c4c;
 }
 
 .light-text a, .article-info a, #comments ul.comments-list .comment-body .comment-meta .comment-metadata a {
-  color: #bfbfbf;
+  color: #4d4c4c;
   text-decoration: underline;
 }
 
 .light-text a:hover, .article-info a:hover, #comments ul.comments-list .comment-body .comment-meta .comment-metadata a:hover {
-  color: #807f7f;
+  color: #1857a3;
 }
 
 /**

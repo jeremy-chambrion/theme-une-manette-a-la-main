@@ -19,14 +19,14 @@ blockquote {
 .light-text {
   font-size: $font-size-small;
   line-height: 1.35;
-  color: $gray-light;
+  color: $gray-dark;
 
   a {
-    color: $gray-light;
-    text-decoration: underline;
+    color: $gray-dark;
+    text-decoration: $link-hover-decoration;
 
     &:hover {
-      color: $gray;
+      color: $link-hover-color;
     }
   }
 }

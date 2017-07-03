@@ -14,7 +14,7 @@ require_once 'inc/LinkingData.php';
  */
 class BootstrapTheme
 {
-    const VERSION_CSS = '20170702';
+    const VERSION_CSS = '20170703';
     const VERSION_JS = '20170702';
 
     /**
