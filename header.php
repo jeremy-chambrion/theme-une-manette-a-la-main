@@ -88,11 +88,7 @@
                         </a>
                     </div>
                     <div class="site-branding pull-left" style="<?php $color = get_header_textcolor(); echo !empty($color) ? 'color: #' . $color : ''; ?>">
-                        <?php
-                        if (display_header_text()) {
-                            printf('<span class="hidden-xs">%s</span>', get_bloginfo('name', 'display'));
-                        }
-                        ?>
+                        <span class="hidden-xs"><?php bloginfo('name'); ?></span>
                     </div>
                     <div class="site-links pull-right">
                         <ul>
