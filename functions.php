@@ -63,6 +63,7 @@ class BootstrapTheme
         add_filter('image_size_names_choose', [$this, 'addMediaSizes']);
         add_filter('wp', [$this, 'removeJetpackRelatedPosts'], 20);
         add_filter('script_loader_tag', [$this, 'addAsyncAttribute']);
+        add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
     }
 
     /**
@@ -418,6 +419,22 @@ class BootstrapTheme
         }
 
         return $tag;
+    }
+
+    public function removeJqueryMigrate($scripts)
+    {
+        if (!is_admin() && !empty($scripts->registered['jquery']->deps)) {
+            $scripts->registered['jquery']->deps = array_values(
+                array_filter(
+                    $scripts->registered['jquery']->deps,
+                    function ($v) {
+                        return $v !== 'jquery-migrate';
+                    }
+                )
+            );
+        }
+
+        return $scripts;
     }
 }
 
