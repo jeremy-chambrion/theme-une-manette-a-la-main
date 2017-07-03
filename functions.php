@@ -55,7 +55,6 @@ class BootstrapTheme
         add_filter('wp_link_pages_link', [$this, 'linkPagesLink'], 1, 2);
         add_filter('show_admin_bar', '__return_false');
         add_filter('pre_option_link_manager_enabled', '__return_true');
-        add_filter('the_excerpt', [$this, 'the_excerpt']);
         add_filter('the_content', [$this, 'the_content']);
         add_filter('content_pagination', [$this, 'removePagination']);
         add_filter('embed_oembed_html', [$this, 'addEmbedContainer'], 99);
@@ -287,34 +286,6 @@ class BootstrapTheme
         }
 
         return $link;
-    }
-
-    /**
-     * Return excerpt for current post
-     *
-     * @param string $excerpt
-     * @return string
-     */
-    public function the_excerpt($excerpt)
-    {
-        if (!is_front_page()) {
-            return $excerpt;
-        }
-
-        if(!class_exists('acf')) {
-            return $excerpt;
-        }
-
-        $subtitle = get_field('post-subtitle');
-
-        if (empty($subtitle)) {
-            return $excerpt;
-        }
-
-        return sprintf(
-            '<p>%s</p>',
-            $subtitle
-        );
     }
 
     /**
