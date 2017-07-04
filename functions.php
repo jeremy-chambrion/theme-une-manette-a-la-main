@@ -48,6 +48,7 @@ class BootstrapTheme
         add_action('wp_enqueue_scripts', [$this, 'initScripts']);
         add_action('wp_head', [$this, 'initServiceWorker']);
         add_action('wp_footer', [$this, 'addJsonLd'], 100);
+        add_action('acf/init', [$this, 'initAcf']);
 
         add_filter('wp_page_menu_args', [$this, 'initMenuArgs']);
         add_filter('mce_buttons', [$this, 'initEditorButtons'], 1, 2);
@@ -227,6 +228,15 @@ class BootstrapTheme
         $init['block_formats'] = "Paragraphe=p;Titre=h3;Code=code";
 
         return $init;
+    }
+
+    /**
+     * Init ACF plugin
+     */
+    public function initAcf()
+    {
+        // add Google API key
+        acf_update_setting('google_api_key', 'AIzaSyAGFOaWMJhP1fJArEjmn50bR9_ubFtlEJI');
     }
 
     /**
