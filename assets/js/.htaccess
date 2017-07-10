@@ -1,0 +1,5 @@
+<Files service-worker.js>
+   <ifModule mod_headers.c>
+      Header set Service-Worker-Allowed "/"
+   </ifModule>
+</Files>
