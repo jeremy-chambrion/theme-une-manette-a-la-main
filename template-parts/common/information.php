@@ -22,7 +22,7 @@ $avatarHtml = get_avatar(get_the_author_meta('email'));
             <?php
             $publicationDate = get_post_time('c', true);
             printf(
-                '<time class="dt-published published" datetime="%s" title="%s" pubdate="%s">Le %s à %s</time>',
+                '<time class="dt-updated updated" datetime="%s" title="%s" pubdate="%s">Le %s à %s</time>',
                 esc_attr($publicationDate),
                 esc_attr($publicationDate),
                 esc_attr($publicationDate),

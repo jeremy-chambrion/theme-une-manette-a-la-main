@@ -37,7 +37,7 @@
                 get_template_part('template-parts/common/category');
 
                 printf(
-                    '<h2 class="article-title p-name"><a href="%s" class="u-url" rel="bookmark">%s</a></h2>',
+                    '<h2 class="article-title p-name entry-title"><a href="%s" class="u-url" rel="bookmark">%s</a></h2>',
                     esc_url(get_permalink()),
                     get_the_title()
                 );
