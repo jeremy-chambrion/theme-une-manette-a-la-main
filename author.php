@@ -16,7 +16,7 @@ Theme\Unemanettealamain\LinkingData::get()
             'about' => [
                 '@type' => 'Person',
                 'name' => $authorName,
-                'url' => get_author_posts_url(get_the_author_meta('ID'), $authorName),
+                'url' => get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta('nicename')),
                 'image' => get_avatar_url($authorEmail)
             ]
         ]

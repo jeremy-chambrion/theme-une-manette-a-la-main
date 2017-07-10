@@ -331,12 +331,10 @@ class LinkingData
         }
 
         if (!isset($this->dataAuthors[$authorId])) {
-            $authorName = get_the_author_meta('display_name', $authorId);
-
             $this->dataAuthors[$authorId] = [
                 '@type' => 'Person',
-                'name' => $authorName,
-                'url' => get_author_posts_url($authorId, $authorName),
+                'name' => get_the_author_meta('display_name', $authorId),
+                'url' => get_author_posts_url($authorId, get_the_author_meta('nicename', $authorId)),
                 'image' => [
                     '@type' => 'ImageObject',
                     'url' => get_avatar_url(get_the_author_meta('email', $authorId))
