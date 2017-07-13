@@ -355,4 +355,46 @@ class Utils
 
         return $height / $width;
     }
+
+    /**
+     * Get asset with versioned name
+     *
+     * @param string $filename
+     * @return string
+     */
+    public function getRevisionAsset($filename)
+    {
+        $manifestPath = sprintf('%s/assets/rev-manifest.json', get_template_directory());
+        $manifest = [];
+
+        if (file_exists($manifestPath)) {
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                $manifest = [];
+            }
+        }
+
+        if (array_key_exists($filename, $manifest)) {
+            return sprintf(
+                'assets/%s',
+                $manifest[$filename]
+            );
+        }
+
+        $originalPath = sprintf(
+            '%s/assets/%s',
+            get_template_directory(),
+            $filename
+        );
+
+        if (file_exists($originalPath)) {
+            return sprintf(
+                'assets/%s',
+                $filename
+            );
+        }
+
+        return '';
+    }
 }

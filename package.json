@@ -3,9 +3,7 @@
     "version": "1.0.0",
     "license": "GPL-3.0",
     "scripts": {
-        "build:css": "gulp css",
-        "watch:css": "gulp watch",
-        "build:js": "gulp js",
+        "watch": "gulp watch",
         "build": "gulp build",
         "clean": "gulp clean"
     },
@@ -20,7 +18,9 @@
         "gulp-clean": "^0.3.2",
         "gulp-clean-css": "^3.4.2",
         "gulp-concat": "^2.6.1",
+        "gulp-purifycss": "^0.2.0",
         "gulp-rename": "^1.2.2",
+        "gulp-rev": "^7.1.2",
         "gulp-sass": "^3.1.0",
         "gulp-sourcemaps": "^2.6.0",
         "gulp-uglify": "^3.0.0",

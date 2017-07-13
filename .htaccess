@@ -1,5 +1,5 @@
-<Files service-worker.js>
+<FilesMatch "service\-worker(\-[a-z0-9]+)*\.js$">
    <ifModule mod_headers.c>
       Header set Service-Worker-Allowed "/"
    </ifModule>
-</Files>
+</FilesMatch>

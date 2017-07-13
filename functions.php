@@ -14,9 +14,6 @@ require_once 'inc/LinkingData.php';
  */
 class BootstrapTheme
 {
-    const VERSION_CSS = '20170703';
-    const VERSION_JS = '20170709';
-
     /**
      * @var BootstrapTheme
      */
@@ -154,19 +151,28 @@ class BootstrapTheme
     public function initScripts()
     {
         if (!is_admin()) {
-            wp_enqueue_style(
-                'bootstrap-style',
-                get_stylesheet_uri(),
-                [],
-                self::VERSION_CSS
-            );
-            wp_enqueue_script(
-                'bootstrap-script',
-                get_template_directory_uri() . '/assets/js/bootstrap.js#asyncload',
-                ['jquery'],
-                self::VERSION_JS,
-                true
-            );
+            $cssUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('style.css');
+
+            if (!empty($cssUrl)) {
+                wp_enqueue_style(
+                    'bootstrap-style',
+                    get_template_directory_uri() . '/' . $cssUrl,
+                    [],
+                    null
+                );
+            }
+
+            $jsUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('bootstrap.js');
+
+            if (!empty($jsUrl)) {
+                wp_enqueue_script(
+                    'bootstrap-script',
+                    get_template_directory_uri() . '/' . $jsUrl . '#asyncload',
+                    ['jquery'],
+                    null,
+                    true
+                );
+            }
 
             if (is_singular() && comments_open() && get_option('thread_comments')) {
                 wp_enqueue_script('comment-reply');
@@ -354,16 +360,25 @@ class BootstrapTheme
         return [implode('', $pages)];
     }
 
+    /**
+     * Add script for using service worker
+     */
     public function initServiceWorker()
     {
         if (is_admin()) {
+            return;
+        }
+
+        $wsUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('service-worker.js');
+
+        if (empty($wsUrl)) {
             return;
         }
         ?>
         <script>
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker
-                .register('/wp-content/themes/unemanettealamain/assets/js/service-worker.js', {scope: '/'});
+                .register('/wp-content/themes/unemanettealamain/<?php echo $wsUrl; ?>', {scope: '/'});
             }
         </script>
         <?php
