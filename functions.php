@@ -62,6 +62,7 @@ class BootstrapTheme
         add_filter('wp', [$this, 'removeJetpackRelatedPosts'], 20);
         add_filter('script_loader_tag', [$this, 'addAsyncAttribute']);
         add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
+        add_filter('wpseo_json_ld_output', [$this, 'removeYoastJson']);
     }
 
     /**
@@ -446,6 +447,12 @@ class BootstrapTheme
         return $tag;
     }
 
+    /**
+     * Remove jquery migrate script from loaded scripts
+     *
+     * @param \stdClass $scripts
+     * @return \stdClass
+     */
     public function removeJqueryMigrate($scripts)
     {
         if (!is_admin() && !empty($scripts->registered['jquery']->deps)) {
@@ -460,6 +467,17 @@ class BootstrapTheme
         }
 
         return $scripts;
+    }
+
+    /**
+     * Remove json LD inserted by Yoast plugin
+     * We already insert our json LD in the footer
+     *
+     * @return array
+     */
+    public function removeYoastJson()
+    {
+        return [];
     }
 }
 

@@ -44,7 +44,7 @@ class LinkingData
         $this->data['@id'] = $this->data['url'];
 
         if (is_front_page()) {
-            $this->addData($this->getDataBlog());
+            $this->addData($this->getDataBlog(true));
         } else {
             $this->data['breadcrumb'] = $this->getdataBreadcrumb();
         }
@@ -160,8 +160,8 @@ class LinkingData
             $this->dataOrganization['logo'] = [
                 '@type' => 'ImageObject',
                 'url' => get_template_directory_uri() . '/assets/logo/600x600.png',
-                'width' => 600,
-                'height' => 600
+                'width' => '600 px',
+                'height' => '600 px'
             ];
 
             $this->dataOrganization = array_filter($this->dataOrganization);
@@ -220,10 +220,13 @@ class LinkingData
             $post = get_post();
         }
 
+        $postUrl = get_permalink($post);
+
         $data = [
             '@type' => 'Article',
             'headline' => get_the_title($post),
-            'mainEntityOfPage' => get_permalink($post),
+            'mainEntityOfPage' => $postUrl,
+            'url' => $postUrl,
             'datePublished' => get_the_date('c', $post),
             'dateModified' => get_the_modified_date('c', $post),
             'author' => $this->getDataAuthor($post->post_author ?? null),
@@ -237,16 +240,16 @@ class LinkingData
             $data['image'] = [
                 '@type' => 'ImageObject',
                 'url' => $postThumbnail[0],
-                'width' => $postThumbnail[1],
-                'height' => $postThumbnail[2]
+                'width' => sprintf('%s px', $postThumbnail[1]),
+                'height' => sprintf('%s px', $postThumbnail[2])
             ];
 
             $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post), 'medium');
             $data['image']['thumbnail'] = [
                 '@type' => 'ImageObject',
                 'url' => $thumbnail[0],
-                'width' => $thumbnail[1],
-                'height' => $thumbnail[2]
+                'width' => sprintf('%s px', $thumbnail[1]),
+                'height' => sprintf('%s px', $thumbnail[2])
             ];
         }
 
