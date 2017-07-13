@@ -14,11 +14,9 @@ const pump = require('pump');
 const clean = require('gulp-clean');
 const purify = require('gulp-purifycss');
 const rev = require('gulp-rev');
-const path = require('path');
+const babel = require('gulp-babel');
 
-gulp.task('js', ['js-bootstrap', 'js-service-worker']);
-
-gulp.task('js-bootstrap', function (cb) {
+gulp.task('js-bootstrap', (cb) => {
     pump([
         browserify([
             './src/js/bootstrap.js'
@@ -26,6 +24,7 @@ gulp.task('js-bootstrap', function (cb) {
         source('bootstrap.js'),
         buffer(),
         sourcemaps.init(),
+        babel({presets: ['env']}),
         uglify(),
         rev(),
         sourcemaps.write('.'),
@@ -35,7 +34,7 @@ gulp.task('js-bootstrap', function (cb) {
     ], cb);
 });
 
-gulp.task('js-service-worker', function (cb) {
+gulp.task('js-service-worker', (cb) => {
     pump([
         gulp.src([
             './src/js/service-worker.js'
@@ -50,7 +49,9 @@ gulp.task('js-service-worker', function (cb) {
     ], cb);
 });
 
-gulp.task('css', ['js'], function (cb) {
+gulp.task('js', ['js-bootstrap', 'js-service-worker']);
+
+gulp.task('css', ['js'], (cb) => {
     pump([
         gulp.src('./src/sass/style.scss'),
         sass({
@@ -70,7 +71,7 @@ gulp.task('css', ['js'], function (cb) {
     ], cb);
 });
 
-gulp.task('fonts', function (cb) {
+gulp.task('fonts', (cb) => {
     pump([
         gulp.src([
             './node_modules/font-awesome/fonts/*',
@@ -80,7 +81,7 @@ gulp.task('fonts', function (cb) {
     ], cb);
 });
 
-gulp.task('logo', function (cb) {
+gulp.task('logo', (cb) => {
     pump([
         gulp.src([
             './src/logo/*'
@@ -89,12 +90,12 @@ gulp.task('logo', function (cb) {
     ], cb);
 });
 
-gulp.task('watch', ['css'], function () {
+gulp.task('watch', ['css'], () => {
     gulp.watch(['./src/sass/*.scss'], ['css']);
     gulp.watch(['./src/js/*.js'], ['js']);
 });
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', (cb) => {
     pump([
         gulp.src([
             'assets'

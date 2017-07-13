@@ -8,6 +8,7 @@
         "clean": "gulp clean"
     },
     "devDependencies": {
+        "babel-preset-env": "^1.6.0",
         "bootstrap-sass": "^3.3.7",
         "browserify": "^14.3",
         "date-fns": "^1.28.4",
@@ -15,6 +16,7 @@
         "fontfaceobserver": "^2.0.13",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^4.0",
+        "gulp-babel": "^6.1.2",
         "gulp-clean": "^0.3.2",
         "gulp-clean-css": "^3.4.2",
         "gulp-concat": "^2.6.1",
