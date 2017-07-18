@@ -40,6 +40,7 @@ gulp.task('js-service-worker', (cb) => {
             './src/js/service-worker.js'
         ]),
         sourcemaps.init(),
+        babel({presets: ['env']}),
         uglify(),
         rev(),
         sourcemaps.write('.'),
