@@ -60,7 +60,7 @@ gulp.task('css', ['js'], (cb) => {
             precision: 8
         }),
         autoprefixer(),
-        purify(['./**/*.php', './**/*.html', './assets/**/*.js', '!./node_modules']),
+        //purify(['./**/*.php', './**/*.html', './assets/**/*.js', '!./node_modules']),
         rename('style.css'),
         sourcemaps.init(),
         cleancss(),
