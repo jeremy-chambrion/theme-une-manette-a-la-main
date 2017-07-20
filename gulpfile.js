@@ -12,7 +12,6 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const pump = require('pump');
 const clean = require('gulp-clean');
-const purify = require('gulp-purifycss');
 const rev = require('gulp-rev');
 const babel = require('gulp-babel');
 
@@ -60,7 +59,6 @@ gulp.task('css', ['js'], (cb) => {
             precision: 8
         }),
         autoprefixer(),
-        //purify(['./**/*.php', './**/*.html', './assets/**/*.js', '!./node_modules']),
         rename('style.css'),
         sourcemaps.init(),
         cleancss(),
