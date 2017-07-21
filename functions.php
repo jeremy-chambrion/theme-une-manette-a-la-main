@@ -453,7 +453,7 @@ class BootstrapTheme
         if (mb_strpos($tag, '#asyncload') !== false) {
             return str_replace(
                 ['#asyncload', ' src='],
-                ['', ' async="async" src='],
+                ['', ' defer async src='],
                 $tag
             );
         }
