@@ -33,10 +33,11 @@ gulp.task('js-bootstrap', (cb) => {
     ], cb);
 });
 
-gulp.task('js-service-worker', (cb) => {
+gulp.task('js-minify', (cb) => {
     pump([
         gulp.src([
-            './src/js/service-worker.js'
+            './src/js/service-worker.js',
+            './node_modules/lazysizes/lazysizes.js'
         ]),
         sourcemaps.init(),
         babel({presets: ['env']}),
@@ -49,7 +50,7 @@ gulp.task('js-service-worker', (cb) => {
     ], cb);
 });
 
-gulp.task('js', ['js-bootstrap', 'js-service-worker']);
+gulp.task('js', ['js-bootstrap', 'js-minify']);
 
 gulp.task('css', ['js'], (cb) => {
     pump([

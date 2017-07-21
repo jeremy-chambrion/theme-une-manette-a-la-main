@@ -22,7 +22,7 @@ $thumbnaiInlineData = Theme\Unemanettealamain\Utils::get()->getThumbnailInlineDa
 if (!empty($thumbnaiInlineData)) {
     ?>
     <style>
-        .article-header .entry-hero .entry-hero-image {
+        .article-header .article-hero .article-hero-image {
             background: url(<?php echo $thumbnaiInlineData; ?>) no-repeat center;
             background-size: cover;
         }

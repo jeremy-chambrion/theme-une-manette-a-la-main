@@ -63,6 +63,11 @@ class BootstrapTheme
         add_filter('script_loader_tag', [$this, 'addAsyncAttribute']);
         add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
         add_filter('wpseo_json_ld_output', [$this, 'removeYoastJson']);
+        add_filter('wp_get_attachment_image_attributes', [$this, 'addAttachmentImageLazyload'], 200);
+        add_filter('the_content', [$this, 'addLazyload'], 200);
+        add_filter('widget_text', [$this, 'addLazyload'], 200);
+        add_filter('post_thumbnail_html', [$this, 'addLazyload'], 200);
+        add_filter('get_avatar', [$this, 'addLazyload'], 200);
     }
 
     /**
@@ -153,7 +158,6 @@ class BootstrapTheme
     {
         if (!is_admin()) {
             $cssUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('style.css');
-
             if (!empty($cssUrl)) {
                 wp_enqueue_style(
                     'bootstrap-style',
@@ -163,13 +167,23 @@ class BootstrapTheme
                 );
             }
 
-            $jsUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('bootstrap.js');
-
-            if (!empty($jsUrl)) {
+            $jsBootstrapUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('bootstrap.js');
+            if (!empty($jsBootstrapUrl)) {
                 wp_enqueue_script(
                     'bootstrap-script',
-                    get_template_directory_uri() . '/' . $jsUrl . '#asyncload',
+                    get_template_directory_uri() . '/' . $jsBootstrapUrl . '#asyncload',
                     ['jquery'],
+                    null,
+                    true
+                );
+            }
+
+            $jsLazyUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('lazysizes.js');
+            if (!empty($jsLazyUrl)) {
+                wp_enqueue_script(
+                    'lazysizes-script',
+                    get_template_directory_uri() . '/' . $jsLazyUrl . '#asyncload',
+                    [],
                     null,
                     true
                 );
@@ -478,6 +492,117 @@ class BootstrapTheme
     public function removeYoastJson()
     {
         return [];
+    }
+
+    /**
+     * Transform image attributes for lazyload
+     * @param array $attr
+     * @return array
+     */
+    public function addAttachmentImageLazyload(array $attr)
+    {
+        $attr['data-src'] = $attr['src'];
+        $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+        $attr['class'] = 'lazyload '. $attr['class'];
+
+        if (isset($attr['srcset'])) {
+            $attr['data-srcset'] = $attr['srcset'];
+            unset($attr['srcset']);
+        }
+
+        return $attr;
+    }
+
+    /**
+     * Set lazyload in provided content
+     * @param string $content
+     * @return string
+     */
+    public function addLazyload($content)
+    {
+        if (is_feed() || is_preview() || is_admin()) {
+            return $content;
+        }
+
+        $content = $this->addLazyloadWithTag(
+            $content,
+            'img',
+            ['src' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'srcset' => '']
+        );
+        $content = $this->addLazyloadWithTag(
+            $content,
+            'iframe',
+            ['src' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==']
+        );
+        $content = $this->addLazyloadWithTag(
+            $content,
+            'video',
+            ['src' => '', 'poster' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==']
+        );
+        $content = $this->addLazyloadWithTag(
+            $content,
+            'embed',
+            ['src' => '']
+        );
+
+        return $content;
+    }
+
+    /**
+     * Set lazyload for all tags with provided replacements in content
+     * @param string $content
+     * @param string $tag
+     * @param array $replacements
+     * @return string
+     */
+    private function addLazyloadWithTag($content, $tag, array $replacements)
+    {
+        $matches = [];
+        preg_match_all(
+            sprintf('#<%s[\s\r\n]+.*?>#is', $tag),
+            $content,
+            $matches
+        );
+
+        if (empty($matches)) {
+            return $content;
+        }
+
+        foreach ($matches[0] as $eltHtml) {
+            // if lazyload is already applied, do not change html
+            if (mb_strpos($eltHtml, 'lazyload') !== false) {
+                continue;
+            }
+
+            // build search regex
+            $search = [];
+            $replace = [];
+            foreach ($replacements as $att => $value) {
+                $search[] = sprintf('#<%s(.*?)%s=#is', $tag, $att);
+                $replace[] = sprintf('<%s$1%s data-%s=', $tag, !empty($value) ? sprintf('%s="%s"', $att, $value) : '', $att);
+            }
+
+            // replace attributes
+            $replaceHTML = preg_replace($search, $replace, $eltHtml);
+
+            if (preg_match('#class=["\']#i', $replaceHTML)) {
+                $replaceHTML = preg_replace(
+                    '#class=(["\'])(.*?)["\']#is',
+                    'class=$1lazyload $2$1',
+                    $replaceHTML
+                );
+            } else {
+                $replaceHTML = preg_replace(
+                    sprintf('#<%s#is', $tag),
+                    sprintf('<%s class="lazyload"', $tag),
+                    $replaceHTML
+                );
+            }
+
+            $content = str_replace($eltHtml, $replaceHTML, $content);
+        }
+
+        return $content;
     }
 }
 
