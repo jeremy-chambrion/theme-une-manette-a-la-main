@@ -172,7 +172,7 @@ class BootstrapTheme
                 wp_enqueue_script(
                     'bootstrap-script',
                     get_template_directory_uri() . '/' . $jsBootstrapUrl . '#asyncload',
-                    ['jquery'],
+                    [],
                     null,
                     true
                 );

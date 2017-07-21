@@ -1,29 +1,7 @@
 .article-tldr {
   margin-bottom: $grid-gutter-width;
 
-  .tldr-title {
-    font-weight: bold;
-
-    &:after {
-      @extend .fa;
-      margin-left: $grid-gutter-width / 4;
-    }
-
-    &.tldr-closed {
-      &:after {
-        content: "";
-      }
-    }
-
-    &.tldr-opened {
-      &:after {
-        content: "";
-      }
-    }
-  }
-
   .tldr-content {
-    display: none;
     margin-top: $grid-gutter-width / 2;
     font-family: $font-family-serif;
   }

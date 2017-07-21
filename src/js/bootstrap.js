@@ -1,26 +1,20 @@
-var Headroom = require('headroom.js');
-var dateFns = require('date-fns/distance_in_words_to_now');
-var dateFnsLocale = require('date-fns/locale/fr');
-var fontObserver = require('fontfaceobserver');
+const Headroom = require('headroom.js');
+const dateFns = require('date-fns/distance_in_words_to_now');
+const dateFnsLocale = require('date-fns/locale/fr');
+const fontObserver = require('fontfaceobserver');
 
-(function ($, d) {
-    'use strict';
-
-    new Headroom(d.getElementById('masthead'), {
+{
+    new Headroom(document.getElementById('masthead'), {
         'offset': 100,
         'tolerance': 10
     }).init();
 
-    if(!$) {
-        return;
-    }
-
-    $(d).ready(function() {
-        var fontSansSerifNormal = new fontObserver('Raleway', {weight: 400});
-        var fontSansSerifBold = new fontObserver('Raleway', {weight: 700});
-        var fontSerifNormal = new fontObserver('Roboto Slab', {weight: 400});
-        var fontSerifBold = new fontObserver('Roboto Slab', {weight: 700});
-        var fontIcons = new fontObserver('FontAwesome');
+    {
+        let fontSansSerifNormal = new fontObserver('Raleway', {weight: 400});
+        let fontSansSerifBold = new fontObserver('Raleway', {weight: 700});
+        let fontSerifNormal = new fontObserver('Roboto Slab', {weight: 400});
+        let fontSerifBold = new fontObserver('Roboto Slab', {weight: 700});
+        let fontIcons = new fontObserver('FontAwesome');
 
         Promise.all([
             fontSerifNormal.load(),
@@ -28,72 +22,126 @@ var fontObserver = require('fontfaceobserver');
             fontSansSerifNormal.load(),
             fontSansSerifBold.load(),
             fontIcons.load()
-        ]).then(function() {
-            d.querySelector('.loader').style.display = 'none';
-            d.getElementById('content').style.display = 'block';
-            d.getElementById('content').style.animation = '.2s ease-out forwards fadeIn';
-            d.getElementById('footer').style.display = 'block';
-            d.getElementById('footer').style.animation = '.2s ease-out forwards fadeIn';
-        }).catch(function() {
-            d.querySelector('.loader').style.display = 'none';
-            d.getElementById('content').style.display = 'block';
-            d.getElementById('content').style.animation = '.2s ease-out forwards fadeIn';
-            d.getElementById('footer').style.display = 'block';
-            d.getElementById('footer').style.animation = '.2s ease-out forwards fadeIn';
+        ]).then(() => {
+            'use strict';
+
+            document.querySelector('.loader').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('footer').style.display = 'block';
+            requestAnimationFrame(() => {
+                document.getElementById('content').style.opacity = 1;
+                document.getElementById('footer').style.opacity = 1;
+            });
+        }).catch(() => {
+            'use strict';
+
+            document.querySelector('.loader').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('footer').style.display = 'block';
+            requestAnimationFrame(() => {
+                document.getElementById('content').style.opacity = 1;
+                document.getElementById('footer').style.opacity = 1;
+            });
         });
-    });
+    }
 
-    $(d).ready(function() {
-        var closeSearch = function() {
-            $('.search-screen').fadeOut(200);
-            $(d).off('keyup', eventEsc);
-        };
+    let addEventListener = (el, eventName, handler) => {
+        'use strict';
 
-        var openSearch = function() {
-            $('.search-screen').fadeIn(200);
-            $('#search-input').focus();
-            $(d).keyup(eventEsc);
-        };
+        if (!el) {
+            return;
+        }
 
-        var eventEsc = function(e) {
+        if (el.addEventListener) {
+            el.addEventListener(eventName, handler);
+        } else {
+            el.attachEvent('on' + eventName, () => {
+                handler.call(el);
+            });
+        }
+    };
+
+    let removeEventListener = (el, eventName, handler) => {
+        'use strict';
+
+        if (!el) {
+            return;
+        }
+
+        if (el.removeEventListener) {
+            el.removeEventListener(eventName, handler);
+        } else {
+            el.detachEvent('on' + eventName, handler);
+        }
+    };
+
+    {
+        let eventEsc = e => {
+            'use strict';
+
             if (e.keyCode === 27) {
                 closeSearch();
             }
         };
 
-        $(d).on('click', '.search-open', function(e) {
+        let closeSearch = () => {
+            'use strict';
+
+            requestAnimationFrame(() => {
+                document.querySelector('.search-screen').style.opacity = 0;
+                new Promise((resolve) => setTimeout(resolve, 200)).then(() => {
+                    document.querySelector('.search-screen').style.display = 'none';
+                });
+            });
+
+            removeEventListener(document, 'keyup', eventEsc);
+        };
+
+        let openSearch = () => {
+            'use strict';
+
+            document.querySelector('.search-screen').style.display = 'block';
+            requestAnimationFrame(() => {
+                document.querySelector('.search-screen').style.opacity = 1;
+            });
+            document.getElementById('search-input').focus();
+            addEventListener(document, 'keyup', eventEsc);
+        };
+
+        addEventListener(document.querySelector('.search-open'), 'click', e => {
+            'use strict';
+
             e.preventDefault();
             openSearch();
         });
-        $(d).on('click', '.search-close', function(e) {
+
+        addEventListener(document.querySelector('.search-close'), 'click', e => {
+            'use strict';
+
             e.preventDefault();
             closeSearch();
         });
+    }
 
-        $(d).on('click', '.article-hero .btn-action', function(e) {
-            e.preventDefault();
-           $('html, body').animate({
-               scrollTop: $('#under-hero-content').offset().top
-           }, 300);
-        });
-    });
+    {
+        let convertTime = (selector) => {
+            'use strict';
 
-    $(d).ready(function() {
-        $('.article-tldr button').on('click', function () {
-            $(this).toggleClass('tldr-closed tldr-opened');
-            $(this).next('.tldr-content').slideToggle();
-        });
-    });
+            let elts = document.querySelectorAll(selector);
 
-    $(d).ready(function() {
-        $('.article-time time, .comment-metadata time').each(function() {
-            $(this).html(dateFns(
-                $(this).attr('datetime'),
-                {
-                    addSuffix: true,
-                    locale: dateFnsLocale
-                }
-            ));
-        })
-    });
-})(jQuery, document);
+            for (let i = 0; i < elts.length; i++) {
+                elts[i].innerHTML = dateFns(
+                    elts[i].getAttribute('datetime'),
+                    {
+                        addSuffix: true,
+                        locale: dateFnsLocale
+                    }
+                );
+            }
+        };
+
+
+        convertTime('.article-time time');
+        convertTime('.comment-metadata time');
+    }
+}

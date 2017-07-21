@@ -16,6 +16,10 @@ blockquote {
   }
 }
 
+abbr {
+  text-decoration: none;
+}
+
 .light-text {
   font-size: $font-size-small;
   line-height: 1.35;
