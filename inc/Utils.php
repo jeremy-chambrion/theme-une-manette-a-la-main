@@ -281,6 +281,11 @@ class Utils
         }
 
         $urlPath = parse_url($imageData['sizes']['umalm-xsmall'], PHP_URL_PATH);
+
+        if (!function_exists('get_home_path')) {
+            include_once dirname(__FILE__) . '/../../../../wp-admin/includes/file.php';
+        }
+
         $homePath = get_home_path();
 
         if (empty($urlPath) || empty($homePath)) {
