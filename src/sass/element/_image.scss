@@ -43,6 +43,11 @@ article {
       margin-left: auto;
       margin-right: auto;
     }
+
+    &.alignleft,
+    &.alignright {
+      margin-bottom: $grid-gutter-width;
+    }
   }
 
   body.single &,
