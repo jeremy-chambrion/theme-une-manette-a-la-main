@@ -13,6 +13,8 @@
             ?>
             <a href="<?php echo esc_url(get_permalink()); ?>" class="article-featured-container" aria-hidden="true">
                 <?php
+                echo get_the_post_thumbnail();
+
                 if (is_sticky()) {
                     echo '<span class="article-ribbon article-ribbon-sticky"><i class="fa fa-bookmark"></i>La sélection du moment</span>';
                 }
@@ -24,8 +26,6 @@
                         echo '<span class="article-ribbon article-ribbon-fav"><i class="fa fa-heart"></i>Coup de cœur</span>';
                     }
                 }
-
-                echo get_the_post_thumbnail();
                 ?>
             </a>
             <?php

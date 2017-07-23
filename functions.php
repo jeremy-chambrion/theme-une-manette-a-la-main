@@ -502,7 +502,7 @@ class BootstrapTheme
     public function addAttachmentImageLazyload(array $attr)
     {
         $attr['data-src'] = $attr['src'];
-        $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+        $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         $attr['class'] = 'lazyload '. $attr['class'];
 
         if (isset($attr['srcset'])) {

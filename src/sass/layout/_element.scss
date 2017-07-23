@@ -67,6 +67,11 @@ div {
       padding: $grid-gutter-width / 4 $grid-gutter-width / 2;
     }
   }
+
+  .lazyload + .article-ribbon,
+  .lazyloading + .article-ribbon {
+    display: none !important;
+  }
 }
 
 @media (min-width: $screen-sm-min) {

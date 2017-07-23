@@ -17,7 +17,7 @@ if (empty($imageHero['ID'])) {
     return;
 }
 
-$thumbnaiInlineData = Theme\Unemanettealamain\Utils::get()->getThumbnailInlineData($imageHero);
+$thumbnaiInlineData = Theme\Unemanettealamain\Utils::get()->getThumbnailInlineData($imageHero['ID']);
 
 if (!empty($thumbnaiInlineData)) {
     ?>

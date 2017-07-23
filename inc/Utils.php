@@ -269,18 +269,27 @@ class Utils
     }
 
     /**
-     * Get data for inline thumbnail of the providing image data
+     * Get data for inline thumbnail of the providing image id
      *
-     * @param array $imageData
+     * @param int $id
      * @return string
      */
-    public function getThumbnailInlineData(array $imageData)
+    public function getThumbnailInlineData($id)
     {
-        if (empty($imageData['sizes']['umalm-xsmall']) || empty($imageData['mime_type'])) {
+        $thumbailSrc = wp_get_attachment_image_src($id, 'umalm-xsmall');
+
+        if (empty($thumbailSrc[0])) {
             return '';
         }
 
-        $urlPath = parse_url($imageData['sizes']['umalm-xsmall'], PHP_URL_PATH);
+        $thumbnailMimeType = get_post_mime_type($id);
+
+        if (empty($thumbnailMimeType)) {
+            return '';
+        }
+
+
+        $urlPath = parse_url($thumbailSrc[0], PHP_URL_PATH);
 
         if (!function_exists('get_home_path')) {
             include_once dirname(__FILE__) . '/../../../../wp-admin/includes/file.php';
@@ -306,13 +315,13 @@ class Utils
 
         $thumbnailContent = file_get_contents($thumbnailPath);
 
-        if ($thumbnailContent === false || strlen($thumbnailContent) > 1000) {
+        if ($thumbnailContent === false) {
             return '';
         }
 
         return sprintf(
             'data:%s;base64,%s',
-            $imageData['mime_type'],
+            $thumbnailMimeType,
             base64_encode($thumbnailContent)
         );
     }
