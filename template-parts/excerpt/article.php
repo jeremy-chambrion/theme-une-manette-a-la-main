@@ -6,7 +6,7 @@
  */
 ?>
 
-<article <?php post_class('article-excerpt ' . (is_sticky() ? 'article-sticky h-entry hentry' : '')); ?>>
+<article <?php post_class('article-excerpt h-entry hentry' . (is_sticky() ? ' article-sticky' : '')); ?>>
     <div class="row">
         <?php
         if (has_post_thumbnail()) {
