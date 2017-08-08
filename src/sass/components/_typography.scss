@@ -2,11 +2,15 @@ blockquote {
   padding: 0;
   border: 0;
   margin-bottom: $grid-gutter-width / 2;
+  font-size: $font-size-h4;
+  font-style: italic;
+  color: $gray;
 
   &:before {
     content: "\f10d";
     font-family: 'FontAwesome';
     font-size: $font-size-h1;
+    font-style: normal;
     color: $gray-lighter;
   }
 
