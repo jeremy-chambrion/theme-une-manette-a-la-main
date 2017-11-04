@@ -2,8 +2,6 @@
 
 namespace Theme\Unemanettealamain\Entities;
 
-use Theme\Unemanettealamain\LinkingData;
-
 require_once 'CreativeWork.php';
 
 class Recipe extends CreativeWork
@@ -103,20 +101,20 @@ class Recipe extends CreativeWork
             )
         ];
 
-        $prepTime = get_field('entity-value-recipe-preptime', $this->post);
+        $prepTime = $this->getNiceTimeFromIso(get_field('entity-value-recipe-preptime', $this->post));
         if (!empty($prepTime)) {
             $items[] = $this->addCardItem(
                 'Temps de préparation',
-                date('i', strtotime($prepTime)) . ' min.',
+                $prepTime,
                 'clock-o'
             );
         }
 
-        $cookTime = get_field('entity-value-recipe-cooktime', $this->post);
+        $cookTime = $this->getNiceTimeFromIso(get_field('entity-value-recipe-cooktime', $this->post));
         if (!empty($cookTime)) {
             $items[] = $this->addCardItem(
                 'Temps de cuisson',
-                date('i', strtotime($cookTime)) . ' min.',
+                $cookTime,
                 'clock-o'
             );
         }
@@ -156,6 +154,23 @@ class Recipe extends CreativeWork
                     implode(',', $listId)
                 )
             ) : ''
+        );
+    }
+
+    private function getNiceTimeFromIso($iso)
+    {
+        if (empty($iso)) {
+            return '';
+        }
+
+        $time = strtotime($iso);
+        $hours = date('G', $time);
+        $minutes = date('i', $time);
+
+        return sprintf(
+            '%s%s',
+            !empty($hours) ? $hours . ' h ' : '',
+            $minutes . ' min'
         );
     }
 }
