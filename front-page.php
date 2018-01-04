@@ -54,6 +54,25 @@ get_header();
                     );
 
                 break;
+
+            case 'post_tag':
+                Theme\Unemanettealamain\Utils::get()
+                    ->printFrontGridList(
+                        new WP_Query(
+                            [
+                                'post_type' => 'post',
+                                'posts_per_page' => 3,
+                                'tag__in' => $item->object_id
+                            ]
+                        ),
+                        $item->title,
+                        false,
+                        'tag-posts',
+                        'fa-tag',
+                        $item->url
+                    );
+
+                break;
             }
         }
     }
