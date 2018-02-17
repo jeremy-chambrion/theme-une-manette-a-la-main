@@ -5,8 +5,7 @@ const cacheExtensions = ['css', 'js', 'otf', 'eot', 'svg', 'ttf', 'woff', 'woff2
 const installDelayed = [
     '/wp-content/themes/unemanettealamain/assets/logo/40x40.png',
     '/wp-content/themes/unemanettealamain/assets/logo/150x150.png',
-    '/wp-content/themes/unemanettealamain/assets/logo/384x384.png',
-    '/wp-content/themes/unemanettealamain/assets/logo/600x600.png'
+    '/wp-content/themes/unemanettealamain/assets/logo/384x384.png'
 ];
 const installCritical = [];
 

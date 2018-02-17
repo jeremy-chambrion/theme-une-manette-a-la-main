@@ -80,7 +80,7 @@
                 <div class="row" role="banner">
                     <div class="site-logo pull-left visible-xs-block">
                         <a href="<?php echo esc_attr(home_url()); ?>" rel="home" aria-hidden="true">
-                            <img width="600" height="600" src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/600x600.png" alt="" srcset="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/600x600.png 600w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png 384w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/150x150.png 150w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png 40w" sizes="(max-width: 600px) 100vw, 600px" />
+                            <img width="384" height="384" src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png" alt="" srcset="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/384x384.png 384w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/150x150.png 150w, <?php echo esc_attr(get_template_directory_uri()); ?>/assets/logo/40x40.png 40w" sizes="(max-width: 384px) 100vw, 384px" />
                         </a>
                     </div>
                     <div class="site-branding pull-left" style="<?php $color = get_header_textcolor(); echo !empty($color) ? 'color: #' . $color : ''; ?>">
