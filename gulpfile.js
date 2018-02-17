@@ -11,9 +11,9 @@ const uglify = require('gulp-uglify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const pump = require('pump');
-const clean = require('gulp-clean');
 const rev = require('gulp-rev');
 const babel = require('gulp-babel');
+const del = require('del');
 
 gulp.task('js-bootstrap', (cb) => {
     pump([
@@ -95,13 +95,8 @@ gulp.task('watch', ['css'], () => {
     gulp.watch(['./src/js/*.js'], ['js']);
 });
 
-gulp.task('clean', (cb) => {
-    pump([
-        gulp.src([
-            'assets'
-        ], {read: false}),
-        clean()
-    ], cb);
+gulp.task('clean', () => {
+    return del(['assets']);
 });
 
 gulp.task('build', ['css', 'fonts', 'logo']);
