@@ -14,6 +14,19 @@ require_once 'inc/LinkingData.php';
  */
 class BootstrapTheme
 {
+    const SCRIPTS_ASYNC = [
+        'bootstrap-script',
+        'lazysizes-script',
+        'devicepx',
+        'et_monarch-idle',
+        'et_monarch-custom-js',
+        'jetpack_related-posts',
+        'wp-embed',
+        'comment-reply'
+    ];
+
+    const SCRIPTS_DEFER = [];
+
     /**
      * @var BootstrapTheme
      */
@@ -60,7 +73,7 @@ class BootstrapTheme
         add_filter('oembed_result', [$this, 'addEmbedContainer'], 99);
         add_filter('image_size_names_choose', [$this, 'addMediaSizes']);
         add_filter('wp', [$this, 'removeJetpackRelatedPosts'], 20);
-        add_filter('script_loader_tag', [$this, 'addAsyncAttribute']);
+        add_filter('script_loader_tag', [$this, 'addAsyncAttribute'], 10, 2);
         add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
         add_filter('wpseo_json_ld_output', [$this, 'removeYoastJson']);
         add_filter('wp_get_attachment_image_attributes', [$this, 'addAttachmentImageLazyload'], 200);
@@ -161,7 +174,7 @@ class BootstrapTheme
             if (!empty($cssUrl)) {
                 wp_enqueue_style(
                     'bootstrap-style',
-                    get_template_directory_uri() . '/' . $cssUrl,
+                    sprintf('%s/%s', get_template_directory_uri(), $cssUrl),
                     [],
                     null
                 );
@@ -171,7 +184,7 @@ class BootstrapTheme
             if (!empty($jsBootstrapUrl)) {
                 wp_enqueue_script(
                     'bootstrap-script',
-                    get_template_directory_uri() . '/' . $jsBootstrapUrl . '#asyncload',
+                    sprintf('%s/%s', get_template_directory_uri(), $jsBootstrapUrl),
                     [],
                     null,
                     true
@@ -182,7 +195,7 @@ class BootstrapTheme
             if (!empty($jsLazyUrl)) {
                 wp_enqueue_script(
                     'lazysizes-script',
-                    get_template_directory_uri() . '/' . $jsLazyUrl . '#asyncload',
+                    sprintf('%s/%s', get_template_directory_uri(), $jsLazyUrl),
                     [],
                     null,
                     true
@@ -442,20 +455,18 @@ class BootstrapTheme
     }
 
     /**
-     * Add async attributes to a script tag
-     * if #asyncload is detected
+     * Add async and/or defer attributes to a script tag
      *
      * @param string $tag
+     * @param string $handle
      * @return string
      */
-    public function addAsyncAttribute($tag)
+    public function addAsyncAttribute($tag, $handle)
     {
-        if (mb_strpos($tag, '#asyncload') !== false) {
-            return str_replace(
-                ['#asyncload', ' src='],
-                ['', ' defer async src='],
-                $tag
-            );
+        if (in_array($handle, self::SCRIPTS_ASYNC)) {
+            return str_replace(' src=', ' async defer src=', $tag);
+        } elseif (in_array($handle, self::SCRIPTS_DEFER)) {
+            return str_replace(' src=', ' defer src=', $tag);
         }
 
         return $tag;
