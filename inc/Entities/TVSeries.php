@@ -47,6 +47,23 @@ class TVSeries extends CreativeWork
         );
     }
 
+    public function getContent($content)
+    {
+        if (class_exists('acf')) {
+            $trailer = get_field('entity-value-trailer');
+
+            if (!empty($trailer)) {
+                $content = sprintf(
+                    '%s<p class="video-container">%s</p>',
+                    $content,
+                    $trailer
+                );
+            }
+        }
+
+        return parent::getContent($content);
+    }
+
     protected function getCardItems()
     {
         if (!class_exists('acf')) {
