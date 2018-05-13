@@ -66,7 +66,7 @@ class BootstrapTheme
         add_filter('wp_link_pages_link', [$this, 'linkPagesLink'], 1, 2);
         add_filter('show_admin_bar', '__return_false');
         add_filter('pre_option_link_manager_enabled', '__return_true');
-        add_filter('the_content', [$this, 'the_content']);
+        add_filter('the_content', [$this, 'the_content'], 10, 2);
         add_filter('content_pagination', [$this, 'removePagination']);
         add_filter('embed_oembed_html', [$this, 'addEmbedContainer'], 99);
         add_filter('video_embed_html', [$this, 'addEmbedContainer'], 99);
@@ -77,7 +77,7 @@ class BootstrapTheme
         add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
         add_filter('wpseo_json_ld_output', [$this, 'removeYoastJson']);
         add_filter('wp_get_attachment_image_attributes', [$this, 'addAttachmentImageLazyload'], 200);
-        add_filter('the_content', [$this, 'addLazyload'], 200);
+        add_filter('the_content', [$this, 'addLazyload'], 200, 2);
         add_filter('widget_text', [$this, 'addLazyload'], 200);
         add_filter('post_thumbnail_html', [$this, 'addLazyload'], 200);
         add_filter('get_avatar', [$this, 'addLazyload'], 200);
@@ -289,13 +289,10 @@ class BootstrapTheme
             return null;
         }
 
-        $content = apply_filters('the_content', $post->post_content);
-
-        // get raw content without html tags
-        $rawContent = strip_tags($content);
+        $content = apply_filters('the_content', $post->post_content, true);
 
         // count words from raw content
-        $wordCount = str_word_count($rawContent);
+        $wordCount = str_word_count($content);
 
         if (empty($wordCount)) {
             return null;
@@ -337,17 +334,25 @@ class BootstrapTheme
      * Return post content
      *
      * @param string $content
+     * @param bool $raw
      * @return string
      */
-    public function the_content($content)
+    public function the_content($content, $raw = false)
     {
-        if (!is_single()) {
+        if (!$raw && !is_single()) {
             return $content;
         }
 
         $entity = new Entity();
 
-        return $entity->getContent($content);
+        $content = $entity->getContent($content);
+
+        if ($raw && !empty($content)) {
+            // get raw content without html tags
+            return strip_tags($content);
+        }
+
+        return $content;
     }
 
     /**
@@ -531,11 +536,12 @@ class BootstrapTheme
     /**
      * Set lazyload in provided content
      * @param string $content
+     * @param bool $raw
      * @return string
      */
-    public function addLazyload($content)
+    public function addLazyload($content, $raw = false)
     {
-        if (is_feed() || is_preview() || is_admin()) {
+        if ($raw || is_feed() || is_preview() || is_admin()) {
             return $content;
         }
 

@@ -39,13 +39,22 @@ class Entity
     ];
 
     /**
+     * @var array
+     */
+    private static $singletons = [];
+
+    /**
      * Set post object
      *
      * @param \WP_Post|null $post
      */
     public function __construct(\WP_Post $post = null)
     {
-        $this->entity = $this->getEntity($post);
+        if (!class_exists('acf')) {
+            return;
+        }
+
+        $this->entity = $this->getEntitySingleton($post);
     }
 
     /**
@@ -245,23 +254,38 @@ class Entity
     }
 
     /**
-     * Get entity object
+     * Get entity object from singleton or new object
      *
      * @param \WP_Post|null $post
      * @return null|Entities\Thing
      */
-    private function getEntity($post)
+    private function getEntitySingleton($post)
     {
-        if (!class_exists('acf')) {
-            return null;
-        }
-
         $this->post = get_post($post);
 
         if (empty($this->post)) {
             return null;
         }
 
+        if (!empty($this->post->ID) && isset(static::$singletons[$this->post->ID])) {
+            return static::$singletons[$this->post->ID];
+        }
+
+        $entity = $this->getNewEntity($this->post);
+
+        if (!empty($this->post->ID)) {
+            static::$singletons[$this->post->ID] = $entity;
+        }
+
+        return $entity;
+    }
+
+    /**
+     * Get new entity object
+     *
+     * @return null|Entities\Thing
+     */
+    private function getNewEntity() {
         $entityType = get_field('entity-type', $this->post);
 
         if (empty($entityType)) {
