@@ -150,7 +150,7 @@ class Recipe extends CreativeWork
             $instructionData['entity-instruction-text'],
             !empty($listId) ? do_shortcode(
                 sprintf(
-                    '[gallery ids="%s" columns="5"]',
+                    '[gallery include="%s" columns="5" size="thumbnail" link="file"]',
                     implode(',', $listId)
                 )
             ) : ''
