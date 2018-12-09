@@ -23,7 +23,7 @@ gulp.task('js-bootstrap', (cb) => {
         source('bootstrap.js'),
         buffer(),
         sourcemaps.init(),
-        babel({presets: ['env']}),
+        babel({presets: ['@babel/env']}),
         uglify(),
         rev(),
         sourcemaps.write('.'),
@@ -40,7 +40,7 @@ gulp.task('js-minify', (cb) => {
             './node_modules/lazysizes/lazysizes.js'
         ]),
         sourcemaps.init(),
-        babel({presets: ['env']}),
+        babel({presets: ['@babel/env']}),
         uglify(),
         rev(),
         sourcemaps.write('.'),
