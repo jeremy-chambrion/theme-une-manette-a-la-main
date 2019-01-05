@@ -4,8 +4,7 @@
     "license": "GPL-3.0",
     "scripts": {
         "watch": "gulp watch",
-        "build": "gulp build",
-        "clean": "gulp clean"
+        "build": "gulp build"
     },
     "devDependencies": {
         "@babel/core": "^7.2.0",
@@ -16,7 +15,7 @@
         "del": "^3.0.0",
         "font-awesome": "^4.7.0",
         "fontfaceobserver": "^2.0.13",
-        "gulp": "^3.9.1",
+        "gulp": "^4.0.0",
         "gulp-autoprefixer": "^6.0.0",
         "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.0.0",

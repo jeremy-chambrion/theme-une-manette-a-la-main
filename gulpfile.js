@@ -15,7 +15,11 @@ const rev = require('gulp-rev');
 const babel = require('gulp-babel');
 const del = require('del');
 
-gulp.task('js-bootstrap', (cb) => {
+const clean = () => {
+    return del(['assets']);
+};
+
+const javascript = (cb) => {
     pump([
         browserify([
             './src/js/bootstrap.js'
@@ -31,9 +35,9 @@ gulp.task('js-bootstrap', (cb) => {
         rev.manifest('assets/rev-manifest.json', {base: 'assets', merge: true}),
         gulp.dest('./assets')
     ], cb);
-});
+};
 
-gulp.task('js-minify', (cb) => {
+const minify = (cb) => {
     pump([
         gulp.src([
             './src/js/service-worker.js',
@@ -48,11 +52,9 @@ gulp.task('js-minify', (cb) => {
         rev.manifest('assets/rev-manifest.json', {base: 'assets', merge: true}),
         gulp.dest('./assets')
     ], cb);
-});
+};
 
-gulp.task('js', ['js-bootstrap', 'js-minify']);
-
-gulp.task('css', ['js'], (cb) => {
+const css = (cb) => {
     pump([
         gulp.src('./src/sass/style.scss'),
         sass({
@@ -69,9 +71,9 @@ gulp.task('css', ['js'], (cb) => {
         rev.manifest('assets/rev-manifest.json', {base: 'assets', merge: true}),
         gulp.dest('./assets')
     ], cb);
-});
+};
 
-gulp.task('fonts', (cb) => {
+const fonts = (cb) => {
     pump([
         gulp.src([
             './node_modules/font-awesome/fonts/*',
@@ -79,24 +81,28 @@ gulp.task('fonts', (cb) => {
         ]),
         gulp.dest('./assets/fonts')
     ], cb);
-});
+};
 
-gulp.task('logo', (cb) => {
+const logo = (cb) => {
     pump([
         gulp.src([
             './src/logo/*'
         ]),
         gulp.dest('./assets/logo')
     ], cb);
-});
+};
 
-gulp.task('watch', ['css'], () => {
-    gulp.watch(['./src/sass/*.scss'], ['css']);
-    gulp.watch(['./src/js/*.js'], ['js']);
-});
+exports.build = gulp.series(
+    clean,
+    gulp.parallel(
+        gulp.series(javascript, minify),
+        css,
+        fonts,
+        logo
+    )
+);
 
-gulp.task('clean', () => {
-    return del(['assets']);
-});
-
-gulp.task('build', ['css', 'fonts', 'logo']);
+exports.watch = () => {
+    gulp.watch('./src/sass/*.scss', css);
+    gulp.watch('./src/js/*.js', gulp.series(javascript, minify));
+};
