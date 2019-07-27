@@ -95,8 +95,7 @@ const logo = (cb) => {
 exports.build = gulp.series(
     clean,
     gulp.parallel(
-        gulp.series(javascript, minify),
-        css,
+        gulp.series(javascript, minify, css),
         fonts,
         logo
     )
