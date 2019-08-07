@@ -108,18 +108,18 @@ const fontObserver = require('fontfaceobserver');
             addEventListener(document, 'keyup', eventEsc);
         };
 
-        addEventListener(document.querySelector('.search-open'), 'click', e => {
-            'use strict';
-
-            e.preventDefault();
-            openSearch();
+        document.querySelectorAll('.search-open').forEach(el => {
+            addEventListener(el, 'click', e => {
+                e.preventDefault();
+                openSearch();
+            });
         });
 
-        addEventListener(document.querySelector('.search-close'), 'click', e => {
-            'use strict';
-
-            e.preventDefault();
-            closeSearch();
+        document.querySelectorAll('.search-close').forEach(el => {
+            addEventListener(el, 'click', e => {
+                e.preventDefault();
+                closeSearch();
+            });
         });
     }
 
