@@ -94,9 +94,12 @@ abbr {
 
 .wp-block-cover, .wp-block-pullquote {
   blockquote {
-    margin: 0 auto;
-    max-width: 100%;
-    margin-bottom: 0 !important;
+    margin: 0 auto 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  &.is-style-solid-color blockquote {
+    margin: 0 $grid-gutter-width 0 $grid-gutter-width !important;
   }
 
   p {
@@ -105,7 +108,13 @@ abbr {
 }
 
 @media (min-width: $screen-lg-min) {
-  .wp-block-pullquote blockquote {
-    max-width: 60%;
+  .wp-block-pullquote {
+    blockquote {
+      max-width: 60% !important;
+    }
+
+    &.is-style-solid-color blockquote {
+      margin: 0 auto 0 auto !important;
+    }
   }
 }
