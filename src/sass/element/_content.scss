@@ -47,10 +47,13 @@
       }
     }
 
-    p:after  {
+    & > p:first-of-type:after,
+    .has-drop-cap:not(:focus):after {
       clear: both;
       display: table;
       content: " ";
+      padding: 0;
+      margin: 0;
     }
   }
 }
