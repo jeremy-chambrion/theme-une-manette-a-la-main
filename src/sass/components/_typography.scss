@@ -1,22 +1,75 @@
-blockquote {
-  padding: 0;
-  border: 0;
-  margin-bottom: $grid-gutter-width / 2;
-  font-size: $font-size-h4;
-  font-style: italic;
-  color: $gray;
+blockquote, .wp-block-quote {
+  padding: 0 0 0 $grid-gutter-width / 2;
+  border-width: 0 0 0 4px;
+  border-style: solid;
+  margin-bottom: $grid-gutter-width !important;
 
-  &:before {
-    content: "\f10d";
-    font-family: 'FontAwesome';
-    font-size: $font-size-h1;
-    font-style: normal;
-    color: $gray-lighter;
+  &[style*="text-align:right"] {
+    border-width: 0 4px 0 0;
+    padding: 0 $grid-gutter-width / 2 0 0;
   }
 
-  p {
-    padding-left: $grid-gutter-width / 2;
-    border-left: 4px solid $gray-lighter;
+  &[style*="text-align:center"] {
+    border-width: 2px 0 2px 0;
+    padding: $grid-gutter-width / 2 0 $grid-gutter-width / 2 0;
+  }
+
+  p, cite {
+    display: inline;
+    margin-bottom: 0 !important;
+  }
+
+  cite:before {
+    content: " — ";
+  }
+
+  a {
+    word-break: break-all;
+  }
+
+  &.is-style-large {
+    padding: 0;
+    border: 0;
+    font-size: $font-size-h4;
+
+    &:before {
+      content: "\f10d";
+      font-family: 'FontAwesome';
+      font-size: $font-size-h1;
+      font-style: normal;
+    }
+
+    p {
+      display: block;
+      padding: 0 0 0 $grid-gutter-width / 2;
+      border-style: solid;
+      border-width: 0 0 0 4px;
+    }
+
+    &[style*="text-align:right"] p {
+      border-width: 0 4px 0 0;
+      padding: 0 $grid-gutter-width / 2 0 0;
+    }
+
+    &[style*="text-align:center"] p {
+      border: 0;
+      padding: 0;
+    }
+  }
+
+  &:not(.has-text-color) {
+    color: $gray;
+    border-color: $gray-lighter;
+
+    &.is-style-large {
+      &:before {
+        color: $gray-lighter;
+      }
+
+      p {
+        border-color: $gray-lighter;
+      }
+    }
   }
 }
 
@@ -36,5 +89,23 @@ abbr {
     &:hover {
       color: $link-hover-color;
     }
+  }
+}
+
+.wp-block-cover, .wp-block-pullquote {
+  blockquote {
+    margin: 0 auto;
+    max-width: 100%;
+    margin-bottom: 0 !important;
+  }
+
+  p {
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .wp-block-pullquote blockquote {
+    max-width: 60%;
   }
 }

@@ -363,7 +363,7 @@ class BootstrapTheme
      */
     public function addEmbedContainer($html)
     {
-        if (is_admin() || mb_strpos($html, '<p class="embed-container') !== false) {
+        if (is_admin() || mb_strpos($html, 'class="embed-container') !== false) {
             return $html;
         }
 

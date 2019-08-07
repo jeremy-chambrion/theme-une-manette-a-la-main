@@ -22,23 +22,35 @@
   }
 
   body.single-post & {
-    & > p:first-of-type {
-      &:first-letter {
-        float: left;
-        font-size: ceil($font-size-base * 6);
-        font-weight: bold;
-        font-style: normal;
-        line-height: .85;
-        margin-right: $grid-gutter-width / 2;
-        padding-bottom: ceil($font-size-base  * 6 / 15);
-        border-bottom: ceil($font-size-base * 6 / 20) solid $gray-lighter;
-      }
+    & > p:first-of-type:first-letter,
+    .has-drop-cap:not(:focus):first-letter {
+      float: left;
+      font-size: ceil($font-size-base * 6);
+      font-weight: bold;
+      font-style: normal;
+      line-height: .85;
+      margin: 0 $grid-gutter-width / 2 0 0;
+      padding-bottom: ceil($font-size-base  * 6 / 15);
+      border-bottom: ceil($font-size-base * 6 / 20) solid;
+      text-transform: uppercase;
+    }
 
-      &:after {
-        clear: both;
-        display: table;
-        content: " ";
+    & > p:not(.has-text-color):first-of-type:first-letter,
+    .has-drop-cap:not(:focus):not(.has-text-color):first-letter {
+      border-color: $gray-lighter;
+    }
+
+    .has-large-font-size {
+      &:first-of-type:first-letter, &.has-drop-cap:not(:focus):first-letter {
+        font-size: ceil($font-size-base * 9);
+        margin-top: ceil($font-size-base / 3);
       }
+    }
+
+    p:after  {
+      clear: both;
+      display: table;
+      content: " ";
     }
   }
 }

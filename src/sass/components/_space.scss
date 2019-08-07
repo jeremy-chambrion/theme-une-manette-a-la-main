@@ -41,7 +41,7 @@
   }
 }
 
-.divider {
+.divider, .wp-block-separator {
   display: block;
   width: 30%;
   max-width: $grid-gutter-width * 2;
