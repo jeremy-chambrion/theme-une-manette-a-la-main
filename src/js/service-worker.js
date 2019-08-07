@@ -1,6 +1,7 @@
 const version = 'v1::';
 const cacheName = version + 'umalm';
-const cacheHostnames = ['fonts.googleapis.com', 'fonts.gstatic.com', 'gravatar.com'];
+const cacheHostnames = ['fonts.googleapis.com', 'fonts.gstatic.com'];
+const staleHostnames = ['gravatar.com'];
 const cacheExtensions = ['css', 'js', 'otf', 'eot', 'svg', 'ttf', 'woff', 'woff2', 'ico'];
 const installDelayed = [
     '/wp-content/themes/unemanettealamain/assets/logo/40x40.png',
@@ -265,10 +266,20 @@ self.addEventListener('fetch', event => {
 
     // Serve cache data for specific hosts
     // fallback to network and save
-    for (let i = 0; i < cacheHostnames.length; i++) {
+    let i;
+    for (i = 0; i < cacheHostnames.length; i++) {
         if (requestURL.hostname.indexOf(cacheHostnames[i]) > -1) {
             console.log('Service Worker - Found external static URL', event.request.url);
             event.respondWith(fetchCacheOrNetworkSave(event));
+            return;
+        }
+    }
+
+    // Serve stale cache for specific hosts
+    for (i = 0; i < staleHostnames.length; i++) {
+        if (requestURL.hostname.indexOf(staleHostnames[i]) > -1) {
+            console.log('Service Worker - Found external static URL', event.request.url);
+            event.respondWith(fetchStaleWhileRevalidate(event));
             return;
         }
     }
