@@ -207,12 +207,17 @@ class Entity
                 break;
 
             case 'VideoObject':
-                $matches = [];
-                if (preg_match('#src="([^"]+)"#', $field, $matches)) {
-                    $data[$key] = [
+                $srcMatches = [];
+                $titleMatches = [];
+                if (preg_match('#src="([^"]+)"#', $field, $srcMatches)) {
+                    $data[$key] = array_merge([
                         '@type' => 'VideoObject',
-                        'url' => $matches[1]
-                    ];
+                        'url' => $srcMatches[1],
+                    ], $value['values'] ?? []);
+
+                    if (preg_match('#title="([^"]+)"#', $field, $titleMatches)) {
+                        $data[$key]['description'] = $titleMatches[1];
+                    }
                 }
                 break;
 

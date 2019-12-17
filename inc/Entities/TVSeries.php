@@ -36,7 +36,9 @@ class TVSeries extends CreativeWork
                     'name' => ['property' => 'entity-productioncompany-name'],
                     'sameAs' => ['property' => 'entity-productioncompany-url']
                 ]],
-                'trailer' => ['type' => 'VideoObject', 'property' => 'entity-value-trailer'],
+                'trailer' => ['type' => 'VideoObject', 'property' => 'entity-value-trailer', 'values' => [
+                    'name' => 'Trailer'
+                ]],
                 'countryOfOrigin' => ['type' => 'Object', 'values' => [
                     '@type' => 'Country',
                     'name' => ['property' => 'entity-value-origincountry']

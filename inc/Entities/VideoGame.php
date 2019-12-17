@@ -26,7 +26,9 @@ class VideoGame extends Game
                     'name' => ['property' => 'entity-musicby-name'],
                     'sameAs' => ['property' => 'entity-musicby-url']
                 ]],
-                'trailer' => ['type' => 'VideoObject', 'property' => 'entity-value-trailer'],
+                'trailer' => ['type' => 'VideoObject', 'property' => 'entity-value-trailer', 'values' => [
+                    'name' => 'Trailer'
+                ]],
                 'playMode' => ['property' => 'entity-value-videogame-mode'],
                 'gamePlatform' => ['property' => 'entity-value-videogame-platform']
             ]

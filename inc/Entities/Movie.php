@@ -31,7 +31,9 @@ class Movie extends CreativeWork
                     'name' => ['property' => 'entity-productioncompany-name'],
                     'sameAs' => ['property' => 'entity-productioncompany-url']
                 ]],
-                'trailer' => ['type' => 'VideoObject', 'property' => 'entity-value-trailer'],
+                'trailer' => ['type' => 'VideoObject', 'property' => 'entity-value-trailer', 'values' => [
+                    'name' => 'Trailer'
+                ]],
                 'duration' => ['type' => 'Duration', 'property' => 'entity-value-movie-duration'],
                 'countryOfOrigin' => ['type' => 'Object', 'values' => [
                     '@type' => 'Country',
