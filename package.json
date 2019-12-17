@@ -25,7 +25,7 @@
         "gulp-sass": "^4.0.1",
         "gulp-sourcemaps": "^2.6.0",
         "gulp-uglify": "^3.0.0",
-        "headroom.js": "^0.9.3",
+        "headroom.js": "^0.10.3",
         "lazysizes": "^5.1.0",
         "pump": "^3.0.0",
         "vinyl-buffer": "^1.0.0",
