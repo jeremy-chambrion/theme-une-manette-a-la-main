@@ -1,6 +1,7 @@
 const Headroom = require('headroom.js');
-const dateFns = require('date-fns/distance_in_words_to_now');
+const dateFns = require('date-fns/formatDistanceToNow');
 const dateFnsLocale = require('date-fns/locale/fr');
+const dateFnsParseISO = require('date-fns/parseISO');
 const fontObserver = require('fontfaceobserver');
 
 {
@@ -10,11 +11,11 @@ const fontObserver = require('fontfaceobserver');
     }).init();
 
     {
-        let fontSansSerifNormal = new fontObserver('Raleway', {weight: 400});
-        let fontSansSerifBold = new fontObserver('Raleway', {weight: 700});
-        let fontSerifNormal = new fontObserver('Roboto Slab', {weight: 400});
-        let fontSerifBold = new fontObserver('Roboto Slab', {weight: 700});
-        let fontIcons = new fontObserver('FontAwesome');
+        const fontSansSerifNormal = new fontObserver('Raleway', {weight: 400});
+        const fontSansSerifBold = new fontObserver('Raleway', {weight: 700});
+        const fontSerifNormal = new fontObserver('Roboto Slab', {weight: 400});
+        const fontSerifBold = new fontObserver('Roboto Slab', {weight: 700});
+        const fontIcons = new fontObserver('FontAwesome');
 
         Promise.all([
             fontSerifNormal.load(),
@@ -23,8 +24,6 @@ const fontObserver = require('fontfaceobserver');
             fontSansSerifBold.load(),
             fontIcons.load()
         ]).then(() => {
-            'use strict';
-
             document.querySelector('.loader').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('footer').style.display = 'block';
@@ -33,8 +32,6 @@ const fontObserver = require('fontfaceobserver');
                 document.getElementById('footer').style.opacity = 1;
             });
         }).catch(() => {
-            'use strict';
-
             document.querySelector('.loader').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             document.getElementById('footer').style.display = 'block';
@@ -45,9 +42,7 @@ const fontObserver = require('fontfaceobserver');
         });
     }
 
-    let addEventListener = (el, eventName, handler) => {
-        'use strict';
-
+    const addEventListener = (el, eventName, handler) => {
         if (!el) {
             return;
         }
@@ -61,9 +56,7 @@ const fontObserver = require('fontfaceobserver');
         }
     };
 
-    let removeEventListener = (el, eventName, handler) => {
-        'use strict';
-
+    const removeEventListener = (el, eventName, handler) => {
         if (!el) {
             return;
         }
@@ -76,17 +69,13 @@ const fontObserver = require('fontfaceobserver');
     };
 
     {
-        let eventEsc = e => {
-            'use strict';
-
+        const eventEsc = e => {
             if (e.keyCode === 27) {
                 closeSearch();
             }
         };
 
-        let closeSearch = () => {
-            'use strict';
-
+        const closeSearch = () => {
             requestAnimationFrame(() => {
                 document.querySelector('.search-screen').style.opacity = 0;
                 new Promise((resolve) => setTimeout(resolve, 200)).then(() => {
@@ -97,9 +86,7 @@ const fontObserver = require('fontfaceobserver');
             removeEventListener(document, 'keyup', eventEsc);
         };
 
-        let openSearch = () => {
-            'use strict';
-
+        const openSearch = () => {
             document.querySelector('.search-screen').style.display = 'block';
             requestAnimationFrame(() => {
                 document.querySelector('.search-screen').style.opacity = 1;
@@ -124,14 +111,12 @@ const fontObserver = require('fontfaceobserver');
     }
 
     {
-        let convertTime = (selector) => {
-            'use strict';
-
+        const convertTime = (selector) => {
             let elts = document.querySelectorAll(selector);
 
             for (let i = 0; i < elts.length; i++) {
                 elts[i].innerHTML = dateFns(
-                    elts[i].getAttribute('datetime'),
+                    dateFnsParseISO(elts[i].getAttribute('datetime')),
                     {
                         addSuffix: true,
                         locale: dateFnsLocale
@@ -139,7 +124,6 @@ const fontObserver = require('fontfaceobserver');
                 );
             }
         };
-
 
         convertTime('.article-time time');
         convertTime('.comment-metadata time');

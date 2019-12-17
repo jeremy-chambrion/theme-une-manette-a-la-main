@@ -11,7 +11,7 @@
         "@babel/preset-env": "^7.2.0",
         "bootstrap-sass": "^3.3.7",
         "browserify": "^16.2.0",
-        "date-fns": "^1.28.4",
+        "date-fns": "^2.8.1",
         "del": "^5.0.0",
         "font-awesome": "^4.7.0",
         "fontfaceobserver": "^2.0.13",
