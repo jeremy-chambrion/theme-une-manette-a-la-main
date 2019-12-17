@@ -23,7 +23,7 @@
                 <?php
             }
 
-            the_title('<h1 class="article-title p-name entry-title">', '</h1>');
+            the_title('<h1 class="article-title entry-title">', '</h1>');
 
             if (class_exists('acf')) {
                 $subtitle = get_field('post-subtitle');

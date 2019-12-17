@@ -7,10 +7,10 @@ $avatarHtml = get_avatar(get_the_author_meta('email'));
         <?php echo $avatarHtml; ?>
     </div>
     <div class="media-body">
-        <div class="article-author p-author author h-card vcard">
+        <div class="article-author author">
             <?php
             printf(
-                'Par <a href="%s" class="p-name fn u-url url" rel="author">%s</a>',
+                'Par <a href="%s" class="url" rel="author">%s</a>',
                 esc_url(get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta('nicename'))),
                 get_the_author()
             );

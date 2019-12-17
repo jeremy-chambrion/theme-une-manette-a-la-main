@@ -6,7 +6,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="h-entry hentry">
+<article id="post-<?php the_ID(); ?>">
     <?php get_template_part('template-parts/single/header', 'hero'); ?>
 
     <div class="container article-content e-content entry-content">

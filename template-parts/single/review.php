@@ -21,7 +21,7 @@ if (empty($summary)) {
 
 <div class="divider"></div>
 
-<div class="article-review hreview">
+<div class="article-review">
     <h2 class="review-title">En résumé</h2>
     <div class="review-summary row e-content">
         <div class="col-xs-12">

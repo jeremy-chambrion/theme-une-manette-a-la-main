@@ -31,7 +31,7 @@ if (is_plugin_active('wordpress-seo/wp-seo.php')) {
     $relatedLinks = [];
     if (!empty($url)) {
         $authorMetas[] = sprintf(
-            '<a href="%s" class="author-url u-url url"><i class="fa fa-link" aria-label="Site internet"></i></a>',
+            '<a href="%s" class="author-url url"><i class="fa fa-link" aria-label="Site internet"></i></a>',
             $url
         );
         $relatedLinks[] = $url;
@@ -72,7 +72,7 @@ get_header();
 ?>
 
 <main id="main-content" class="container">
-    <header class="page-header h-card vcard">
+    <header class="page-header">
         <div class="media">
             <div class="media-left">
                 <?php echo get_avatar($authorEmail, 150, '', '', ['class' => 'u-photo photo']); ?>
@@ -80,14 +80,14 @@ get_header();
             <div class="media-body">
                 <?php
                 printf(
-                    '<h1 class="page-title p-name fn">%s</h1>',
+                    '<h1 class="page-title">%s</h1>',
                     $authorName
                 );
                 ?>
                 <div class="author-links"><?php echo implode('', $authorMetas); ?></div>
             </div>
         </div>
-        <?php the_archive_description('<h3 class="page-subtitle p-note note">', '</h3>'); ?>
+        <?php the_archive_description('<h3 class="page-subtitle note">', '</h3>'); ?>
     </header><!-- .page-header -->
 
     <?php

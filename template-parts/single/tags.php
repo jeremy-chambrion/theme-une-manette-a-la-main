@@ -16,7 +16,7 @@ if (empty($tags)) {
     <?php
     foreach ($tags as $tag) {
         printf(
-            '<a href="%s" class="p-category" rel="tag">%s</a>',
+            '<a href="%s" rel="tag">%s</a>',
             get_tag_link($tag),
             $tag->name
         );

@@ -6,7 +6,7 @@
  */
 ?>
 
-<article <?php post_class('article-excerpt h-entry hentry' . (is_sticky() ? ' article-sticky' : '')); ?>>
+<article <?php post_class('article-excerpt' . (is_sticky() ? ' article-sticky' : '')); ?>>
     <div class="row">
         <?php
         if (has_post_thumbnail()) {
@@ -37,7 +37,7 @@
                 get_template_part('template-parts/common/category');
 
                 printf(
-                    '<h2 class="article-title p-name entry-title"><a href="%s" class="u-url" rel="bookmark">%s</a></h2>',
+                    '<h2 class="article-title entry-title"><a href="%s" rel="bookmark">%s</a></h2>',
                     esc_url(get_permalink()),
                     get_the_title()
                 );
@@ -45,7 +45,7 @@
 
             </header><!-- .article-header -->
 
-            <div class="article-content article-summary p-summary entry-summary">
+            <div class="article-content article-summary entry-summary">
                 <?php the_excerpt(); ?>
             </div>
 

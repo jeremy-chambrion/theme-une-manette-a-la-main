@@ -17,7 +17,7 @@ if (post_password_required()) {
     return;
 }
 ?>
-<section id="comments" class="container comments-area p-comment">
+<section id="comments" class="container comments-area">
     <div class="divider"></div>
     <?php
     if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) {

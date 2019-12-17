@@ -9,6 +9,6 @@ if (empty($primaryCategory)) {
 }
 ?>
 
-<div class="article-category text-uppercase p-category">
+<div class="article-category text-uppercase">
     <?php echo get_cat_name($primaryCategory); ?>
 </div>

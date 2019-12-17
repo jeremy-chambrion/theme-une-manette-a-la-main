@@ -42,7 +42,7 @@ if (!empty($thumbnaiInlineData)) {
                     <?php get_template_part('template-parts/common/category'); ?>
                 </div>
                 <?php
-                the_title('<h1 class="article-title p-name entry-title">', '</h1>');
+                the_title('<h1 class="article-title entry-title">', '</h1>');
 
                 if (class_exists('acf')) {
                     $subtitle = get_field('post-subtitle');

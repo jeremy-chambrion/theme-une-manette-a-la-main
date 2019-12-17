@@ -16,7 +16,7 @@ if (empty($tldr)) {
 
 <div class="article-tldr">
     <h3><abbr title="Too Long ; Didn't Read">TL;DR</abbr></h3>
-    <div class="tldr-content p-summary entry-summary">
+    <div class="tldr-content entry-summary">
         <?php echo $tldr; ?>
         <div class="divider"></div>
     </div>
