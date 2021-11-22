@@ -1,8 +1,7 @@
 <?php
 
 $primaryCategory = Theme\Unemanettealamain\Utils::get()
-    ->getPrimaryCategory();
-
+    ->getPrimaryCategoryId();
 
 if (empty($primaryCategory)) {
     return;

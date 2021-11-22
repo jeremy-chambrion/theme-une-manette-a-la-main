@@ -47,7 +47,7 @@ class Utils
      *
      * @return bool|int|null
      */
-    public function getPrimaryCategory()
+    public function getPrimaryCategoryId()
     {
         // if YOAST plugin installed and activated, get main category
         // otherwise return deepest category
@@ -55,7 +55,10 @@ class Utils
             return yoast_get_primary_term_id();
         }
 
-        return array_pop(get_the_category());
+        $categories = get_the_category();
+        $lastCategory = array_pop($categories);
+
+        return $lastCategory->term_id ?? null;
     }
 
     /**
@@ -80,7 +83,7 @@ class Utils
                 )
             );
         } elseif (is_single()) {
-            $primaryCategoryId = $this->getPrimaryCategory();
+            $primaryCategoryId = $this->getPrimaryCategoryId();
 
             if (!empty($primaryCategoryId)) {
                 return array_filter(
