@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 article {
   .gallery {
     margin-top: $grid-gutter-width;
@@ -7,7 +9,7 @@ article {
       text-align: center;
       vertical-align: top;
       width: 100%;
-      padding: 0 $grid-gutter-width / 2 $grid-gutter-width;
+      padding: 0 math.div($grid-gutter-width, 2) $grid-gutter-width;
 
       img {
         max-width: 100%;
@@ -33,13 +35,13 @@ article {
         font-size: $font-size-small;
         color: $gray-light;
         text-align: center;
-        margin-top: $grid-gutter-width / 2;
+        margin-top: math.div($grid-gutter-width, 2);
       }
     }
 
     &.gallery-size-thumbnail {
       .gallery-item {
-        padding-bottom: $grid-gutter-width / 2;
+        padding-bottom: math.div($grid-gutter-width, 2);
       }
     }
 
@@ -57,12 +59,12 @@ article {
 
           &:nth-child(odd) {
             text-align:right;
-            padding-right: $grid-gutter-width / 4;
+            padding-right: math.div($grid-gutter-width, 4);
           }
 
           &:nth-child(even) {
             text-align: left;
-            padding-left: $grid-gutter-width / 4;
+            padding-left: math.div($grid-gutter-width, 4);
           }
         }
 
@@ -88,8 +90,8 @@ article {
     &.gallery-columns-2 {
       .gallery-item {
         max-width: 50% !important;
-        padding-left: $grid-gutter-width / 2 !important;
-        padding-right: $grid-gutter-width / 2 !important;
+        padding-left: math.div($grid-gutter-width, 2) !important;
+        padding-right: math.div($grid-gutter-width, 2) !important;
       }
       .gallery-caption {
         display: block !important;
@@ -99,7 +101,7 @@ article {
     &.gallery-columns-3 {
       .gallery-item {
         max-width: 33.33% !important;
-        padding: 0 $grid-gutter-width / 2 $grid-gutter-width !important;
+        padding: 0 math.div($grid-gutter-width, 2) $grid-gutter-width !important;
         text-align: center !important;
       }
       .gallery-caption {

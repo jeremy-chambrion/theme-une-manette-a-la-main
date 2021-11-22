@@ -1,25 +1,27 @@
+@use 'sass:math';
+
 #masthead {
   .site-logo {
-    padding-left: $grid-gutter-width / 4;
+    padding-left: math.div($grid-gutter-width, 4);
 
     img {
       width: auto;
       height: auto;
       max-width: 100%;
-      max-height: $font-size-h3 + $grid-gutter-width / 2;
+      max-height: $font-size-h3 + math.div($grid-gutter-width, 2);
     }
   }
 
   .masthead-content {
-    padding-top: $grid-gutter-width / 4;
+    padding-top: math.div($grid-gutter-width, 4);
 
     .site-branding {
       color: $text-color;
     }
 
     .site-links {
-      padding-top: $grid-gutter-width / 4;
-      padding-right: $grid-gutter-width / 4;
+      padding-top: math.div($grid-gutter-width, 4);
+      padding-right: math.div($grid-gutter-width, 4);
       font-size: $font-size-h3;
       line-height: $font-size-h3;
 
@@ -30,7 +32,7 @@
 
         li {
           display: inline-block;
-          margin-left: $grid-gutter-width / 4;
+          margin-left: math.div($grid-gutter-width, 4);
 
           .site-links-title {
             display: none;
@@ -89,23 +91,23 @@
 @media (min-width: $screen-sm-min) {
   #masthead {
     .site-logo {
-      padding: $grid-gutter-width / 4;
+      padding: math.div($grid-gutter-width, 4);
 
       img {
-        max-height: $font-size-h2 + $grid-gutter-width / 2 + ($font-size-base * $line-height-base);
+        max-height: $font-size-h2 + math.div($grid-gutter-width, 2) + ($font-size-base * $line-height-base);
       }
     }
 
     .site-branding {
-      padding-left: $grid-gutter-width / 2;
-      padding-top: $grid-gutter-width / 4;
+      padding-left: math.div($grid-gutter-width, 2);
+      padding-top: math.div($grid-gutter-width, 4);
       font-size: $font-size-h2;
       line-height: $font-size-h2;
       font-weight: bold;
     }
 
     .site-links {
-      padding-right: $grid-gutter-width / 2;
+      padding-right: math.div($grid-gutter-width, 2);
 
       ul li {
         font-size: $font-size-h2;
@@ -118,16 +120,16 @@
 @media (min-width: $screen-md-min) {
   #masthead {
     .masthead-content .site-links {
-      padding-right: $grid-gutter-width / 2;
+      padding-right: math.div($grid-gutter-width, 2);
 
       ul li {
-        margin-left: $grid-gutter-width / 2;
+        margin-left: math.div($grid-gutter-width, 2);
 
         .site-links-title {
           display: inline-block;
           font-size: $font-size-base;
           vertical-align: bottom;
-          margin-left: $grid-gutter-width / 4;
+          margin-left: math.div($grid-gutter-width, 4);
         }
       }
     }

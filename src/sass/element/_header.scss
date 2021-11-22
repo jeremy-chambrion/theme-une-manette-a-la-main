@@ -1,10 +1,12 @@
+@use 'sass:math';
+
 .article-header {
-  margin-bottom: $grid-gutter-width / 4;
+  margin-bottom: math.div($grid-gutter-width, 4);
 
   .article-category {
     display: inline;
     vertical-align: text-bottom;
-    margin-right: $grid-gutter-width / 4;
+    margin-right: math.div($grid-gutter-width, 4);
     background: linear-gradient(141deg, $brand-primary 20%, $brand-primary-darker 150%);
     color: $inverse-color;
     padding: 3px 7px;
@@ -28,7 +30,7 @@
     }
 
     .article-category-container {
-      margin-bottom: $grid-gutter-width / 2;
+      margin-bottom: math.div($grid-gutter-width, 2);
     }
 
     .article-category {
@@ -36,7 +38,7 @@
     }
 
     .article-subtitle {
-      margin: $grid-gutter-width / 4 auto 0;
+      margin: math.div($grid-gutter-width, 4) auto 0;
       font-size: $font-size-h4;
       font-weight: normal;
       color: $gray;

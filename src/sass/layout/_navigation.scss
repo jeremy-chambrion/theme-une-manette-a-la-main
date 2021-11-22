@@ -1,10 +1,12 @@
+@use 'sass:math';
+
 .navigation {
   .nav-links {
     @extend .text-center;
 
     & > div {
       display: inline-block;
-      margin: 0 $grid-gutter-width / 8 $grid-gutter-width / 4;
+      margin: 0 math.div($grid-gutter-width, 8) math.div($grid-gutter-width, 4);
       text-align: center;
 
       &.previous {
@@ -15,7 +17,7 @@
           &:before {
             @extend .fa;
             @extend .fa-chevron-left;
-            margin-right: $grid-gutter-width / 4;
+            margin-right: math.div($grid-gutter-width, 4);
           }
         }
       }
@@ -28,7 +30,7 @@
           &:after {
             @extend .fa;
             content: "\f054";
-            margin-left: $grid-gutter-width / 4;
+            margin-left: math.div($grid-gutter-width, 4);
           }
         }
       }

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .widget-container {
   margin-bottom: $grid-gutter-width;
 
@@ -6,7 +8,7 @@
   }
 
   .widget-title {
-    margin: 0 0 $grid-gutter-width / 4;
+    margin: 0 0 math.div($grid-gutter-width, 4);
   }
 
   .widget-content {
@@ -16,7 +18,7 @@
       list-style: none;
 
       li {
-        margin-bottom: $grid-gutter-width / 8;
+        margin-bottom: math.div($grid-gutter-width, 8);
       }
     }
   }

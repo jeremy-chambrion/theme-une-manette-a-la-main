@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .article-content {
   body.single &,
   body.page & {
@@ -29,9 +31,9 @@
       font-weight: bold;
       font-style: normal;
       line-height: .85;
-      margin: 0 $grid-gutter-width / 2 0 0;
-      padding-bottom: ceil($font-size-base  * 6 / 15);
-      border-bottom: ceil($font-size-base * 6 / 20) solid;
+      margin: 0 math.div($grid-gutter-width, 2) 0 0;
+      padding-bottom: ceil(math.div($font-size-base  * 6, 15));
+      border-bottom: ceil(math.div($font-size-base * 6, 20)) solid;
       text-transform: uppercase;
     }
 
@@ -43,7 +45,7 @@
     .has-large-font-size {
       &:first-of-type:first-letter, &.has-drop-cap:not(:focus):first-letter {
         font-size: ceil($font-size-base * 9);
-        margin-top: ceil($font-size-base / 3);
+        margin-top: ceil(math.div($font-size-base, 3));
       }
     }
 

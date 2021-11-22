@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 #jp-relatedposts {
   padding: 0 !important;
   margin: 0 !important;
@@ -14,13 +16,13 @@
     float: none !important;
     display: block !important;
     margin-top: 0 !important;
-    margin-bottom: $line-height-computed / 2 !important;
+    margin-bottom: math.div($line-height-computed, 2) !important;
 
 
     &:before {
       @extend .fa;
       @extend .fa-random;
-      margin-right: $grid-gutter-width / 4;
+      margin-right: math.div($grid-gutter-width, 4);
     }
 
     em:before {
@@ -37,7 +39,7 @@
       opacity: 1 !important;
 
       &:first-child {
-        margin-bottom: $grid-gutter-width / 2 !important;
+        margin-bottom: math.div($grid-gutter-width, 2) !important;
       }
 
       &:last-child {
@@ -92,7 +94,7 @@
       .jp-relatedposts-post-title {
         position: absolute;
         bottom: 0;
-        padding: $grid-gutter-width / 2;
+        padding: math.div($grid-gutter-width, 2);
 
         a {
           font-size: $font-size-h4 !important;

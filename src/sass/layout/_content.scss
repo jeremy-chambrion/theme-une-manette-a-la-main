@@ -1,6 +1,8 @@
+@use 'sass:math';
+
 #content {
   display: none;
-  padding-top: $grid-gutter-width / 4 + $font-size-h3 + ($font-size-base * $line-height-base) + $grid-gutter-width;
+  padding-top: math.div($grid-gutter-width, 4) + $font-size-h3 + ($font-size-base * $line-height-base) + $grid-gutter-width;
   opacity: 0;
   transition: opacity .2s ease-out;
 }

@@ -1,14 +1,16 @@
+@use 'sass:math';
+
 #under-hero-content,
 #hero-content,
 .not-found,
 .no-results {
-  margin-top: $grid-gutter-width / 2;
+  margin-top: math.div($grid-gutter-width, 2);
 }
 
 #main-content,
 #comments,
 .no-results {
-  margin-bottom: $grid-gutter-width / 2;
+  margin-bottom: math.div($grid-gutter-width, 2);
 }
 
 @media (min-width: $screen-sm-min) {

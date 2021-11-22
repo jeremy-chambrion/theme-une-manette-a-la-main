@@ -1,9 +1,11 @@
+@use 'sass:math';
+
 #comments {
   .comments-title {
     &:before {
       @extend .fa;
       @extend .fa-comments;
-      margin-right: $grid-gutter-width / 4;
+      margin-right: math.div($grid-gutter-width, 4);
     }
 
     .comments-number {
@@ -54,14 +56,14 @@
         .avatar {
           @extend .pull-left;
           @extend .img-circle;
-          width: ceil(($font-size-base  * 2) + ($grid-gutter-width / 6));
+          width: ceil(($font-size-base  * 2) + math.div($grid-gutter-width, 6));
           height: auto;
-          margin-right: $grid-gutter-width / 4;
+          margin-right: math.div($grid-gutter-width, 4);
         }
 
         .comment-author {
           line-height: 1;
-          margin-bottom: $grid-gutter-width / 6;
+          margin-bottom: math.div($grid-gutter-width, 6);
         }
 
         .comment-metadata {
@@ -74,7 +76,7 @@
             &:before {
               @extend .fa;
               @extend .fa-link;
-              margin-right: $grid-gutter-width / 10;
+              margin-right: math.div($grid-gutter-width, 10);
             }
           }
 
@@ -85,8 +87,8 @@
               &:before {
                 @extend .fa;
                 @extend .fa-pencil;
-                margin-left: $grid-gutter-width / 2;
-                margin-right: $grid-gutter-width / 10;
+                margin-left: math.div($grid-gutter-width, 2);
+                margin-right: math.div($grid-gutter-width, 10);
               }
             }
           }
@@ -96,13 +98,13 @@
           @extend .alert;
           @extend .alert-warning;
           font-size: $font-size-small;
-          margin-top: $grid-gutter-width / 2;
+          margin-top: math.div($grid-gutter-width, 2);
           margin-bottom: 0;
 
           &:before {
             @extend .fa;
             @extend .fa-exclamation-triangle;
-            margin-right: $grid-gutter-width / 4;
+            margin-right: math.div($grid-gutter-width, 4);
           }
         }
       }
@@ -122,7 +124,7 @@
           &:before {
             @extend .fa;
             @extend .fa-pencil;
-            margin-right: $grid-gutter-width / 4;
+            margin-right: math.div($grid-gutter-width, 4);
           }
 
           &.comment-reply-login {
@@ -140,7 +142,7 @@
       &:before {
         @extend .fa;
         @extend .fa-commenting-o;
-        margin-right: $grid-gutter-width / 4;
+        margin-right: math.div($grid-gutter-width, 4);
       }
 
       a {
@@ -157,7 +159,7 @@
       &:before {
         @extend .fa;
         @extend .fa-exclamation-triangle;
-        margin-right: $grid-gutter-width / 4;
+        margin-right: math.div($grid-gutter-width, 4);
       }
     }
 
@@ -174,7 +176,7 @@
         &:before {
           @extend .fa;
           @extend .fa-info-circle;
-          margin-right: $grid-gutter-width / 4;
+          margin-right: math.div($grid-gutter-width, 4);
         }
       }
 
@@ -186,7 +188,7 @@
         &:before {
           @extend .fa;
           @extend .fa-info-circle;
-          margin-right: $grid-gutter-width / 4;
+          margin-right: math.div($grid-gutter-width, 4);
         }
       }
 

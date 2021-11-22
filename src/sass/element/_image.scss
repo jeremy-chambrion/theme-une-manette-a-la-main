@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 article {
   .wp-caption, .wp-block-image {
     max-width: 100%;
@@ -13,7 +15,7 @@ article {
 
   img {
     &.wp-post-image {
-      margin-bottom: $grid-gutter-width / 2;
+      margin-bottom: math.div($grid-gutter-width, 2);
     }
 
     &.wp-post-image,
@@ -73,12 +75,12 @@ article {
         font-size: $font-size-small;
         color: $gray-light;
         text-align: center;
-        margin-top: $grid-gutter-width / 2;
+        margin-top: math.div($grid-gutter-width, 2);
 
         &:after {
           @extend .divider;
           content: "";
-          margin-top: $grid-gutter-width / 2;
+          margin-top: math.div($grid-gutter-width, 2);
           margin-bottom: $grid-gutter-width;
         }
       }

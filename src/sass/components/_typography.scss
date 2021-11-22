@@ -1,17 +1,19 @@
+@use 'sass:math';
+
 blockquote, .wp-block-quote {
-  padding: 0 0 0 $grid-gutter-width / 2;
+  padding: 0 0 0 math.div($grid-gutter-width, 2);
   border-width: 0 0 0 4px;
   border-style: solid;
   margin-bottom: $grid-gutter-width !important;
 
   &[style*="text-align:right"] {
     border-width: 0 4px 0 0;
-    padding: 0 $grid-gutter-width / 2 0 0;
+    padding: 0 math.div($grid-gutter-width, 2) 0 0;
   }
 
   &[style*="text-align:center"] {
     border-width: 2px 0 2px 0;
-    padding: $grid-gutter-width / 2 0 $grid-gutter-width / 2 0;
+    padding: math.div($grid-gutter-width, 2) 0 math.div($grid-gutter-width, 2) 0;
   }
 
   p, cite {
@@ -41,14 +43,14 @@ blockquote, .wp-block-quote {
 
     p {
       display: block;
-      padding: 0 0 0 $grid-gutter-width / 2;
+      padding: 0 0 0 math.div($grid-gutter-width, 2);
       border-style: solid;
       border-width: 0 0 0 4px;
     }
 
     &[style*="text-align:right"] p {
       border-width: 0 4px 0 0;
-      padding: 0 $grid-gutter-width / 2 0 0;
+      padding: 0 math.div($grid-gutter-width, 2) 0 0;
     }
 
     &[style*="text-align:center"] p {

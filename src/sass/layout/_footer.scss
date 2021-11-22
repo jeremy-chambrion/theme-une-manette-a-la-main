@@ -1,12 +1,14 @@
+@use 'sass:math';
+
 #footer {
   display: none;
   opacity: 0;
   transition: opacity .2s ease-out;
   background-color: $brand-secondary;
   color: lighten($brand-secondary, 20%);
-  padding-top: $grid-gutter-width / 2;
-  padding-bottom: $grid-gutter-width / 2;
-  
+  padding-top: math.div($grid-gutter-width, 2);
+  padding-bottom: math.div($grid-gutter-width, 2);
+
   a {
     color: lighten($brand-secondary, 20%);
   }
@@ -24,15 +26,15 @@
     li {
       display: inline;
       font-size: $font-size-small;
-      margin-bottom: $font-size-small / 4;
+      margin-bottom: math.div($font-size-small, 4);
 
       i {
-        margin-right: $font-size-small / 2;
+        margin-right: math.div($font-size-small, 2);
       }
 
       & + li:before {
         content: "—";
-        margin: 0 $grid-gutter-width / 2;
+        margin: 0 math.div($grid-gutter-width, 2);
       }
     }
 

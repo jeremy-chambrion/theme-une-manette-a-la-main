@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 #primary-menu {
   white-space: nowrap;
   margin: 0;
@@ -11,14 +13,14 @@
 
     a {
       display: inline-block;
-      padding: $grid-gutter-width / 4;
+      padding: math.div($grid-gutter-width, 4);
       padding-left: 0;
       color: $brand-primary-darker;
     }
 
     &:first-child {
       a {
-        padding-left: $grid-gutter-width / 4;
+        padding-left: math.div($grid-gutter-width, 4);
       }
     }
   }
@@ -27,11 +29,11 @@
 @media (min-width: $screen-sm-min) {
   #primary-menu {
     li:first-child a {
-      padding-left: $grid-gutter-width / 2;
+      padding-left: math.div($grid-gutter-width, 2);
     }
 
     li:last-child a {
-      padding-right: $grid-gutter-width / 2;
+      padding-right: math.div($grid-gutter-width, 2);
     }
   }
 }

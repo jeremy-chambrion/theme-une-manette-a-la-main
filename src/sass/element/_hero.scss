@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .article-header {
   position: relative;
 
@@ -8,7 +10,7 @@
 
     .article-hero-image {
       width: 100%;
-      height: calc(100vh - #{$grid-gutter-width / 4 + $font-size-h3 + ($font-size-base * $line-height-base) + $grid-gutter-width});
+      height: calc(100vh - #{math.div($grid-gutter-width, 4) + $font-size-h3 + ($font-size-base * $line-height-base) + $grid-gutter-width});
       overflow: hidden;
       position: relative;
       left: 0;
