@@ -76,12 +76,13 @@ article {
         color: $gray-light;
         text-align: center;
         margin-top: math.div($grid-gutter-width, 2);
+        margin-bottom: 0;
 
         &:after {
           @extend .divider;
           content: "";
           margin-top: math.div($grid-gutter-width, 2);
-          margin-bottom: $grid-gutter-width;
+          margin-bottom: 0;
         }
       }
 
@@ -124,26 +125,14 @@ article {
       margin-top: $grid-gutter-width * 2;
       margin-bottom: $grid-gutter-width * 2;
 
-      figcaption:after {
-        margin-bottom: $grid-gutter-width * 2;
-      }
-
       &.alignleft {
         float: left;
         margin: 0 $grid-gutter-width $grid-gutter-width 0;
-
-        figcaption:after {
-          margin-bottom: 0;
-        }
       }
 
       &.alignright {
         float: right;
         margin: 0 0 $grid-gutter-width $grid-gutter-width;
-
-        figcaption:after {
-          margin-bottom: 0;
-        }
       }
     }
   }
