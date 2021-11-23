@@ -18,8 +18,6 @@ class BootstrapTheme
         'bootstrap-script',
         'lazysizes-script',
         'devicepx',
-        'et_monarch-idle',
-        'et_monarch-custom-js',
         'jetpack_related-posts',
         'wp-embed',
         'comment-reply'
