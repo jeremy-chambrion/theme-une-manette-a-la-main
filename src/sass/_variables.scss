@@ -19,8 +19,8 @@ $link-color: $brand-secondary;
 $link-hover-color: $brand-secondary-darker;
 $link-hover-decoration: underline;
 
-$font-family-sans-serif: "Raleway", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-$font-family-serif: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", ui-sans-serif, sans-serif;
+$font-family-serif: "Roboto Slab", ui-serif, serif;
 $font-family-base: $font-family-sans-serif;
 $font-size-base: 18px;
 $line-height-base: 1.6;
@@ -33,13 +33,9 @@ $font-size-h3: ceil(($font-size-base * 1.4));
 $font-size-h4: ceil(($font-size-base * 1.2));
 
 $headings-font-weight: 700;
-
 $navbar-brand-height: 50px;
-
 $blockquote-font-size: $font-size-base;
-
 $dl-horizontal-offset: 256px;
-
 $icon-font-path: "fonts/";
 
 // font awesome
