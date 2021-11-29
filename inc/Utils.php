@@ -373,6 +373,16 @@ class Utils
         return $height / $width;
     }
 
+    public function getCriticalCss($filename)
+    {
+        $path = sprintf('%s/critical/%s', get_template_directory(), $filename);
+        if (file_exists($path)) {
+            return file_get_contents($path);
+        }
+
+        return '';
+    }
+
     /**
      * Get asset with versioned name
      *

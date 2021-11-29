@@ -30,6 +30,9 @@ class BootstrapTheme
      */
     private static $singleton;
 
+    /** @var string[] */
+    private $inlineStyles = [];
+
     /**
      * Return singleton
      *
@@ -53,8 +56,11 @@ class BootstrapTheme
         add_action('after_setup_theme', [$this, 'initMenus']);
         add_action('after_setup_theme', [$this, 'initContentWidth'], 0);
         add_action('widgets_init', [$this, 'initWidgets']);
+        add_action('wp_enqueue_scripts', [$this, 'initStyles']);
         add_action('wp_enqueue_scripts', [$this, 'initScripts']);
+        add_action('style_loader_tag', [$this, 'transformLinkStylesheet']);
         add_action('wp_head', [$this, 'initServiceWorker']);
+        add_action('wp_head', [$this, 'addInlinedStyles'], 2);
         add_action('wp_footer', [$this, 'addJsonLd'], 100);
         add_action('acf/init', [$this, 'initAcf']);
 
@@ -162,12 +168,19 @@ class BootstrapTheme
         );
     }
 
-    /**
-     * Init css and js
-     */
-    public function initScripts()
+    public function initStyles()
     {
         if (!is_admin()) {
+            if (is_front_page()) {
+                $this->inlineStyles[] = \Theme\Unemanettealamain\Utils::get()->getCriticalCss('home-critical.css');
+            } elseif (is_home()) {
+                $this->inlineStyles[] = \Theme\Unemanettealamain\Utils::get()->getCriticalCss('latest-critical.css');
+            } elseif (is_category()) {
+                $this->inlineStyles[] = \Theme\Unemanettealamain\Utils::get()->getCriticalCss('tag-critical.css');
+            } elseif (is_singular()) {
+                $this->inlineStyles[] = \Theme\Unemanettealamain\Utils::get()->getCriticalCss('article-critical.css');
+            }
+
             $cssUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('style.css');
             if (!empty($cssUrl)) {
                 wp_enqueue_style(
@@ -177,7 +190,15 @@ class BootstrapTheme
                     null
                 );
             }
+        }
+    }
 
+    /**
+     * Init css and js
+     */
+    public function initScripts()
+    {
+        if (!is_admin()) {
             $jsBootstrapUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('bootstrap.js');
             if (!empty($jsBootstrapUrl)) {
                 wp_enqueue_script(
@@ -413,6 +434,26 @@ class BootstrapTheme
             }
         </script>
         <?php
+    }
+
+    public function addInlinedStyles()
+    {
+        foreach (array_filter($this->inlineStyles) as $css) {
+            echo sprintf('<style>%s</style>', $css);
+        }
+    }
+
+    public function transformLinkStylesheet($tag)
+    {
+        if (preg_match("#^<link rel='stylesheet'.* media='(screen|all)'#", $tag, $matches)) {
+            return str_replace(
+                "media='$matches[1]'",
+                "media='print' onload=\"this.media='$matches[1]'; this.onload=null;\"",
+                $tag
+            );
+        }
+
+        return $tag;
     }
 
     /**
