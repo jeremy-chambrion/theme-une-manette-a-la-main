@@ -75,10 +75,10 @@ class BootstrapTheme
         add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
         add_filter('wpseo_json_ld_output', [$this, 'removeYoastJson']);
         add_filter('wp_get_attachment_image_attributes', [$this, 'addAttachmentImageLazyload'], 200);
-        add_filter('the_content', [$this, 'addLazyload'], 200, 2);
-        add_filter('widget_text', [$this, 'addLazyload'], 200);
-        add_filter('post_thumbnail_html', [$this, 'addLazyload'], 200);
-        add_filter('get_avatar', [$this, 'addLazyload'], 200);
+        add_filter('the_content', [$this, 'addImgLazyload'], 200, 2);
+        add_filter('the_content', [$this, 'addMiscLazyload'], 200, 2);
+        add_filter('widget_text', [$this, 'addImgLazyload'], 200);
+        add_filter('get_avatar', [$this, 'addImgLazyload'], 200);
     }
 
     /**
@@ -519,7 +519,7 @@ class BootstrapTheme
             return $attr;
         }
 
-        $attr['data-src'] = $attr['src'];
+        $attr['data-src'] = $attr['src'] ?? '';
         $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         $attr['class'] = 'lazyload '. $attr['class'];
 
@@ -528,7 +528,35 @@ class BootstrapTheme
             unset($attr['srcset']);
         }
 
+        if (isset($attr['sizes'])) {
+            $attr['data-sizes'] = $attr['sizes'];
+            unset($attr['sizes']);
+        }
+
         return $attr;
+    }
+
+    /**
+     * Set lazyload for img tags in provided content
+     * @param string $content
+     * @param bool $raw
+     * @return string
+     */
+    public function addImgLazyload($content, $raw = false)
+    {
+        if ($raw || is_feed() || is_preview() || is_admin()) {
+            return $content;
+        }
+
+        return $this->addLazyloadWithTag(
+            $content,
+            'img',
+            [
+                'src' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+                'srcset' => '',
+                'sizes' => '',
+            ]
+        );
     }
 
     /**
@@ -537,17 +565,12 @@ class BootstrapTheme
      * @param bool $raw
      * @return string
      */
-    public function addLazyload($content, $raw = false)
+    public function addMiscLazyload($content, $raw = false)
     {
         if ($raw || is_feed() || is_preview() || is_admin()) {
             return $content;
         }
 
-        $content = $this->addLazyloadWithTag(
-            $content,
-            'img',
-            ['src' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'srcset' => '']
-        );
         $content = $this->addLazyloadWithTag(
             $content,
             'iframe',
@@ -558,13 +581,11 @@ class BootstrapTheme
             'video',
             ['src' => '', 'poster' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==']
         );
-        $content = $this->addLazyloadWithTag(
+        return $this->addLazyloadWithTag(
             $content,
             'embed',
             ['src' => '']
         );
-
-        return $content;
     }
 
     /**
