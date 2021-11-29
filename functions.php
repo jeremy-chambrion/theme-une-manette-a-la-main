@@ -55,7 +55,6 @@ class BootstrapTheme
         add_action('widgets_init', [$this, 'initWidgets']);
         add_action('wp_enqueue_scripts', [$this, 'initStyles']);
         add_action('wp_enqueue_scripts', [$this, 'initScripts']);
-        add_action('style_loader_tag', [$this, 'transformLinkStylesheet']);
         add_action('wp_head', [$this, 'initServiceWorker']);
         add_action('wp_footer', [$this, 'addJsonLd'], 100);
         add_action('acf/init', [$this, 'initAcf']);
@@ -420,19 +419,6 @@ class BootstrapTheme
             }
         </script>
         <?php
-    }
-
-    public function transformLinkStylesheet($tag)
-    {
-        if (preg_match("#^<link rel='stylesheet'.* media='(screen|all)'#", $tag, $matches)) {
-            return str_replace(
-                "media='$matches[1]'",
-                "media='print' onload=\"this.media='$matches[1]'; this.onload=null;\"",
-                $tag
-            );
-        }
-
-        return $tag;
     }
 
     /**
