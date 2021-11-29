@@ -39,10 +39,7 @@ const javascript = (cb) => {
 
 const minify = (cb) => {
     pump([
-        gulp.src([
-            './src/js/service-worker.js',
-            './node_modules/lazysizes/lazysizes.js'
-        ]),
+        gulp.src(['./src/js/service-worker.js']),
         gulpSourcemaps.init(),
         gulpBabel({presets: ['@babel/env']}),
         gulpUglify(),
