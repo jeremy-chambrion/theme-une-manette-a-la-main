@@ -42,6 +42,7 @@ class BootstrapTheme
         add_action('after_setup_theme', [$this, 'initMenus']);
         add_action('after_setup_theme', [$this, 'initContentWidth'], 0);
         add_action('widgets_init', [$this, 'initWidgets']);
+        add_action('wp_enqueue_scripts', [$this, 'initStyles']);
         add_action('wp_enqueue_scripts', [$this, 'initScripts']);
         add_action('wp_head', [$this, 'initServiceWorker']);
         add_action('wp_footer', [$this, 'addJsonLd'], 100);
@@ -150,10 +151,7 @@ class BootstrapTheme
         );
     }
 
-    /**
-     * Init css and js
-     */
-    public function initScripts()
+    public function initStyles()
     {
         if (!is_admin()) {
             $cssUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('style.css');
@@ -165,7 +163,15 @@ class BootstrapTheme
                     null
                 );
             }
+        }
+    }
 
+    /**
+     * Init css and js
+     */
+    public function initScripts()
+    {
+        if (!is_admin()) {
             $jsBootstrapUrl = \Theme\Unemanettealamain\Utils::get()->getRevisionAsset('bootstrap.js');
             if (!empty($jsBootstrapUrl)) {
                 wp_enqueue_script(
