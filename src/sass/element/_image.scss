@@ -22,6 +22,7 @@ article {
     &[class*="wp-image-"] {
       display: block;
       max-width: 100%;
+      height: auto;
       border-radius: 2px;
 
       &[data-lazyloaded] {
@@ -29,7 +30,6 @@ article {
       }
 
       &.litespeed-loaded {
-        height: auto;
         opacity: 1;
         transition: opacity 200ms ease-out;
       }

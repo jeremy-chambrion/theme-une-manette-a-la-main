@@ -13,6 +13,7 @@ article {
 
       img {
         max-width: 100%;
+        height: auto;
         display: inline-block;
         border-radius: 2px;
 
@@ -21,7 +22,6 @@ article {
         }
 
         &.litespeed-loaded {
-          height: auto;
           opacity: 1;
           transition: opacity 200ms ease-out;
         }
