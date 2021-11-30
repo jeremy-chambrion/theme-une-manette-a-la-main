@@ -13,7 +13,11 @@
             ?>
             <a href="<?php echo esc_url(get_permalink()); ?>" class="article-featured-container" aria-hidden="true">
                 <?php
-                echo get_the_post_thumbnail();
+                echo get_the_post_thumbnail(
+                    null,
+                    'post-thumbnail',
+                    $args['thumbnail-attr'] ?? ''
+                );
 
                 if (is_sticky()) {
                     echo '<span class="article-ribbon article-ribbon-sticky"><i class="fa fa-bookmark"></i>La sélection du moment</span>';

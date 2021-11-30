@@ -120,7 +120,11 @@ class Utils
             while ($query->have_posts()) {
                 echo '<div class="col-xs-12 col-md-6">';
                 $query->the_post();
-                get_template_part('template-parts/excerpt/article', get_post_format());
+                get_template_part(
+                    'template-parts/excerpt/article',
+                    get_post_format(),
+                    $query->current_post < 2 ? ['thumbnail-attr' => ['data-no-lazy' => '1']] : []
+                );
                 echo '</div>';
 
                 // add post to structured data
@@ -144,14 +148,22 @@ class Utils
      * Posts are displayed up to 3 posts on a line.
      *
      * @param \WP_Query $query
-     * @param string $title
+     * @param string|bool $title
      * @param bool $withFeatured
      * @param string|null $classSection
      * @param string|null $icon
      * @param string|null $link
+     * @param bool $filterLazyload
      */
-    public function printFrontGridList(\WP_Query $query, $title, $withFeatured = false, $classSection = null, $icon = null, $link = null)
-    {
+    public function printFrontGridList(
+        \WP_Query $query,
+        $title,
+        bool $withFeatured = false,
+        ?string $classSection = null,
+        ?string $icon = null,
+        ?string $link = null,
+        bool $filterLazyload = false
+    ) {
         if (!$query->have_posts()) {
             return;
         }
@@ -178,10 +190,13 @@ class Utils
         // display grid of posts
         if ($withFeatured || $query->post_count === 1) {
             $classRow = 'grid-list-full';
+            $minLazyloadIndex = 1;
         } elseif ($query->post_count === 2) {
             $classRow = 'grid-list-mid';
+            $minLazyloadIndex = 2;
         } else {
             $classRow = 'grid-list-third';
+            $minLazyloadIndex = 3;
         }
         printf(
             '<div class="row %s">',
@@ -192,7 +207,12 @@ class Utils
         while ($query->have_posts()) {
             echo '<div>';
             $query->the_post();
-            get_template_part('template-parts/excerpt/article', get_post_format());
+            get_template_part(
+                'template-parts/excerpt/article',
+                get_post_format(),
+                $filterLazyload && $query->current_post < $minLazyloadIndex ?
+                    ['thumbnail-attr' => ['data-no-lazy' => '1']] : []
+            );
             echo '</div>';
 
             // add post to structured data
