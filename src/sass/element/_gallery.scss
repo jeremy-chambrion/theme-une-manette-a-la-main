@@ -13,21 +13,8 @@ article {
 
       img {
         max-width: 100%;
-        height: auto;
         display: inline-block;
         border-radius: 2px;
-
-        &.lazyload,
-        &.lazyloading {
-          height: 0;
-          opacity: 0;
-        }
-
-        &.lazyloaded {
-          height: auto;
-          opacity: 1;
-          transition: opacity 200ms ease-out;
-        }
       }
 
       .gallery-caption {
