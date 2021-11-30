@@ -24,18 +24,17 @@ article {
       max-width: 100%;
       height: auto;
       border-radius: 2px;
+    }
 
-      &.lazyload,
-      &.lazyloading {
-        height: 0;
-        opacity: 0;
-      }
+    &[data-lazyloaded] {
+      opacity: .1;
+      background-color: $gray-light;
+    }
 
-      &.lazyloaded {
-        height: auto;
-        opacity: 1;
-        transition: opacity 200ms ease-out;
-      }
+    &.litespeed-loaded {
+      opacity: 1;
+      transition: opacity 200ms ease-out;
+      background-color: transparent;
     }
 
     &.aligncenter,
@@ -84,11 +83,6 @@ article {
           margin-top: math.div($grid-gutter-width, 2);
           margin-bottom: 0;
         }
-      }
-
-      .lazyload + figcaption,
-      .lazyloading + figcaption {
-        display: none;
       }
     }
   }
