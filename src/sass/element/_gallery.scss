@@ -18,12 +18,14 @@ article {
         border-radius: 2px;
 
         &[data-lazyloaded] {
-          opacity: 0;
+          opacity: .1;
+          background-color: $gray-light;
         }
 
         &.litespeed-loaded {
           opacity: 1;
           transition: opacity 200ms ease-out;
+          background-color: transparent;
         }
       }
 
