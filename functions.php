@@ -14,19 +14,6 @@ require_once 'inc/LinkingData.php';
  */
 class BootstrapTheme
 {
-    const SCRIPTS_ASYNC = [
-        'bootstrap-script',
-        'lazysizes-script',
-        'devicepx',
-        'et_monarch-idle',
-        'et_monarch-custom-js',
-        'jetpack_related-posts',
-        'wp-embed',
-        'comment-reply'
-    ];
-
-    const SCRIPTS_DEFER = [];
-
     /**
      * @var BootstrapTheme
      */
@@ -73,7 +60,6 @@ class BootstrapTheme
         add_filter('oembed_result', [$this, 'addEmbedContainer'], 99);
         add_filter('image_size_names_choose', [$this, 'addMediaSizes']);
         add_filter('wp', [$this, 'removeJetpackRelatedPosts'], 20);
-        add_filter('script_loader_tag', [$this, 'addAsyncAttribute'], 10, 2);
         add_filter('wp_default_scripts', [$this, 'removeJqueryMigrate']);
         add_filter('wpseo_json_ld_output', [$this, 'removeYoastJson']);
         add_filter('wp_get_attachment_image_attributes', [$this, 'addAttachmentImageLazyload'], 200);
@@ -457,24 +443,6 @@ class BootstrapTheme
                 40
             );
         }
-    }
-
-    /**
-     * Add async and/or defer attributes to a script tag
-     *
-     * @param string $tag
-     * @param string $handle
-     * @return string
-     */
-    public function addAsyncAttribute($tag, $handle)
-    {
-        if (in_array($handle, self::SCRIPTS_ASYNC)) {
-            return str_replace(' src=', ' async defer src=', $tag);
-        } elseif (in_array($handle, self::SCRIPTS_DEFER)) {
-            return str_replace(' src=', ' defer src=', $tag);
-        }
-
-        return $tag;
     }
 
     /**
