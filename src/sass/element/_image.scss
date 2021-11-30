@@ -23,6 +23,16 @@ article {
       display: block;
       max-width: 100%;
       border-radius: 2px;
+
+      &[data-lazyloaded] {
+        opacity: 0;
+      }
+
+      &.litespeed-loaded {
+        height: auto;
+        opacity: 1;
+        transition: opacity 200ms ease-out;
+      }
     }
 
     &.aligncenter,
@@ -70,6 +80,10 @@ article {
           content: "";
           margin-top: math.div($grid-gutter-width, 2);
           margin-bottom: 0;
+        }
+
+        [data-lazyloaded] + & {
+          display: none;
         }
       }
     }
