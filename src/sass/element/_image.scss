@@ -24,17 +24,17 @@ article {
       max-width: 100%;
       height: auto;
       border-radius: 2px;
+    }
 
-      &[data-lazyloaded] {
-        opacity: .1;
-        background-color: $gray-light;
-      }
+    &[data-lazyloaded] {
+      opacity: .1;
+      background-color: $gray-light;
+    }
 
-      &.litespeed-loaded {
-        opacity: 1;
-        transition: opacity 200ms ease-out;
-        background-color: transparent;
-      }
+    &.litespeed-loaded {
+      opacity: 1;
+      transition: opacity 200ms ease-out;
+      background-color: transparent;
     }
 
     &.aligncenter,
