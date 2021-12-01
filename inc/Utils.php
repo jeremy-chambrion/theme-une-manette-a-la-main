@@ -123,7 +123,7 @@ class Utils
                 get_template_part(
                     'template-parts/excerpt/article',
                     get_post_format(),
-                    $query->current_post < 2 ? ['thumbnail-attr' => ['data-no-lazy' => '1']] : []
+                    $query->current_post < 2 ? ['thumbnail-attr' => ['data-no-lazy' => '1', 'loading' => null]] : []
                 );
                 echo '</div>';
 
@@ -211,7 +211,7 @@ class Utils
                 'template-parts/excerpt/article',
                 get_post_format(),
                 $filterLazyload && $query->current_post < $minLazyloadIndex ?
-                    ['thumbnail-attr' => ['data-no-lazy' => '1']] : []
+                    ['thumbnail-attr' => ['data-no-lazy' => '1', 'loading' => null]] : []
             );
             echo '</div>';
 
