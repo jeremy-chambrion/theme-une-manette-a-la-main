@@ -1,6 +1,11 @@
 @use 'sass:math';
 
 article {
+  .wp-block-gallery.has-nested-images {
+    display: flex;
+    margin-bottom: $grid-gutter-width;
+  }
+
   .gallery {
     margin-top: $grid-gutter-width;
 
